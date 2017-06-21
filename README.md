@@ -1,9 +1,11 @@
-## Becoming Darth Sidious: Creating a Windows Domain (Active Directory) and hacking it
+## Becoming Darth Sidious: Creating a Windows domain (Active Directory) and hacking it
 
 _Mad credz to **lkys37en** from the netsecfocus slack channel for getting me all into this stuff, and eventually making this guide possible._
 
-This is a guide to setting up a windows lab with a domain to practice penetration testing.
+This is a guide to setting up a windows lab with a domain to practice penetration testing. This will teach you the following:
 
+- Creating a basic windows domain with a few hosts and a domain controller.
+- Using a red light saber (and a blaster) to take control of your Empire.
 
 
 I strongly you read every step closely, as missing out on certain things can make everything not work as it should.
