@@ -1,8 +1,4 @@
-## Becoming Darth Sidious: Creating a Windows Domain (Active Directory) and hacking it
 
-_Mad credz to **lkys37en** from the netsecfocus slack channel for getting me all into this stuff, and eventually making this guide possible._
-
-I strongly you read every step closely, as missing out on certain things can make everything not work as it should.
 
 ### VMware or Virtualbox
 - Set up a host-only network with DHCP on the host machine.
