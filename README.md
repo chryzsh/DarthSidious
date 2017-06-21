@@ -8,6 +8,4 @@ This is a guide to setting up a windows lab with a domain to practice penetratio
 - Using a red light saber (and a blaster) to take control of your Empire.
 
 
-### I strongly you recommend reading every step closely, as missing out on certain stuff can make things not work as it should.
-
 **Obvious disclaimer is obvious:** The tools demonstrated in this guide should not be used in an environment without complete authorization from it's legal owner.
