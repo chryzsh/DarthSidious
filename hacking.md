@@ -13,23 +13,6 @@ You need a lot of tools for this. Get ready! Make a directory to put all this in
 
 Now you may need to trick a bit with installing the dependencies for all these tools. Familiarize yourself with pip. Make sure you are running tools and scripts with the correct Python version. Certain tools are written for 2.7 and some for 3.
 
-### Passing the hash
-The first goal of a Windows pentest is to get a user or a shell as a user.
-
-In a windows AD environment 9 times out of 10 all the workstations share the same local administrator password. You might be really lucky and both the workstations and servers share the same local administrator password as well. At that point it becomes a discovery mission for where the domain admins are logged in.
-
-### Responder attack
-
-Responder does not pick up on
-
-
-
-Responder captures NetNTLMv2 hashes. You can not pass the hash with these but you can relay them.
-
-Responder picks up on NetBIOS and LLMNR, because Windows boxes are VERY chatty!
-Responder works because the windows box are looking for resources and default to NetBIOS.
-
-Open explorer on the Windows machines and write `\\share\` and wait for the credential prompt. This will trigger a request over SMB to find a resource using the users credentials. That should allow Responder to capture the NetNTLMv2 hash of the user.
 
 
 ### Responder with NTLM relay attack

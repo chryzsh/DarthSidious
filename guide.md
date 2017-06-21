@@ -1,4 +1,4 @@
-
+## Creating a lab
 
 ### VMware or Virtualbox
 - Set up a host-only network with DHCP on the host machine.
