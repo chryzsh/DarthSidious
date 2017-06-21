@@ -1,19 +1,19 @@
 ## Mini guide to Windows
+This should cover the basics necessary for this guide.
 
-### Mini guide to Windows hashes
-I am no expert in this, but this should cover the basics necessary for this guide:
+### Windows hashes
 
-There are a few different types of hashes in Windows and they can be very confusing.
+There are a few different types of hashes in Windows and they can be very confusing. Some explanations can be found [here](http://www.adshotgyan.com/2012/02/lm-hash-and-nt-hash.html), but read on anyway:
 
 No windows hashes are salted, so two identical hashes will yield the same plaintext. Windows hashes are broken down into two hashes. LMhash and NTLMhash. This is an example: `testuser:29418:aad3b435b51404eeaad3b435b51404ee:58a478135a93ac3bf058a5ea0e8fdb71`
 
 Broken down:
 `username:unique_identifier:LMhash:NTLMhash`
 
-- **LM** - Disabled in W7 and above. However, LM is enabled in memory if the password is less than 15 characters. That's why all recommendations for admin accounts are 15+ chars. LM is old, based on MD4 and easy to crack. The reason is that Windows domains require speed, but that also makes for shit security.
-- **NT** -
-- **NTLM** - hash for local authentication on hosts. Windows uses the NTLM hash for authentication on the machines across the network
-- **NetNTLMv2** - hashes for authentication on the network (SMB)
+- **LM** - The LM hash is used for storing passwords. It is disabled in W7 and above. However, LM is enabled in memory if the password is less than 15 characters. That's why all recommendations for admin accounts are 15+ chars. LM is old, based on MD4 and easy to crack. The reason is that Windows domains require speed, but that also makes for shit security.
+- **NT** -  The NT hash calculates the hash based on the entire password the user entered. The LM hash splits the password into two 7-character chunks, padding as necessary.
+- **NTLM** - The NTLM hash is used for local authentication on hosts in the domain.
+- **NetNTLMv1/2** - Hash for authentication on the network (SMB). Sometimes called NTLMv2, but don't get confused; it is not the same as an NTLM hash.
 -
 
 
@@ -23,14 +23,15 @@ NTLM hash is just as good as plaintext creds when authenticating to windows mach
 
 Cracking hashes can be a lot of fun, and since most user passwords are shit they can easily be cracked in not too much time. Imagine if the organisation has a password reset policy of 90 days. If you crack a user's credentials in two hours it's a big fail for them. If you can crack a DA's creds in two hours or even a few days it's game over for them. But instead of cracking hashes, we can reuse them by relaying.
 
-### Mini guide to Windows lookups
+### Windows lookups
 
-Now, there are a few different lookup services in Windows.
-- **FQDN** - Fully qualified domain name
-- **LLMNR**
-- **NBT**-NS (NetBIOS Name Service)
-- **LLMNR** (Link-Local Multicast Name Resolution)
+There are a few different name resolution protocols in Windows:
+
+- **FQDN** - Fully Qualified Domain Name
+- **wINS** - Windows Internet Name Service
+- **NBT** - NS (NetBIOS Name Service)
+- **LLMNR** - Link-Local Multicast Name Resolution
 
 FQDN is almost another name for DNS name. `share.hacklab.net` is a FQDN.
-When a windows machine needs to perform a resource lookup such as a network share it will go in this order FQDN, WINS, NetBIOS and then LLMNR.
-Because FQDN lookup is not enabled by default it defaults to WINS and then NetBIOS. The latter is poor man's DNS. In the corporate world a DNS server is available to look up resources, in a home environment it's less likely so if you want to share content between two workstations NetBIOS is how it's done. But because users don't type in share.hacklab.net in their address fields the lookup uses NetBIOS.
+When a windows machine needs to perform a resource lookup such as a network share it will perform it [in this order ](https://support.microsoft.com/nb-no/help/172218/microsoft-tcp-ip-host-name-resolution-order): FQDN, WINS, NetBIOS and then LLMNR.
+Because FQDN lookup is not enabled by default it move on to WINS and then NetBIOS. The latter is poor man's DNS. In the corporate world a DNS server is available to look up resources, in a home environment it's less likely so if you want to share content between two workstations NetBIOS is how it's done. But because users don't type in share.hacklab.net in their address fields the lookup uses NetBIOS.

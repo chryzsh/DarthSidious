@@ -9,3 +9,4 @@
 * [Responder with NTLM relay and Empire](relay.md)
 * [DeathStar](deathstar.md)
 * [BloodHound](bloodhound.md)
+*[Future chapter]

