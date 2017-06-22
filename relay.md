@@ -5,6 +5,8 @@ byt3bl33d3r is a very prominent figure in this area. He has written some good gu
 
 NetNTLMv2 is microsoft's challenge and response protocol. When authenticating to a server the user's hash followed by the server's challenge is used. With relaying hashes you simply take the NetNTLMv2 hash you collected and relay it to a set of hosts and hopefully the user(s) have administrator access. Then you execute a payload and woop de doo you have an admin shell.
 
+In a windows AD environment 9 times out of 10 all the workstations share the same local administrator password. You might be really lucky and both hosts  and servers share the same local administrator password as well. At that point it becomes a discovery mission for where the domain admins are logged in.
+
 Before we can do that we must generate a list of hosts in the domain suspectible to our attack. That is indicated by SMB-signing being disabled, which is default in most Windows OSs, except the Server.
 
 Execute this from the CrackMapExec package:
@@ -63,11 +65,11 @@ Now I have had some trouble where agents are not always spawned or hashes are no
 
 Ok, so you have an agent now. Sometimes the interaction with agents in Empire  agent can be painstakingly slow, so have some patience when running commands. Try whoami, sysinfo and other basic commands. Sometimes, the agents timeout and you'll have to spawn new ones. Kill and/or remove old ones using `kill` and `remove`.
 
-Once you have administrator access to a box you can run mimikatz, which is bundled with Empire. If you're lucky you'll get DA creds in plaintext. If you have a local administrator hash on the hosts you can use CrackMapExec to do a mass mimikatz. Basically what it does is a pass the hash on multiple hosts, runs the mimikatz sekurlsa::loggonpasswords and returns output. Hopefully one of them is a DA and game over. Now this might be a bit confusing so lkys37en explained this the following way:
+Once you have administrator access to a box you can run mimikatz, which is bundled with Empire. If you're lucky you'll get DA credentials in plaintext, because as previously explained Windows stores those in memory. If you have a local administrator hash on the hosts you can use CrackMapExec to do a mass mimikatz. Basically what it does is a pass the hash on multiple hosts, runs the mimikatz sekurlsa::loggonpasswords and returns output. Hopefully one of them is a DA and game over. Now this might be a bit confusing so lkys37en explained this the following way:
 
->Say you're an IT administrator. You're logged into your workstation and your account has domain admin rights. I come along and pop a admin shell on another workstation. I grab the hash and do a pass the hash with the local administrator account to your box and then run mimikatz. If you're running win 7 and 8 I'll get plain text plus NTLM hash. If you're running win 8.1 and above I only get the NTLM hash.
+>Say you're an IT administrator. You're logged into your workstation and your account has domain admin rights. I come along and pop a admin shell on another workstation. I grab the hash and do a pass the hash with the local administrator account to your box and then run mimikatz. If you're running Windows 7 and 8 I'll get the NTLM hash and plaintext credentials. If you're running Windows 8.1 and above I only get the NTLM hash.
 
- What this means is that you gain the local admin hash, and pass it to the DC which proves you are admin on DA, which allows you to do mimikatz and extract DA credentials. You're hoping the IT admins used the same local administrator account on all workstations
+ What this means is that you gain the local admin hash, and pass it to the DC which proves you are admin on DA, which allows you to do mimikatz and extract DA credentials. You're hoping the IT administrators used the same local administrator account on all workstations.
 
  To check if the user is part of the Domain Admins group, run `net user "Domain Admins" /domain`
 

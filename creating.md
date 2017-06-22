@@ -10,21 +10,22 @@
 
 ### Install VMs
 
+For this lab, installing a few Windows hosts and a server is necessary. Windows ISO's can be acquired [here](http://windowsiso.net/) and be run in trial mode. Architechture, service packs and patch levels are not that important for this lab. Kali Linux can be downloaded from [their website](https://www.kali.org/downloads/).
+
 Install the following as VMs:
 
-- **W7**
-- **W8 or 8.1**
-- **W10**
-- **WServer 2012 R2**
+- **Windows 7**
+- **Windows 8 or 8.1**
+- **Windows 10**
+- **Windows Server 2012 R2**
+- **Kali Linux**
 
-Set the same password on all accounts, except the Server which will be set up as Domain Admin (DA). Set a stronger password for this one! Service packs and patch levels are not that important for this lab.
+Give each machine a minimum of 2 vCPU, 2 GB RAM and enough storage space. Remember to set the network adapter for the VMs to the host-only network you created. Remember to also add an adapter in the Kali VM settings and make sure it gets an IP from the DHCP. You should be able to ping host from Kali and vice versa.
 
-Give each machine 2 vCPU, 2 GB RAM and enough storage space. Remember to set the network adapter for the VMs to the host-only network you created. Remember to also add an adapter in the Kali VM settings and make sure it gets an IP. You should be able to ping host from Kali and vice versa.
-
-I'm assuming you already have your Kali VM set up if you intend to hack this.
+Set the same password on all accounts, as they will be the local administrator on the hosts. Set a stronger password on the Server which will be set up as Domain Admin (DA).
 
 
-### Creating a domain and some users
+### Create a domain and some users
 
 [A good tutorial on setting up a Domain Controller](https://social.technet.microsoft.com/wiki/contents/articles/22622.building-your-first-domain-controller-on-2012-r2.aspx)
 
@@ -36,7 +37,7 @@ I'm assuming you already have your Kali VM set up if you intend to hack this.
 
 
 
-### Adding hosts and users to domain
+### Add hosts and users to the domain
 These steps must be performed for all hosts: W7, W8 and W10.
 - Log in as the administrator account on all hosts
 - Set the time correctly (this is actually important)

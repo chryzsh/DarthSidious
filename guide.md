@@ -26,10 +26,15 @@ Cracking hashes can be a lot of fun, and since most user passwords are shit they
 There are a few different name resolution protocols and names in Windows:
 
 - **FQDN** - Fully Qualified Domain Name
-- **wINS** - Windows Internet Name Service
-- **NBT** - NS (NetBIOS Name Service)
+- **WINS** - Windows Internet Name Service
+- **NBT-NS** - (NetBIOS Name Service) - commonly referred to as **NetBIOS**
 - **LLMNR** - Link-Local Multicast Name Resolution
+- **WPAD** - Web Proxy Auto-Discovery Protocol
 
-FQDN is another name for DNS name and such entries reside in the hosts file. `share.hacklab.net` is a FQDN.
-When a windows machine needs to perform a resource lookup such as a network share it will perform it [in this order ](https://support.microsoft.com/nb-no/help/172218/microsoft-tcp-ip-host-name-resolution-order): FQDN, WINS, NetBIOS and then LLMNR.
-Because FQDN lookup is not enabled by default it moves on to WINS and then NetBIOS. The latter is poor man's DNS. In the corporate world a DNS server is available to look up resources, in a home environment it's less likely so if you want to share content between two workstations NetBIOS is how it's done. But because users don't type in share.hacklab.net in their address fields in the exploirer, the name resolution uses NetBIOS.
+If the name is a **FQDN**, which means a full name including domain name like `share.hacklab.net` it queries the hosts file, and then a DNS-server for name resolution.
+
+If the name is an unqualified name like `\\fileshare`, the following name resolutions are attempted to find the that fileshare:
+1. **LLMNR** - uses multicast to perform name resolution for the names of neighboring computers without requiring a DNS server.
+2. **NetBIOS** - queries a WINS-server for resolution if present. If not, it uses broadcast to resolve the name from neighboring computers.
+
+Because FQDN lookup is not common for fileshares and isn't enabled by default it checks LLMNR and then NetBIOS. In the corporate world a DNS server is available to look up resources, in a home environment it's less likely so if you want to share content between two hosts, LLMNR and NetBIOS is how it's done. However, users don't usually type in `share.hacklab.net` in the address field in  explorer, so the name resolution resorts to LLMNR and NetBIOS.
