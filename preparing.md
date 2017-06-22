@@ -1,11 +1,11 @@
 ### Sharpen your lightsaber
-You need a lot of tools for this. Get ready! Make a directory to put all this in, because it can get messy. I won't explain all the tools and how to install them, because the different tools and procedures might change.
+You need some tools for this guide. Get ready! Make a directory to put all this in, because it can get messy. I won't explain all the tools and how to install them, because the different tools and procedures might change.
 
-- [Impacket](https://github.com/CoreSecurity/impacket) - Includes ntlmrelay, which will be useful later.
+- [Impacket](https://github.com/CoreSecurity/impacket) - A python collection for networking. Includes ntlmrelay, which will be useful later.
 - [Responder](https://github.com/lgandx/Responder) - Poisons requests.
 - [Empire](https://github.com/EmpireProject/Empire) - Imagine it as a Metasploit for Windows hacking.
 - [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) - Includes tools to check for SMB signing.
-- [DeathStar](https://github.com/byt3bl33d3r/DeathStar) - Insanely cool tool for automating the "getting DA" process. Still in development, so may not always be stable.
+- [DeathStar](https://github.com/byt3bl33d3r/DeathStar) - An insane tool for automating the process of becoming Domain Admin.
 - [BloodHound](https://github.com/BloodHoundAD/BloodHound) - Creating a map of AD. Check /releases on the GitHub page for precompiled binaries!
 - [PowerSploit](https://github.com/PowerShellMafia/PowerSploit) - Powershell tools for post exploitation, some are included in Empire already.
 - [Mimikatz](https://github.com/gentilkiwi/mimikatz) - Dumping credentials.
