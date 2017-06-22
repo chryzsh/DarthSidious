@@ -1,4 +1,4 @@
-## Becoming Darth Sidious: Creating a Windows domain (Active Directory) and hacking it
+## Becoming Darth Sidious: Creating a Windows domain and hacking it
 
 _Mad credz to **lkys37en** from the netsecfocus slack channel for getting me all into this stuff, and eventually making this guide possible._
 
