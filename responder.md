@@ -1,5 +1,7 @@
 ### Responder attack
 
+https://www.sternsecurity.com/blog/local-network-attacks-llmnr-and-nbt-ns-poisoning
+
 Responder does not pick up on FQDN, but it does pick up on NetBIOS and LLMNR, because Windows boxes are VERY chatty! Responder works because the windows box are looking for resources and default to NetBIOS like described in the Windows guide part of this tutorial.
 
 Responder captures NetNTLMv2 hashes. You can not pass the hash with these but you can crack and relay them. This part will only explain how to run Responder and capture hashes.

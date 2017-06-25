@@ -1,5 +1,7 @@
 ## Creating a lab
 
+https://adsecurity.org/?p=2653
+
 **I strongly you recommend reading every step closely, as missing out on certain stuff can make things not work as it should.**
 
 ### VMware or Virtualbox
