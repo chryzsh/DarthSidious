@@ -3,7 +3,11 @@
 This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. This guide/tutorial will teach you the following:
 
 - Creating a basic windows domain with a few hosts and a domain controller.
+- Credential Replay Attacks
+- Domain Privilege Escalation
+- Dumping System and Domain Secrets
 - Using a light saber (and a blaster) to take control of your Empire.
+
 
 <br><br>
 **Obvious disclaimer is obvious**
