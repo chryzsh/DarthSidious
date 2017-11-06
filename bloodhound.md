@@ -4,7 +4,7 @@ One of the glorious design features of AD is that everyone in the domain needs t
 
 Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. Do the following:
 
-* [Install neo4j](https://neo4j.com/developer/kb/how-do-i-enable-remote-https-access-with-neo4j-30x/) from apt
+* [Install neo4j](https://neo4j.com/developer/kb/how-do-i-enable-remote-https-access-with-neo4j-30x/) manually, not through apt
 * Run neo4j from `/opt/neo4j-community-3.1.1/bin/neo4j start`
 * Navigate to localhost:7474 in your browser.
 * Set a new password for the neo4j account.
