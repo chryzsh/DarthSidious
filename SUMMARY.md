@@ -11,4 +11,6 @@
 * [BloodHound](bloodhound.md)
 * [Exploiting MSSQL](exploiting-mssql.md)
 * [Using ranger](using-ranger.md)
+* MS14-068
+* [Compromising AD](compromising-ad.md)
 
