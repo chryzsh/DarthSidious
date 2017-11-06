@@ -8,7 +8,7 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 - Dumping System and Domain Secrets
 - Using a light saber (and a blaster) to take control of your Empire.
 
-
+![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
 <br><br>
 **Obvious disclaimer is obvious**
 
