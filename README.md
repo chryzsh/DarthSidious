@@ -14,13 +14,11 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 
 The tools demonstrated in this guide should not be used in an environment without complete authorization from it's legal owner.
 
-**Credits**
-
-_Credz to **lkys37en** from the netsecfocus slack channel for getting me into this stuff, and eventually making this guide possible.
 
 **Future plans**
 
-- Introduction to Active Directory and Kerberos
+- Introduction to Active Directory
+- Kerberos and authentication in AD
 - Introduction to PowerShell
 - Exploiting MSSQL Servers
 - Client Side Attacks
