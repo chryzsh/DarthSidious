@@ -15,4 +15,5 @@
 * [Compromising AD](compromising-ad.md)
 * [Defense](defense.md)
 * [Mimikatz](mimikatz.md)
+* [Rotten Potato](rotten-potato.md)
 
