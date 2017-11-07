@@ -13,4 +13,5 @@
 * [Using ranger](using-ranger.md)
 * [MS14-068](ms14-068.md)
 * [Compromising AD](compromising-ad.md)
+* [Rotten Potato](rotten-potato.md)
 
