@@ -7,12 +7,13 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 - Domain Privilege Escalation
 - Dumping System and Domain Secrets
 - Using a light saber (and a blaster) to take control of your Empire.
+- A ton of cool attacks on Microsoft infrastructure
 
 ![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
 <br><br>
 **Obvious disclaimer is obvious**
 
-The tools demonstrated in this guide should not be used in an environment without complete authorization from it's legal owner.
+The tools demonstrated in this guide should not be used in an environment without complete authorization from it's legal owner. I.e. don't be stupid.
 
 
 **Future plans**
@@ -25,6 +26,7 @@ The tools demonstrated in this guide should not be used in an environment withou
 - Domain Enumeration and Information Gathering
 - Local Privilege Escalation
 
+
 **More advanced stuff for the future**
 - Kerberos Attacks and Defense (Golden, Silver tickets and more)
 - Abusing Cross Domain Trusts
@@ -35,3 +37,4 @@ The tools demonstrated in this guide should not be used in an environment withou
 - Other trusts in AD
 - Detecting attack techniques
 - Defending an Active Directory Environment
+- [Attacking domain trusts](http://www.harmj0y.net/blog/redteaming/a-guide-to-attacking-domain-trusts/)
