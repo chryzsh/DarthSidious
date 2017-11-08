@@ -6,7 +6,7 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 - Credential Replay Attacks
 - Domain Privilege Escalation
 - Dumping System and Domain Secrets
-- Using a light saber (and a blaster) to take control of your Empire.
+- Empire
 - A ton of cool attacks on Microsoft infrastructure
 
 ![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
