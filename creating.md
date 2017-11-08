@@ -12,7 +12,7 @@
 
 ### Install VMs
 
-For this lab, installing a few Windows hosts and a server is necessary. Windows ISO's can be acquired [here](http://windowsiso.net/) and be run in trial mode. Architechture, service packs and patch levels are not that important for this lab. Kali Linux can be downloaded from [their website](https://www.kali.org/downloads/).
+For this lab, installing a few Windows hosts and a server is necessary. Windows ISO's can be acquired [here](http://windowsiso.net/) and be run in trial mode. Architechture, service packs and patch levels are not important for this lab, unless you want to create specifically vulnerable machines. This will be added in the future. Kali Linux can be downloaded from [their website](https://www.kali.org/downloads/).
 
 Install the following as VMs:
 
@@ -50,7 +50,7 @@ These steps must be performed for all hosts: W7, W8 and W10.
 * Add the "Domain Users" group to the administrators group using `net localgroup administrators /add "DOMAIN\Domain Users"`
 * To confirm the group was added, run `net localgroup Administrators` and you should see "Domain Users" added to that group
 * Log in to each of the domain users you created earlier on the workstations, except one box of your choosing, where you log in as DA
-* Ping al the machines back and forth to make sure everything is working. Ping Kali and the host as well.
+* Ping all the machines back and forth to make sure everything is working. Ping Kali and the host as well.
 
 
 
