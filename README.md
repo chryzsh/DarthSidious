@@ -1,6 +1,9 @@
 ## Becoming Darth Sidious: Creating a Windows domain and hacking it
 
-This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. This guide/tutorial will teach you the following:
+![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
+
+This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. I recommend starting with setting up a lab and reading the mini introduction.
+**This guide/tutorial will teach you the following:**
 
 - Creating a basic windows domain with a few hosts and a domain controller.
 - Credential Replay Attacks
@@ -9,8 +12,7 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 - Empire
 - A ton of cool attacks on Microsoft infrastructure
 
-![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
-<br><br>
+
 **Obvious disclaimer is obvious**
 
 The tools demonstrated in this guide should not be used in an environment without complete authorization from it's legal owner. I.e. don't be stupid.
