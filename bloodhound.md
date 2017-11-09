@@ -16,7 +16,9 @@ Now we can use this brilliant feature to collect a ton of information and create
   ```
 * Restart neo4j with  `/opt/neo4j-community-3.1.1/bin/neo4j restart`
 * Access neo4j in the browser at `http://0.0.0.0:7474/browser/`
-* Launch BloodHound and log in to the neo4j database
+* Install BloodHound according to instructions on the [Github page](https://github.com/BloodHoundAD/BloodHound/wiki/Getting-started)
+
+* Launch BloodHound and log in to the neo4j database with credentials from before
 
 The old method:
 
