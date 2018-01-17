@@ -6,7 +6,7 @@ This is an experience from a real internal domain pentest. Customer name has obv
 
 Did a fast scan with Nessus, could have done other things to find a domain controller like nmap or other windows commands.
 
-Tried to check it the DC supported null sessions using the following command: 
+Tried to check it the DC supported null sessions using the following command:
 
 ```
 something something
@@ -32,13 +32,10 @@ No complexity requirements = shit passwords. This test was performed during chri
 * winter2017
 * christmas2017
 * Christmas2017
-* Now we need a place to try the passwords. Trying to authenticate with a lot of failures on SMB may be detected and this stuff is way easier to set up in Burp anyway. We load up a list of usernames and passwords with Burp Intruder and point it to the external OWA e-mail server that really wasn't that hard to guess.
 
- `www.mail.customer.com`
+Now we need a place to try the passwords. Trying to authenticate with a lot of failures on SMB may be detected and this stuff is way easier to set up in Burp anyway. We load up a list of usernames and passwords with Burp Intruder and point it to the external OWA e-mail server that really wasn't that hard to guess.
 
+`www.mail.customer.com`
 
-
-
-
-
+Now we just run it for all 500 users with those four passwor
 
