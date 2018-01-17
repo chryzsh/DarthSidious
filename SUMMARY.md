@@ -16,4 +16,5 @@
 * [Defense](defense.md)
 * [Mimikatz](mimikatz.md)
 * [Rotten Potato](rotten-potato.md)
+* [Domain admin in 30 minutes](domain-admin-in-30-minutes.md)
 
