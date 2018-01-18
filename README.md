@@ -2,7 +2,7 @@
 
 ![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
 
-This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. It is a collaborative effort between Chris from Norway, Yoni from Israel and Joaquim from the United States.
+This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. It is a collaborative effort between three pentesters: chryzsh, bufferov3rride and lkys37en.
 
 We recommend starting with setting up a lab and reading the mini introduction.  
 **This guide/tutorial will teach you the following:**
