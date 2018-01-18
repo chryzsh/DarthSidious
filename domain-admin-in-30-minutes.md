@@ -55,7 +55,11 @@ Takes about 5 seconds to filter for 200 OK in Burp and see where the pw is accep
 
 ### Make a map of the domain with regular user privs
 
-Now remember this user is not an admin but the way Active Directory works allows us to map out the whole domain.
+Now remember this user is not an admin but the way Active Directory works allows us to map out the whole domain.The syntax is:
+
+`runas /netonly /FQDN\user cmd.exe`
+
+So we ran the following command:
 
 `runas /netonly /user:kunde.no \ank powershell`
 
