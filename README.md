@@ -31,6 +31,8 @@ The tools demonstrated in this guide should not be used in an environment withou
 * Not being a loud pentester
 * Exchange enumeration and attacks
 * Sharepoint enumeration and attack
+* Mitigations against common attacks
+* General recommendations for securing AD
 
 **More advanced stuff for the future**
 
