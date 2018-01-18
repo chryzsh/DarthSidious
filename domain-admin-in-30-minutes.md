@@ -2,7 +2,7 @@
 
 This is an experience from a real internal domain pentest. Customer name has obviously been removed.
 
-Goal here is going from network access only to domain admin \(DA\). This process takes about 30 min. 
+Goal here is going from network access only to domain admin \(DA\). This process takes about 30 min.
 
 **A few key points:**
 
@@ -11,6 +11,8 @@ Goal here is going from network access only to domain admin \(DA\). This process
 * Policy did not allow domain admins to remote into workstations.
 * There was lockout on both admin and domain admin users after five tries.
 * Important to not lock anybody out!
+* Use HTTPS meterpreter shells to avoid getting busted
+* Don't drop exe files on boxes, and if do clean up afterwards
 
 ### Null session on domain controller \(DC\)
 
