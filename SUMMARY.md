@@ -17,5 +17,7 @@
 * [Rotten Potato](rotten-potato.md)
 * [Domain admin in 30 minutes](domain-admin-in-30-minutes.md)
 * [Compromising AD](compromising-ad.md)
-* [RDP Session Hijacking] (rdp-session-hijacking.md)
+* [RDP Session Hijacking](rdp-session-hijacking.md)
+
+
 
