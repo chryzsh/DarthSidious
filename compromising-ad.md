@@ -1,4 +1,4 @@
-## Paths to AD compromise
+## Most common paths to AD compromise
 
 1. MS14-068
 2. Unconstrained Delegation \(incl. pass-the-ticket\)
