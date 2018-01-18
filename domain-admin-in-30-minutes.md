@@ -2,7 +2,7 @@
 
 This is an experience from a real internal domain pentest. Customer name has obviously been removed.
 
-Goal here is going from network access only to domain admin \(DA\). This process takes about 30 min.
+Goal here is going from network access only to domain admin \(DA\). This process takes about 30 min and was performed on a real pentest.
 
 **A few key points:**
 

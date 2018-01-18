@@ -11,10 +11,10 @@
 * [BloodHound](bloodhound.md)
 * [Exploiting MSSQL](exploiting-mssql.md)
 * [Using ranger](using-ranger.md)
-* [MS14-068](ms14-068.md)
 * [Compromising AD](compromising-ad.md)
 * [Defense](defense.md)
 * [Mimikatz](mimikatz.md)
 * [Rotten Potato](rotten-potato.md)
 * [Domain admin in 30 minutes](domain-admin-in-30-minutes.md)
+* [Compromising AD](compromising-ad.md)
 
