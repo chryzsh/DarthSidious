@@ -14,6 +14,7 @@ We recommend starting with setting up a lab and reading the mini introduction.
 * Tools like Empire, Bloodhound and ranger
 * Cool attacks on Microsoft infrastructure
 * Actual pentest experiences
+* RDP Session Hijacking
 
 **Obvious disclaimer is obvious**
 
