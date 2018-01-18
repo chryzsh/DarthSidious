@@ -2,7 +2,9 @@
 
 ![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
 
-This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. I recommend starting with setting up a lab and reading the mini introduction.  
+This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. It is a collaborative effort between Chris from Norway, Yoni from Israel and Joaquim from the United States.
+
+We recommend starting with setting up a lab and reading the mini introduction.  
 **This guide/tutorial will teach you the following:**
 
 * Creating a basic windows domain with a few hosts and a domain controller.
@@ -40,6 +42,7 @@ The tools demonstrated in this guide should not be used in an environment withou
 * Detecting attack techniques
 * Defending an Active Directory Environment
 * [Attacking domain trusts](http://www.harmj0y.net/blog/redteaming/a-guide-to-attacking-domain-trusts/)
+* LDAP integration with non-Microsoft products
 
 
 
