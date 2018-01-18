@@ -9,8 +9,9 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 * Credential Replay Attacks
 * Domain Privilege Escalation
 * Dumping System and Domain Secrets
-* Empire
-* A ton of cool attacks on Microsoft infrastructure
+* Tools like Empire, Bloodhound and ranger
+* Cool attacks on Microsoft infrastructure
+* Actual pentest experiences
 
 **Obvious disclaimer is obvious**
 
@@ -25,6 +26,7 @@ The tools demonstrated in this guide should not be used in an environment withou
 * Client Side Attacks
 * Domain Enumeration and Information Gathering
 * Local Privilege Escalation
+* Not being a loud pentester
 
 **More advanced stuff for the future**
 
