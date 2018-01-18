@@ -2,7 +2,15 @@
 
 This is an experience from a real internal domain pentest. Customer name has obviously been removed.
 
-Goal here is going from network access only to domain admin. This process takes about 30 min. This particular customer had removed regular users as local admins from workstations, so using responding and relaying didn't give us much here. This is after all a pretty old attack vector, although it has a good success rate.
+Goal here is going from network access only to domain admin \(DA\). This process takes about 30 min. 
+
+**A few key points:**
+
+* This particular customer had removed regular users as local admins from workstations, so using responding and relaying didn't give us much here. This is after all a pretty old attack vector, although it has a very good success rate when regular users are local admins on their workstations.
+* Certain amout of luck involved, but with such a huge domain and so many admins there will always be a way to DA
+* Policy did not allow domain admins to remote into workstations.
+* There was lockout on both admin and domain admin users after five tries.
+* Important to not lock anybody out!
 
 ### Null session on domain controller \(DC\)
 
@@ -98,6 +106,4 @@ getprivs
 We are now SYSTEM on this box and can run mimikatz do dump the plaintext creds of whatever domain admin is logged on the box. Alternatively, we can use rotten potato to impersonate a domain admin. Just replace the username of the impersonate\_token command from above with the username you want to impersonate. Wild!
 
 Congrats you are now domain admin!
-
-
 
