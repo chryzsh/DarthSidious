@@ -29,6 +29,8 @@ The tools demonstrated in this guide should not be used in an environment withou
 * Domain Enumeration and Information Gathering
 * Local Privilege Escalation
 * Not being a loud pentester
+* Exchange enumeration and attacks
+* Sharepoint enumeration and attack
 
 **More advanced stuff for the future**
 
