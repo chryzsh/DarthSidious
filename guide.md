@@ -29,7 +29,7 @@ Kerberos is an authentication protocol in Windows based on \_tickets \_to allow 
 There have been discovered multiple exploits for Kerberos over the years:
 
 * [MS14-068](https://www.exploit-db.com/exploits/35474/)
-* 
+
 ### Windows name resolution
 
 There are a few different name resolution protocols and names in Windows:
