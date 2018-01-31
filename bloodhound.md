@@ -5,7 +5,7 @@ One of the glorious design features of AD is that everyone in the domain needs t
 Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. Do the following:
 
 * [Install neo4j](https://neo4j.com/developer/kb/how-do-i-enable-remote-https-access-with-neo4j-30x/) [Community Edition](https://neo4j.com/download/community-edition/) manually from their [website](https://neo4j.com/download/?ref=hro) , not through apt.
-* http://neo4j.com/download/other-releases/\#releases
+* [http://neo4j.com/download/other-releases/\#releases](http://neo4j.com/download/other-releases/#releases)
 * [A guide on installing can be found here](https://stealingthe.network/quick-guide-to-installing-bloodhound-in-kali-rolling/)
 * Run neo4j from `/opt/neo4j-community-3.3.0/bin/neo4j start`
 * Navigate to localhost:7474 in your browser.
@@ -38,4 +38,16 @@ scrimptcmd Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
 ```
 
 You should now see data being populated into the database and you can play with BloodHound to create really some really cool maps. You can also perform queries to show the shortest path to DA, etc.
+
+
+
+Another method:
+
+```
+Powershell -exec bypass
+Import-module SharpHound.ps1
+Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –SkipPing
+```
+
+
 
