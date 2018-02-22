@@ -61,7 +61,7 @@ Now remember this user is not an admin but the way Active Directory works allows
 
 So we ran the following command:
 
-`runas /netonly /user:kunde.no \ank powershell`
+`runas /netonly /user:customer\ank powershell`
 
 Type in password `winter2017`when prompted. This query gets executed at the domain controller, and if successfull we can basically execute queries that are forwarded and executed on the DC. This is not remote code execution or any sort of vuln, just inherent functionality. We now want to make a map with Bloodhound, so if you haven't get that set up using the guide from this book. Then go ahead and load up SharpHound.ps1 and execute it. Depending on the size of the domain and activity, this should take some time. On busy daytime in a corporate office with a few thousand workstations and servers this took 30 minutes to complete.
 

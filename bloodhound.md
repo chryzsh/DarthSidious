@@ -39,8 +39,6 @@ scrimptcmd Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
 
 You should now see data being populated into the database and you can play with BloodHound to create really some really cool maps. You can also perform queries to show the shortest path to DA, etc.
 
-
-
 Another method:
 
 ```
