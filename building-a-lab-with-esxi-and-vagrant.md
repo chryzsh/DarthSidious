@@ -67,3 +67,15 @@ Boot the lab machine from USB and install ESXi on the small drive as per instruc
 
 After installation, reboot the server. ESXi should now provide a DHCP-leased IP-address you can access from a web panel.
 
+### Enabling ESXi shell and SSH
+
+We want to enable SSH, so on the ESXi server itself, press F2
+
+1 At the direct console of the ESXi host, press F2 and provide credentials when prompted.
+
+2 Scroll to Troubleshooting Options and press Enter.
+
+3 Choose Enable ESXi shell and Enable SSH and press Enter once on each of them
+
+4 Press Esc until you return to the main direct console screen.
+
