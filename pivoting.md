@@ -36,7 +36,7 @@ If file shares are available on a box you can use dir on the path without ever g
 
 `dir \\BOX01\c$\`
 
-If you however don't have a shell but the credentials of a domain user you can use the somewhat old school [runas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490994%28v=technet.10%29). This _will _prompt you for password, but can be ran without a shell from your own machine.
+If you however don't have a shell but the credentials of a domain user you can use the somewhat old school [runas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490994%28v=technet.10%29). This \_will \_prompt you for password, but can be ran without a shell from your own machine.
 
 /netonly : Indicates that the user information specified is for remote access only.
 
@@ -58,7 +58,7 @@ Powershell supports WinRM natively, which allows remote execution of commands. H
 
 ### Powerview
 
-Powerview is a super useful set of tools for enumerating a domain. The script and full command list can be found here:
+Powerview is a super useful set of tools for enumerating a domain. It is part of the much larger toolset of Powersploit, and development is huge on this, so things change all the time.The script and full command list for Powerview can be found here:
 
 [https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
 
