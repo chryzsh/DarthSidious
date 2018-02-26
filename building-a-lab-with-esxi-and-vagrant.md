@@ -8,22 +8,15 @@ VPN access will be set up to connect straight into the network, but no domain us
 
 Domain name etc
 
-
 ## Prepping
 
 ### Hardware requirements
 
-ESXi 6.5 compatible hardware \(can use 6.0 if incompatible\)
-
-Enough RAM
-
-A separate drive for installing ESXi \(rquires only 8 GB\) and one for the actual VMs.
-
-A USB drive to install ESXi
-
-A separate computer to do management from, in ESXi 6.5 
-
-### 
+* ESXi 6.5 compatible hardware \(can use 6.0 if incompatible\)
+* Enough RAM
+* A separate drive for installing ESXi \(rquires only 8 GB\) and one for the actual VMs \(500 GB+\).
+* A USB drive to install ESXi with
+* A separate computer to do management from, in ESXi 6.5
 
 ### Installing Vagrant
 
@@ -64,17 +57,13 @@ Using the following syntax download the required operating systems using Vagrant
 
 [Vagrant box StefanScherer/windows\_10 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
 
-### Prepping ESXI USB drive
+## Installing ESXI
 
 Download ESXI 6.5 image [https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6](https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6)
 
 Use [Rufus ](http://rufus.akeo.ie/)to make a bootable USB key from the ESXI image.
 
-Boot the lab machine from USB and install ESXi as per instruction.
+Boot the lab machine from USB and install ESXi on the small drive as per instruction.
 
-### 
-
-## Installing ESXI
-
-Boot from the ESXI USB, install it to the small drive.
+After installation, reboot the server. ESXi should now provide a DHCP-leased IP-address you can access from a web panel.
 
