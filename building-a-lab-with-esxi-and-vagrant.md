@@ -2,15 +2,12 @@
 
 ## Lab plan
 
-| Hostname | Role | OS |
-| :--- | :--- | :--- |
-| DC01 | Domain controller | Server 2012 R2 |
-| FS01 | File server | Server 2008 R2 |
-| HA01 | Hardened server | Server 2016 Tech Eval |
-| WS01 | Windows 10 workstation | W10 Enterprise |
-| WS02 | Windows 7 workstation | W7 Enterprise |
-
 VPN access will be set up to connect straight into the network, but no domain user provided.
+
+## Domain plan
+
+Domain name etc
+
 
 ## Prepping
 
@@ -24,7 +21,7 @@ A separate drive for installing ESXi \(rquires only 8 GB\) and one for the actua
 
 A USB drive to install ESXi
 
-A separate computer to do management from
+A separate computer to do management from, in ESXi 6.5 
 
 ### 
 
@@ -49,7 +46,7 @@ vagrant version
 
 #### Download operating systems in Vagrant
 
-Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have a configuration, those are usually indicated by `nocm`.
+Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have any configuration management built in; those are usually indicated by `nocm`.
 
     vagrant box add opentable/win-2008r2-enterprise-amd64-nocm
     vagrant box add opentable/win-2012r2-standard-amd64-nocm
