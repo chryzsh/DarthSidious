@@ -36,13 +36,13 @@ If file shares are available on a box you can use dir on the path without ever g
 
 `dir \\BOX01\c$\`
 
-If you want old school, use [runas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490994%28v=technet.10%29). /netonly : Indicates that the user information specified is for remote access only.
+If you however don't have a shell but the credentials of a domain user you can use the somewhat old school [runas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490994%28v=technet.10%29). This _will _prompt you for password, but can be ran without a shell from your own machine.
 
-
+/netonly : Indicates that the user information specified is for remote access only.
 
 `runas /netonly /FQDN\user cmd.exe`
 
-Run the following command to execute powershell on a remote box
+Run the following command to execute powershell and get on a remote box
 
 `runas /netonly /user:customer\ank powershell`
 
@@ -107,17 +107,11 @@ Invokes token impersonation on a domain user. If this doesn't work you can try i
 
 `Get-Process wininit | Invoke-TokenManipulation -CreateProcess "cmd.exe"`
 
-
-
-
-
 ### Invoke-Kerberoast
 
-kerberoasting is a technique 
+kerberoasting is a technique
 
-https://powersploit.readthedocs.io/en/latest/Recon/Invoke-Kerberoast/
+[https://powersploit.readthedocs.io/en/latest/Recon/Invoke-Kerberoast/](https://powersploit.readthedocs.io/en/latest/Recon/Invoke-Kerberoast/)
 
-https://room362.com/post/2016/kerberoast-pt1/
-
-
+[https://room362.com/post/2016/kerberoast-pt1/](https://room362.com/post/2016/kerberoast-pt1/)
 
