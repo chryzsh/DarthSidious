@@ -20,4 +20,5 @@
 * [RDP Session Hijacking](rdp-session-hijacking.md)
 * [Pivoting](pivoting.md)
 * [Bypassing Applocker](bypassing-applocker.md)
+* [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 
