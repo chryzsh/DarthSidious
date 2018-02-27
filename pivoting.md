@@ -56,6 +56,10 @@ Powershell supports WinRM natively, which allows remote execution of commands. H
 
 `Invoke-Command -ComputerName BOX01 -Scriptblock {hostname}`
 
+If you want to go even harder, you can set up credentials in Powershell. This is something that Empire can do natively with functions like ps\_remoting.
+
+`$username = 'DOMAIN\USERNAME'; $password = 'PASSWORD'; $securePassword = ConvertTo-SecureString $password -AsPlainText -Force; $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword; Invoke-Command -ComputerName BOX01 -Credential $credential  -ScriptBlock {hostname};`
+
 ### Powerview
 
 Powerview is a super useful set of tools for enumerating a domain. It is part of the much larger toolset of Powersploit, and development is huge on this, so things change all the time.The script and full command list for Powerview can be found here:
