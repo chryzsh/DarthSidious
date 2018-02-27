@@ -86,11 +86,13 @@ We want to enable SSH, so on the ESXi server itself, press F2
 
 4. Press Esc until you return to the main direct console screen.
 
+### Adding a datastore to ESXi
 
+Add the big drive, where the virtual machines will be stored as a datastore in ESXi. In the ESXi web client press `Storage`in the left side pane. Just follow the instructions after selecting `New datastore`from the menu, add a drive, give it a name like `VMs` and use the whole drive as one partition.
 
-###  Adding a datastore to ESXi
+### Adding a network configuration to ESXi
 
-Add the big drive, where the virtual machines will be stored as a datastore in ESXi. In the ESXi web client press `Storage `in the left side pane. Just follow the instructions after selecting `New datastire `from the menu, add a drive, give it a name like Kingston SSD 512 GB and use the whole drive as one partition.
+Select Networking on the left side pane, click port group, ADD port group. Give it a name, give it VLAN 0, assign it to vSwitch0 which is the default virtual switch.
 
 
 
