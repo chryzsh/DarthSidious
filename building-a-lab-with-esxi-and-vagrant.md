@@ -6,6 +6,8 @@ ESXi 6.5 installed on a physical box, with multiple VMs on an isolated virtual n
 
 A virtual firewall - Sophos?
 
+Internal virtual network
+
 ## Domain design
 
 Active directory with OU, GPOs, hardening blabla
@@ -89,7 +91,7 @@ After installation, reboot the server. ESXi should now provide a DHCP-leased IP-
 
 #### Troubleshooting
 
-Troubleshooting write speeds with SSD: https://communities.vmware.com/thread/554004
+Troubleshooting write speeds with SSD: [https://communities.vmware.com/thread/554004](https://communities.vmware.com/thread/554004)
 
 ESXi 6.5 includes a new native driver \(vmw\_ahci\) for SATA AHCI controllers, but that introduces performance problems with a lot of controllers and/or disks.
 
@@ -127,8 +129,62 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 ### Adding a network configuration to ESXi
 
 1. Select Networking on the left side pane
-2. Click port group, ADD port group. 
-3. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
+2. Click Add standard switch, name it vSwitch1
+3. Don't assign 
+4. Click port group, ADD port group. 
+5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
+6. 
+## Deploying VMs with Vagrant
+
+### Initialize repo
+
+Initialize a repo. This, amongst other files creates the very important Vagrantfile which holds the deployment configuration.
 
 
+`vagrant init`
 
+### Vagrantfile configuration
+
+The documentation fro the vmware esxi plugin has examples and configurations. https://github.com/josenk/vagrant-vmware-esxi/wiki/Vagrantfile-examle:-Single-Machine,-fully-documented.
+Set the name of the box and pointer to the box you downloaded in previous steps. The winrm parameters specify that WinRM (powershell remote controlling boxes) should be used for deployment. In relation to this, many powershell scripts can be added for tasks like adding a box to a domain, setting certain system parameters, in general preparing the OS so this does not become a manual job.
+
+The esxi parameters are at the bottom. Hostname must point to the management network virtual switch interface and the password must of course be set.
+
+```
+Vagrant.configure("2") do |config|
+config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.define "DC01" do |config|
+  config.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
+  config.vm.hostname="DC01"
+  config.vm.guest = :windows
+  config.vm.communicator = "winrm"
+  config.vm.synced_folder "C:\\Users\\chris\\Google Drive\\Hacking\\beelabs\\AD_Files", "C:\\windows\\temp", type: "winrm"
+  config.vm.boot_timeout = 100
+  config.vm.graceful_halt_timeout = 100
+  config.winrm.timeout = 120
+  config.winrm.username = "vagrant"
+  config.winrm.password = "vagrant"
+  config.winrm.transport = :plaintext
+  config.winrm.basic_auth_only = true
+  config.vm.provision "shell", inline: "Rename-Computer -NewName DC01"
+  config.vm.provision :reload
+  config.vm.provider :vmware_esxi do |esxi|
+    esxi.esxi_hostname = "10.0.0.11"
+    esxi.esxi_username = "root"
+    esxi.esxi_password = "PASSWORD"
+    esxi_virtual_network = "Lab Network"
+    esxi.esxi_disk_store = "VMs"
+    esxi.guest_memsize = "2048"
+    esxi.guest_numvcpus = "2"
+  end
+  end
+end
+```
+
+After the configuration file has been verified run
+`vagrant status`
+and fix eventual errors
+then do deploy the machine run
+`vagrant up`
+This takes the Vagrantfile, applies it, and uses OVFtool to deploy it to the ESXi host using the aforementioned plugin.
