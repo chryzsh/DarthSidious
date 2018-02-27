@@ -1,12 +1,12 @@
 # Building a lab with VMware ESXi and Vagrant
 
-## Lab plan
+## Lab design
 
 ESXi 6.5 installed on a physical box, with multiple VMs on an isolated virtual network. VPN access will be set up to connect straight into the network, but no domain user provided.
 
 A virtual firewall - Sophos?
 
-## Domain plan
+## Domain design
 
 Active directory with OU, GPOs, hardening blabla
 
@@ -25,6 +25,20 @@ Active directory with OU, GPOs, hardening blabla
 
 * ESXi 6.5
 * Web browser to do management from
+* Vagrant
+* Vagrant VMware ESXi plugin
+* VMware ovftool
+* Windows Server 2008 R2
+* Windows Server 2012 R2
+* Windows Server 2016 Tech Evaluation
+* Windows 7 Enterprise Edition
+* Windows 10 Enterprise Edition
+
+#### Future additions
+
+* Sharepoint
+* Office 2013 or 2016
+* Outlook server
 
 ### Installing Vagrant
 
@@ -94,7 +108,7 @@ The Vagrant ESXi plugin requires SSH to be anabled.
 
 ### Adding a datastore to ESXi
 
-Add the big drive, where the virtual machines will be stored as a datastore in ESXi. 
+Add the big drive, where the virtual machines will be stored as a datastore in ESXi.
 
 1. In the ESXi web client press `Storage`in the left side pane.
 2. Just follow the instructions after selecting `New datastore`from the menu, 
@@ -105,8 +119,6 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 1. Select Networking on the left side pane
 2. Click port group, ADD port group. 
 3. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
-
-
 
 
 
