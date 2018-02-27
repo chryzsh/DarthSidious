@@ -87,6 +87,16 @@ Boot the lab machine from USB and install ESXi on the small drive as per instruc
 
 After installation, reboot the server. ESXi should now provide a DHCP-leased IP-address you can access from a web panel.
 
+#### Troubleshooting
+
+Troubleshooting write speeds with SSD: https://communities.vmware.com/thread/554004
+
+ESXi 6.5 includes a new native driver \(vmw\_ahci\) for SATA AHCI controllers, but that introduces performance problems with a lot of controllers and/or disks.
+
+Try to disable the native driver and revert to the older sata-ahci driver by running
+
+`esxcli system moduleset--enabled=false--module=vmw_ahci`
+
 ### Enabling ESXi shell and SSH
 
 The Vagrant ESXi plugin requires SSH to be anabled.
