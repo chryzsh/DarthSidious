@@ -92,9 +92,5 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 
 ### Adding a network configuration to ESXi
 
-Select Networking on the left side pane, click port group, ADD port group. Give it a name, give it VLAN 0, assign it to vSwitch0 which is the default virtual switch.
-
-
-
-
+Select Networking on the left side pane, click port group, ADD port group. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0 `which is the default virtual switch.
 
