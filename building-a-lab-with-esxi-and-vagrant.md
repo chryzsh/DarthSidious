@@ -71,11 +71,28 @@ After installation, reboot the server. ESXi should now provide a DHCP-leased IP-
 
 We want to enable SSH, so on the ESXi server itself, press F2
 
-1 At the direct console of the ESXi host, press F2 and provide credentials when prompted.
+1. At the direct console of the ESXi host, press F2 and provide credentials when prompted.
+2. Scroll to Troubleshooting Options and press Enter.
+3. Choose Enable ESXi shell and Enable SSH and press Enter once on each of them
+4. Press Esc until you return to the main direct console screen.
 
-2 Scroll to Troubleshooting Options and press Enter.
+### Set static IP for the ESXi host
 
-3 Choose Enable ESXi shell and Enable SSH and press Enter once on each of them
+1. Press F2 on the ESXi console, provide credentials
 
-4 Press Esc until you return to the main direct console screen.
+2. Configure management network -&gt; IPV4 Configuration
+
+3. Press space on `Set static ipv4 address`
+
+4. Press Esc until you return to the main direct console screen.
+
+
+
+###  Adding a datastore to ESXi
+
+Add the big drive, where the virtual machines will be stored as a datastore in ESXi. In the ESXi web client press `Storage `in the left side pane. Just follow the instructions after selecting `New datastire `from the menu, add a drive, give it a name like Kingston SSD 512 GB and use the whole drive as one partition.
+
+
+
+
 
