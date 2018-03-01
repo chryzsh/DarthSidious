@@ -172,7 +172,7 @@ The Administrator password, the autologin password and time zone must be changed
 Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen welcome bullshit. The script itself preps the system and enables WinRM.
 
 
-` C:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\vagrant\desktop\sysprep.xml `
+` C:\Windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\Administrator\Desktop\sysprep.xml `
 
 
 
