@@ -15,17 +15,12 @@ Active directory with OU, GPOs, hardening blabla
 ## Server plan
 
 | Hostname | Role | OS |
-| :--- | :--- | | |
-| DC01 | Domain controller | Server 2012 R2 |  
-| FS01 | File server | Server 2008 R2 |  
-| WEB01 | Web server | Server 2016 Tech Eval |  
-| WS01 | Workstation | W10 Enterprise |  
+| :--- | :--- | :--- |
+| DC01 | Domain controller | Server 2012 R2 |
+| FS01 | File server | Server 2008 R2 |
+| WEB01 | Web server | Server 2016 Tech Eval |
+| WS01 | Workstation | W10 Enterprise |
 | WS02 | Rorkstation | W7 Enterprise |
-
-
-
-
-
 
 ## Prepping
 
@@ -148,35 +143,52 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
 
 ### Preparing base images for every OS
-Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. So make a new directory and call it PrepSever2016. Copy the entire directory of the VM `.vagrant.d/boxes/repoNameOfVM` to a new directory.
-Before booting the VM in Workstation, set up a file share, because transfering files to the box is necessary. Proceed to boot the box in VMware workstation and prepare the following:
 
- #### 1. Fix accounts
- Enable the local Administrator account by going to control panel -> Users -> set a password for the Administrator account -> Log out -> Log in as Administrator using the new password
- Then go into control panel -> Users -> Remove an account -> Remove the Vagrant account -> Click delete files
- 
- #### 2. Install VMware tools 
- 
- Do it through the VMware workstation interface. Should be self explanatory.
- #### 3. Windows Update
- Use this WU.ps1 script: link
- Open powershell.exe as an Administrator
- Import-Module C:\Users\Administrator\Desktop\WU.ps1
+Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. This process must be repeated for every VM, which is a drag, but it only has to be done once.
 
- 
- #### 4. Run Sysprep
+*  Make a new directory and call it PrepSever2016. Copy the entire directory of the VM `.vagrant.d/boxes/repoNameOfVM` to a new directory.
+* Before booting the VM in Workstation, set up a file share, because transfering files to the box is necessary.
+* If not possible, set up a network adapter so you can host the files on a local web server or on Github so you can download them to the box.
+* Proceed to boot the box in VMware workstation and prepare the following:
+
+#### 1. Fix accounts
+
+Enable the local Administrator account by doing
+
+* Control panel -&gt; Users -&gt; set a password for the Administrator account -&gt; Log out -&gt;
+* Log in as Administrator using the new password, go into control panel -&gt; Users -&gt; Remove an account -&gt; Remove the Vagrant account -&gt; Click delete files
+
+#### 2. Install VMware tools
+
+Do it through the VMware workstation interface. Should be self explanatory.
+
+#### 3. Windows Update
+
+* Use this WU.ps1 script: link
+* Open powershell.exe as an Administrator and run `Import-Module C:\Users\Administrator\Desktop\WU.ps1`
+
+#### 4. Run Sysprep
 
 Sysprep will be done through the XML file provided here: link
-The Administrator password, the autologin password and time zone must be changed. Look up Microsoft time zones values here: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+
+* Change the Administrator and autologin password to the correct password
+* Change the time zone. Look up Microsoft time zones values here: [https://msdn.microsoft.com/en-us/library/ms912391\(v=winembedded.11\).aspx](https://msdn.microsoft.com/en-us/library/ms912391%28v=winembedded.11%29.aspx)
 
 Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen welcome bullshit. The script itself preps the system and enables WinRM.
 
+`C:\Windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\Administrator\Desktop\sysprep.xml`
 
-` C:\Windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\Administrator\Desktop\sysprep.xml `
+#### 5. Verification
 
+The VM should now be shut down and we want to verify that everything works as intended. 
 
+* Go to VM -&gt; Manage -&gt; Clone -&gt; Full clone and make a full clone of the VM. \(Takes ages\)
+* Boot the clone and verify that everything was set correctly.
+* Shut down and delete the clone
+* Make a copy of the VM you have fixed and put it in the `boxes` folder.
+* If you are short on disk space, delete the original VMs downloaded from Vagrant cloud.
 
- ## Deploying VMs with Vagrant
+## Deploying VMs with Vagrant
 
 ### Initialize repo
 
