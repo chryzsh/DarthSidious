@@ -20,7 +20,8 @@ Active directory with OU, GPOs, hardening blabla
 | FS01 | File server | Server 2008 R2 |
 | WEB01 | Web server | Server 2016 Tech Eval |
 | WS01 | Workstation | W10 Enterprise |
-| WS02 | Rorkstation | W7 Enterprise |
+| WS02 | Workstation | W7 Enterprise |
+| CENT01 | Annoying Linux box | CentOS 7.4 |
 
 ## Prepping
 
@@ -40,18 +41,21 @@ Active directory with OU, GPOs, hardening blabla
 * Web browser to do management from
 * Vagrant
 * Vagrant VMware ESXi plugin
+* Vagrant Reload Provisioner
+* Vagrant WinRM Syncedfolders
 * VMware ovftool
 * Windows Server 2008 R2
 * Windows Server 2012 R2
 * Windows Server 2016 Tech Evaluation
 * Windows 7 Enterprise Edition
 * Windows 10 Enterprise Edition
+* CentOS 7.4
 
 #### Future additions
 
 * Sharepoint
 * Office 2013 or 2016
-* Outlook server
+* Microsoft Exchange
 
 ### Installing Vagrant
 
@@ -61,12 +65,18 @@ Install Vagrant and the vagrant VMware ESXi plugin.
 
 [josenk/vagrant-vmware-esxi: A Vagrant plugin that adds a vmware ESXi provider support.](https://github.com/josenk/vagrant-vmware-esxi)
 
+[aidanns](https://github.com/aidanns)/[vagrant-reload](https://github.com/aidanns/vagrant-reload)
+
+[Cimpress-MCP](https://github.com/Cimpress-MCP)/[vagrant-winrm-syncedfolders](https://github.com/Cimpress-MCP/vagrant-winrm-syncedfolders)
+
 This plugin requires `ovftool`from VMware. Download from VMware website.
 
 [https://www.vmware.com/support/developer/ovf/](https://www.vmware.com/support/developer/ovf/)
 
 ```
 vagrant plugin install vagrant-vmware-esxi
+vagrant plugin install vagrant-winrm-syncedfolders
+vagrant plugin install vagrant-reload
 vagrant version
 ```
 
@@ -146,7 +156,7 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 
 Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. This process must be repeated for every VM, which is a drag, but it only has to be done once.
 
-*  Make a new directory and call it PrepSever2016. Copy the entire directory of the VM `.vagrant.d/boxes/repoNameOfVM` to a new directory.
+* Make a new directory and call it PrepSever2016. Copy the entire directory of the VM `.vagrant.d/boxes/repoNameOfVM` to a new directory.
 * Before booting the VM in Workstation, set up a file share, because transfering files to the box is necessary.
 * If not possible, set up a network adapter so you can host the files on a local web server or on Github so you can download them to the box.
 * Proceed to boot the box in VMware workstation and prepare the following:
@@ -167,6 +177,8 @@ Do it through the VMware workstation interface. Should be self explanatory.
 * Use this WU.ps1 script: link
 * Open powershell.exe as an Administrator and run `Import-Module C:\Users\Administrator\Desktop\WU.ps1`
 
+#### 4. Installing .net framework
+
 #### 4. Run Sysprep
 
 Sysprep will be done through the XML file provided here: link
@@ -180,13 +192,14 @@ Perform sysprep with the following command. OOBE is Out Of Box Experience, the s
 
 #### 5. Verification
 
-The VM should now be shut down and we want to verify that everything works as intended. 
+The VM should now be shut down and we want to verify that everything works as intended.
 
 * Go to VM -&gt; Manage -&gt; Clone -&gt; Full clone and make a full clone of the VM. \(Takes ages\)
 * Boot the clone and verify that everything was set correctly.
 * Shut down and delete the clone
 * Make a copy of the VM you have fixed and put it in the `boxes` folder.
-* If you are short on disk space, delete the original VMs downloaded from Vagrant cloud.
+* Rename the folder to Server2016 or whatever name you prefer.
+* If you are short on disk space, delete the original VMs downloaded from Vagrant cloud and/or clones.
 
 ## Deploying VMs with Vagrant
 
@@ -213,29 +226,32 @@ The esxi parameters are at the bottom. Hostname must point to the management net
 Vagrant.configure("2") do |config|
 config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  config.vm.define "DC01" do |config|
-  config.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
-  config.vm.hostname="DC01"
-  config.vm.guest = :windows
-  config.vm.communicator = "winrm"
-  config.vm.synced_folder "C:\\Users\\chris\\Google Drive\\Hacking\\beelabs\\AD_Files", "C:\\windows\\temp", type: "winrm"
-  config.vm.boot_timeout = 100
-  config.vm.graceful_halt_timeout = 100
-  config.winrm.timeout = 120
-  config.winrm.username = "vagrant"
-  config.winrm.password = "vagrant"
-  config.winrm.transport = :plaintext
-  config.winrm.basic_auth_only = true
-  config.vm.provision "shell", inline: "Rename-Computer -NewName DC01"
-  config.vm.provision :reload
-  config.vm.provider :vmware_esxi do |esxi|
-    esxi.esxi_hostname = "10.0.0.11"
-    esxi.esxi_username = "root"
-    esxi.esxi_password = "PASSWORD"
-    esxi_virtual_network = "Lab Network"
-    esxi.esxi_disk_store = "VMs"
-    esxi.guest_memsize = "2048"
-    esxi.guest_numvcpus = "2"
+  config.vm.define "WEB01" do |config|
+    config.vm.box = "Server2016"
+    config.vm.hostname="WEB01"
+    config.vm.guest = :windows
+    config.vm.communicator = "winrm"
+    config.vm.synced_folder "C:\\Users\\chris\\Google Drive\\Hacking\\beelabs\\AD_Files", "C:\\windows\\temp", type: "winrm"
+    config.vm.boot_timeout = 100
+    config.vm.graceful_halt_timeout = 100
+    config.winrm.timeout = 120
+    config.winrm.username = "Administrator"
+    config.winrm.password = "PASSWORD"
+    config.winrm.transport = :plaintext
+    config.winrm.basic_auth_only = true
+    config.vm.provision "shell", inline: "Rename-Computer -NewName WEB01"
+    config.vm.provision :reload
+
+    config.vm.provider :vmware_esxi do |esxi|
+      esxi.esxi_hostname = "10.0.0.10"
+      esxi.esxi_username = "root"
+      esxi.esxi_password = "PASSWORD"
+      esxi_virtual_network = "Lab Network"
+      esxi.esxi_disk_store = "VMs"
+      esxi.guest_memsize = "2048"
+      esxi.guest_numvcpus = "2"
+      esxi.mac_address = ["00:50:56:3f:01:01"]
+    end
   end
   end
 end
