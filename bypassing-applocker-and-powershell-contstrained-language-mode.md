@@ -27,7 +27,7 @@ agents
 
 Now use StarFighter whic is JavaScript and VBScript Based Empire Launcher, which runs within their own embedded PowerShell Host. This means you don't have to rely on powershell.exe from the target, which you can't execute because of the restrictions set.
 
-[https://raw.githubusercontent.com/Cn33liz/StarFighters/master/StarFighter.vbs](https://raw.githubusercontent.com/Cn33liz/StarFighters/master/StarFighter.vbs)
+[https://github.com/Cn33liz/StarFighters](https://github.com/Cn33liz/StarFighters)
 
 Paste the Empire launcher into the vbs or js where indicated.
 
