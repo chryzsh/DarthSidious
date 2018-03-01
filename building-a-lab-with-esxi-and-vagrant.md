@@ -41,6 +41,7 @@ Active directory with OU, GPOs, hardening blabla
 ### Software requirements
 
 * ESXi 6.5
+* VMware Workstation 1x.x
 * Web browser to do management from
 * Vagrant
 * Vagrant VMware ESXi plugin
@@ -145,7 +146,28 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 3. Don't assign 
 4. Click port group, ADD port group. 
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
-6. ## Deploying VMs with Vagrant
+
+#### Preparing base images for every OS
+Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. So make a new directory and call it PrepSever2016. Copy hte contents of the VM folder that's in .vagrant.d/boxes/repoNameOfVM
+Boot the box in VMware workstation and prepare the following:
+ #### 1. Install VMware tools through the VMware workstation interface
+ bla bla
+ #### 2. Windows Update through WU.ps1 script
+ 
+3. Sysprep with WinRM commands
+
+The administrator password, the autologin password and time zone must be changed. Look up Microsoft time zones values here: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+
+Before doing the sysprep an Administrator account must be added and the vagrant account disabled.
+
+Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen. The script itself preps the system and enables WinRM.
+
+
+` C:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\vagrant\desktop\sysprep.xml `
+
+
+
+ ## Deploying VMs with Vagrant
 
 ### Initialize repo
 
