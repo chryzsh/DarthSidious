@@ -29,7 +29,7 @@ Now use StarFighter whic is JavaScript and VBScript Based Empire Launcher, which
 
 [https://github.com/Cn33liz/StarFighters](https://github.com/Cn33liz/StarFighters)
 
-Paste the Empire launcher into the vbs or js where indicated.
+Paste the Empire launcher into the vbs or js where indicated. Name the file with .hta as extension.
 
 ```
 <body onclick="if(confirm('Close? (onclick)')){self.close();}">
