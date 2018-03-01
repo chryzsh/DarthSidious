@@ -1,16 +1,16 @@
 # Bypassing Applocker and Powershell contstrained language mode
 
-https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/
+[https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/](https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/)
 
-There will be environments where Applocker severely restricts which commands can be run on a system. That means no binaries that are not signed by Microsoft. Usually this means an environment where you basically have access to certain whitelisted applications like Internet explorer and notepad. 
+There will be environments where Applocker severely restricts which commands can be run on a system. That means no binaries that are not signed by Microsoft. Usually this means an environment where you basically have access to certain whitelisted applications like Internet explorer and notepad. This means getting a shell will be hard.
 
-There could also be the restriction of Powershell constrained language mode too, which prevents you from running anything Powershell related. That means no Powershell scripts can be used, which is sad from a hacker's perspective.
+There could also be the restriction of Powershell constrained language mode too, which prevents you from running anything Powershell related. That means no Powershell scripts can be executed either.
 
 However, both these features can be bypassed using a technique known as abusing mshta.exe, which is a binary used for executing html applications and it's typically installed along Internet Explorer.
 
 A machine with some level of user access is of course a prequisite for this to work. The goal of this is to get a shell through an Empire agent. The only caveat of this technique is that it requires .NET framework 3.5 feature to be enabled to work .NET framework 3.5 feature is something that is not enabled by default in Windows 10 on a clean install.
 
-We want to abuse the fact that we can launch mshta files, which is basically 
+We want to abuse the fact that we can launch mshta files, which is basically
 
 Set up an Empire listener and generate a base64 encoded launcher. Copy the launcher when done
 
@@ -41,6 +41,4 @@ StarVighter.vbs contents go here with copypasted powershell
 ```
 
 Then get the file on the box, right click on it, select Open with-&gt; Microsoft \(R\) HTML Application host and it should immediately launch and you should get an agent in Empire.
-
-
 
