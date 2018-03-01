@@ -42,3 +42,5 @@ StarVighter.vbs contents go here with copypasted powershell
 
 Then get the file on the box, right click on it, select Open with-&gt; Microsoft \(R\) HTML Application host and it should immediately launch and you should get an agent in Empire.
 
+![](/assets/import.png)
+
