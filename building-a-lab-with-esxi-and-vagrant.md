@@ -147,20 +147,29 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 4. Click port group, ADD port group. 
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
 
-#### Preparing base images for every OS
-Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. So make a new directory and call it PrepSever2016. Copy hte contents of the VM folder that's in .vagrant.d/boxes/repoNameOfVM
-Boot the box in VMware workstation and prepare the following:
- #### 1. Install VMware tools through the VMware workstation interface
- bla bla
- #### 2. Windows Update through WU.ps1 script
+### Preparing base images for every OS
+Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. So make a new directory and call it PrepSever2016. Copy the entire directory of the VM `.vagrant.d/boxes/repoNameOfVM` to a new directory.
+Before booting the VM in Workstation, set up a file share, because transfering files to the box is necessary. Proceed to boot the box in VMware workstation and prepare the following:
+
+ #### 1. Fix accounts
+ Enable the local Administrator account by going to control panel -> Users -> set a password for the Administrator account -> Log out -> Log in as Administrator using the new password
+ Then go into control panel -> Users -> Remove an account -> Remove the Vagrant account -> Click delete files
  
-3. Sysprep with WinRM commands
+ #### 2. Install VMware tools 
+ 
+ Do it through the VMware workstation interface. Should be self explanatory.
+ #### 3. Windows Update
+ Use this WU.ps1 script: link
+ Open powershell.exe as an Administrator
+ Import-Module C:\Users\Administrator\Desktop\WU.ps1
 
-The administrator password, the autologin password and time zone must be changed. Look up Microsoft time zones values here: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+ 
+ #### 4. Run Sysprep
 
-Before doing the sysprep an Administrator account must be added and the vagrant account disabled.
+Sysprep will be done through the XML file provided here: link
+The Administrator password, the autologin password and time zone must be changed. Look up Microsoft time zones values here: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 
-Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen. The script itself preps the system and enables WinRM.
+Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen welcome bullshit. The script itself preps the system and enables WinRM.
 
 
 ` C:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\vagrant\desktop\sysprep.xml `
