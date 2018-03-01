@@ -12,6 +12,21 @@ Internal virtual network
 
 Active directory with OU, GPOs, hardening blabla
 
+## Server plan
+
+| Hostname | Role | OS |
+| :--- | :--- | | |
+| DC01 | Domain controller | Server 2012 R2 |  
+| FS01 | File server | Server 2008 R2 |  
+| WEB01 | Web server | Server 2016 Tech Eval |  
+| WS01 | Workstation | W10 Enterprise |  
+| WS02 | Rorkstation | W7 Enterprise |
+
+
+
+
+
+
 ## Prepping
 
 ### Hardware requirements
@@ -111,11 +126,8 @@ The Vagrant ESXi plugin requires SSH to be anabled.
 ### Seting static IP for the ESXi host
 
 1. Press F2 on the ESXi console, provide credentials when prompted
-
 2. Configure management network -&gt; IPV4 Configuration
-
 3. Press space on `Set static ipv4 address`
-
 4. Press Esc until you return to the main direct console screen.
 
 ### Adding a datastore to ESXi
@@ -133,20 +145,24 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 3. Don't assign 
 4. Click port group, ADD port group. 
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
-6. 
-## Deploying VMs with Vagrant
+6. ## Deploying VMs with Vagrant
 
 ### Initialize repo
 
 Initialize a repo. This, amongst other files creates the very important Vagrantfile which holds the deployment configuration.
 
-
 `vagrant init`
 
 ### Vagrantfile configuration
 
-The documentation fro the vmware esxi plugin has examples and configurations. https://github.com/josenk/vagrant-vmware-esxi/wiki/Vagrantfile-examle:-Single-Machine,-fully-documented.
-Set the name of the box and pointer to the box you downloaded in previous steps. The winrm parameters specify that WinRM (powershell remote controlling boxes) should be used for deployment. In relation to this, many powershell scripts can be added for tasks like adding a box to a domain, setting certain system parameters, in general preparing the OS so this does not become a manual job.
+The documentation fro the vmware esxi plugin has examples and configurations.
+
+[https://github.com/josenk/vagrant-vmware-esxi/wiki/Vagrantfile-examle:-Single-Machine,-fully-documented](https://github.com/josenk/vagrant-vmware-esxi/wiki/Vagrantfile-examle:-Single-Machine,-fully-documented).
+
+[https://www.vagrantup.com/docs/vagrantfile/machine\_settings.html](https://www.vagrantup.com/docs/vagrantfile/machine_settings.html)  
+Each define tag is one box, so you can have multiple boxes, in fact your entire lab in just one Vagrantfile.
+
+Set the name of the box and pointer to the box you downloaded in previous steps. The winrm parameters specify that WinRM \(powershell remote controlling boxes\) should be used for deployment. In relation to this, many powershell scripts can be added for tasks like adding a box to a domain, setting certain system parameters, in general preparing the OS so this does not become a manual job.
 
 The esxi parameters are at the bottom. Hostname must point to the management network virtual switch interface and the password must of course be set.
 
@@ -182,9 +198,10 @@ config.vm.synced_folder ".", "/vagrant", disabled: true
 end
 ```
 
-After the configuration file has been verified run
-`vagrant status`
-and fix eventual errors
-then do deploy the machine run
-`vagrant up`
+After the configuration file has been verified run  
+`vagrant status`  
+and fix eventual errors  
+then do deploy the machine run  
+`vagrant up`  
 This takes the Vagrantfile, applies it, and uses OVFtool to deploy it to the ESXi host using the aforementioned plugin.
+
