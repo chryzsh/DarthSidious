@@ -264,3 +264,7 @@ then do deploy the machine run
 `vagrant up`  
 This takes the Vagrantfile, applies it, and uses OVFtool to deploy it to the ESXi host using the aforementioned plugin.
 
+If the box is shutdown and booting it is necessary without provisioning
+
+\` vagrant up BOX01 --no-provision\`
+
