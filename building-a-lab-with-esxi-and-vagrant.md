@@ -163,7 +163,7 @@ Deploying to Vagrant and applying things like powershell config during deploymen
 
 #### 1. Fix accounts
 
-Enable the local Administrator account by doing
+Enable the local Administrator account and delete the Vagrant account by doing
 
 * Control panel -&gt; User accounts -&gt; Manage another account -&gt; Administrator -&gt; Set a password for the Administrator account -&gt; Log out
 * Log in as Administrator using the new password, go into Control panel -&gt; Users -&gt; Remove User Acccounts -&gt; Delete the Vagrant account -&gt; Click delete files
