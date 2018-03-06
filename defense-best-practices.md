@@ -1,6 +1,7 @@
 # Defense
 
 [https://thedefensedude.wordpress.com](https://thedefensedude.wordpress.com)
+https://adsecurity.org/?p=3299
 
 ## Defending against Responder
 
