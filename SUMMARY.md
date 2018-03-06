@@ -22,4 +22,5 @@
 * [Bypassing Applocker](bypassing-applocker.md)
 * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 * [Bypassing Applocker and Powershell contstrained language mode](bypassing-applocker-and-powershell-contstrained-language-mode.md)
+* [Defense; best practices](defense-best-practices.md)
 
