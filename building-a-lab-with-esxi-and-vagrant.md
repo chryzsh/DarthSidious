@@ -165,8 +165,8 @@ Deploying to Vagrant and applying things like powershell config during deploymen
 
 Enable the local Administrator account by doing
 
-* Control panel -&gt; Users -&gt; set a password for the Administrator account -&gt; Log out -&gt;
-* Log in as Administrator using the new password, go into control panel -&gt; Users -&gt; Remove an account -&gt; Remove the Vagrant account -&gt; Click delete files
+* Control panel -&gt; User accounts -&gt; Manage another account -&gt; Administrator -&gt; Set a password for the Administrator account -&gt; Log out
+* Log in as Administrator using the new password, go into Control panel -&gt; Users -&gt; Remove User Acccounts -&gt; Delete the Vagrant account -&gt; Click delete files
 
 #### 2. Install VMware tools
 
@@ -264,7 +264,7 @@ then do deploy the machine run
 `vagrant up`  
 This takes the Vagrantfile, applies it, and uses OVFtool to deploy it to the ESXi host using the aforementioned plugin.
 
-If the box is shutdown and booting it is necessary without provisioning
+If the box is shut down and booting it is necessary you want to up it without provisioning it, so specify the following
 
-\` vagrant up BOX01 --no-provision\`
+`vagrant up BOX01 --no-provision`
 
