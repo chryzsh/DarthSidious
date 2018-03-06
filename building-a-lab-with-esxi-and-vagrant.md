@@ -174,7 +174,7 @@ Do it through the VMware workstation interface. Should be self explanatory.
 
 #### 3. Windows Update
 
-* Use this WU.ps1 script: link
+* Use this WU.ps1 script: [assets/WU.ps1](/assets/WU.ps1 "WU.ps1")
 * Open powershell.exe as an Administrator and run `Import-Module C:\Users\Administrator\Desktop\WU.ps1`
 
 #### 4. Installing .net framework
