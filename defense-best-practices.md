@@ -2,3 +2,5 @@
 
 
 
+https://thedefensedude.wordpress.com
+

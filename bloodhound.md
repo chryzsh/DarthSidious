@@ -51,9 +51,13 @@ Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –Ski
 
 ### More Bloodhound stuff
 
-https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/
+https://posts.specterops.io/sharphound-target-selection-and-api-usage-bba517b9e69b
 
-https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/
+https://github.com/porterhau5/BloodHound
 
+[https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/](https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/)
 
+[https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/](https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/)
+
+http://threat.tevora.com/lay-of-the-land-with-bloodhound/
 
