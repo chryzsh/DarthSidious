@@ -176,7 +176,7 @@ Do it through the VMware workstation interface. Should be self explanatory.
 
 * Use this WU.ps1 script to download and install updates for the operating system.
 * Open powershell.exe as an Administrator and run `Import-Module C:\Users\Administrator\Desktop\WU.ps1`
-* This must potentially be performed numerous times with several reboots until there are no more updates to apply.
+* This must potentially be performed numerous times with several reboots until there are no more updates to apply. Just keep running it until it says there are no more updates.
 
 #### 4. Installing .net framework
 
