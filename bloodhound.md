@@ -19,7 +19,7 @@ Now we can use this brilliant feature to collect a ton of information and create
 * Access neo4j in the browser at `http://0.0.0.0:7474/browser/`
 * Install BloodHound according to instructions on the [Github page](https://github.com/BloodHoundAD/BloodHound/wiki/Getting-started)
 
-* If on a Mac, Java SDK must be version 8 and not 9 \(neo4j not suppported\). So 
+* If on a Mac, Java SDK must be version 8 and not 9 \(neo4j not suppported\). So
 
 * Launch BloodHound and log in to the neo4j database with credentials from before
 
@@ -48,6 +48,12 @@ Powershell -exec bypass
 Import-module SharpHound.ps1
 Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –SkipPing
 ```
+
+### More Bloodhound stuff
+
+https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/
+
+https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/
 
 
 
