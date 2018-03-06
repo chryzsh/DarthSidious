@@ -19,8 +19,8 @@
 * [RDP Session Hijacking](rdp-session-hijacking.md)
 * [Powershell magic](pivoting.md)
 * [Bypassing Applocker](bypassing-applocker.md)
-* [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 * [Bypassing Applocker and Powershell contstrained language mode](bypassing-applocker-and-powershell-contstrained-language-mode.md)
 * [Defense](defense-best-practices.md)
 * [Stealth](becoming-a-ninja-staying-stealthy.md)
+* [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 

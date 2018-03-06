@@ -178,7 +178,7 @@ Do it through the VMware workstation interface. Should be self explanatory.
 * Open powershell.exe as an Administrator and run `Import-Module C:\Users\Administrator\Desktop\WU.ps1`
 * This must potentially be performed numerous times with several reboots until there are no more updates to apply. Just keep running it until it says there are no more updates.
 
-#### 4. Installing .net framework
+#### 4. Installing .Net framework
 
 #### 4. Run Sysprep
 
@@ -189,7 +189,7 @@ Sysprep will be done through the XML file provided here: link
 
 Perform sysprep with the following command. OOBE is Out Of Box Experience, the startup screen welcome bullshit. The script itself preps the system and enables WinRM.
 
-`C:\Windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c\users\Administrator\Desktop\sysprep.xml`
+`C:\Windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:c:\users\Administrator\Desktop\sysprep.xml`
 
 #### 5. Verification
 
