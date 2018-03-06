@@ -23,5 +23,5 @@
 * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 * [Bypassing Applocker and Powershell contstrained language mode](bypassing-applocker-and-powershell-contstrained-language-mode.md)
 * [Defense](defense-best-practices.md)
-* [Becoming a ninja, staying stealthy](becoming-a-ninja-staying-stealthy.md)
+* [Stealth](becoming-a-ninja-staying-stealthy.md)
 
