@@ -197,10 +197,11 @@ The VM should now be shut down and we want to verify that everything works as in
 
 * Go to VM -&gt; Manage -&gt; Clone -&gt; Full clone and make a full clone of the VM. \(Takes ages\)
 * Boot the clone and verify that everything was set correctly.
-* Shut down and delete the clone
+* Shut down and delete the clone or achive it as a Baseline image.
 * Make a copy of the VM you have fixed and put it in the `boxes` folder.
 * Rename the folder to Server2016 or whatever name you prefer.
-* If you are short on disk space, delete the original VMs downloaded from Vagrant cloud and/or clones.
+* If you are short on disk space, you can delete the original VMs downloaded from Vagrant cloud and/or clones, but note that they might be useful to have around for later in case something borks.
+* Snapshot?
 
 ## Deploying VMs with Vagrant
 
@@ -268,4 +269,7 @@ This takes the Vagrantfile, applies it, and uses OVFtool to deploy it to the ESX
 If the box is shut down and booting it is necessary you want to up it without provisioning it, so specify the following
 
 `vagrant up BOX01 --no-provision`
+
+After the box has been deployed and provisioned it might be a good idea to shut it down and take a snapshot. This can also be done from vagrant using
+`vagrant snapshot push` to take a snapshot and `vagrant snapshot pop` to roll back. To show all snpashots do `vagrant snapshot list`
 
