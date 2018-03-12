@@ -17,6 +17,20 @@ Now we can use this brilliant feature to collect a ton of information and create
   ```
 * Restart neo4j with  `/opt/neo4j-community-3.1.1/bin/neo4j restart`
 * Access neo4j in the browser at `http://0.0.0.0:7474/browser/`
+
+##### Neo4j on Windows
+Neo4j can be started with powershell on windows.
+* Spawn an administrative powershell with -bypass exec
+* Navigate to the neo4j/bin directory
+* `Import-Module .\Neo4j-Management.psd1`
+
+* `Invoke-Neo4j Console`
+
+##### Neo4j on Mac
+
+
+#### Back to Bloodhound
+
 * Install BloodHound according to instructions on the [Github page](https://github.com/BloodHoundAD/BloodHound/wiki/Getting-started)
 
 * If on a Mac, Java SDK must be version 8 and not 9 \(neo4j not suppported\). So
