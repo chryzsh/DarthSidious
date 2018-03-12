@@ -1,5 +1,10 @@
 # Link encyclopedia
-## Active Directory and Microsoft stuff
+Going to try to keep this updated.
+## Microsoft
+
+### Powershell
+* [Powershell 101](https://hkh4cks.com/blog/2018/01/01/powershell-101/)
+
 ### Empire
 * [Empire 101](http://www.powershellempire.com/?page_id=110) - Empire Introduction from official documentation
 
@@ -10,6 +15,7 @@
 ### Bloodhound
 * [Bloodhound node info](https://github.com/BloodHoundAD/BloodHound/wiki/Users) - Bloodhound Node info explanations
 * [Lay of the land with bloodhound](http://threat.tevora.com/lay-of-the-land-with-bloodhound/) - General Bloodhound usage guide article
+
 ### Mimikatz
 * [Lazykats](https://github.com/bhdresh/lazykatz) -  Mass Mimikatz with AV bypass (questionable)
 * [Direct link to Invoke-Mimikatz.ps1](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1)
@@ -41,6 +47,8 @@
 
 ## Lab building
 * [Automatedlab/Automatedlab](https://github.com/AutomatedLab/AutomatedLab) - Automatedlab is a project for building a lab environment automatically using Powershell.
+* [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md) - Big article from this book about building a lab using ESXi
+* [Mini lab](creating.md) - Small article from this book about creating a small lab for practicing things like Responder
 
 ## Other
 * [OSCP Survival Guide archived](http://web.archive.org/web/20171014213457/https://github.com/frizb/OSCP-Survival-Guide) - contains a ton of useful commands for enumeration and exploitation
