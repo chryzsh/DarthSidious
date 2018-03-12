@@ -18,6 +18,7 @@ https://github.com/PowerShellMafia/PowerSploit/blob/262a260865d408808ab332f972d4
 [Sshuttle](http://sshuttle.readthedocs.io/en/stable/) - SShuttle creates an SSH tunnel that works almost just like a VPN
 
 ### Command and control
+[lukebaggett/dnscat2-powershell](https://github.com/lukebaggett/dnscat2-powershell) - Powershell implementation of dnscat2 client
 [C2 with dnscat2 and powershell](https://www.blackhillsinfosec.com/powershell-dns-command-control-with-dnscat2-powershell/) - dnscat2 can be used with powershell for working over DNS to hide C2 activity
 
 ### Exploit
