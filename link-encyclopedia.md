@@ -40,6 +40,13 @@ Going to try to keep this updated.
 #### Mail
 * [Ruler](https://github.com/sensepost/ruler) - Ruler can interact with Exchange servers remotely
 
+### Breaking out of locked down environments
+* [Breaking Out of Citrix and other Restricted Desktop Environments](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/)
+* [Applocker Case study](https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/) - Breaking out of Applocker using advanced techniques
+* [Bypass Applocker](https://github.com/api0cradle/UltimateAppLockerByPassList) - List of most known Applocker bypass techniques
+
+
+
 ## Defense
 * [MS - Securing privileged access](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) - Reference material for securing admin access in AD
 * [MS - What is AD Red Forest](https://social.technet.microsoft.com/wiki/contents/articles/37509.what-is-active-directory-red-forest-design.aspx) - Red forest design is building an administrative AD environement built with security in mind
