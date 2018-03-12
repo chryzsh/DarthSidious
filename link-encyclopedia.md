@@ -1,6 +1,8 @@
 # Link encyclopedia
 ## AD
-### 
+### Empire
+http://www.powershellempire.com/?page_id=110 - Empire 101
+
 ### Bloodhound
 https://github.com/BloodHoundAD/BloodHound/wiki/Users - Bloodhound Node info explanations
 http://threat.tevora.com/lay-of-the-land-with-bloodhound/ - general Bloodhound usage guide
