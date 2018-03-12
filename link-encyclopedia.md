@@ -23,6 +23,7 @@
 * [SANS Pentest Blog](https://pen-testing.sans.org/blog/2017/12/10/putting-my-zero-cents-in-using-the-free-tier-on-amazon-web-services-ec2) - Using Amazon AWS EC2 for C2
 * [lukebaggett/dnscat2-powershell](https://github.com/lukebaggett/dnscat2-powershell) - Powershell implementation of dnscat2 client
 * [C2 with dnscat2 and powershell](https://www.blackhillsinfosec.com/powershell-dns-command-control-with-dnscat2-powershell/) - dnscat2 can be used with powershell for working over DNS to hide C2 activity
+* [DNS tunneling](https://pentest.blog/data-exfiltration-tunneling-attacks-against-corporate-network/) - How DNS tunneling works
 
 ### Exploit
 * [SharpShooter](https://github.com/mdsecactivebreach/SharpShooter) - SharpShooter can create payloads for many formats like HTA, JS and VBS
