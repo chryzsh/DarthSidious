@@ -4,6 +4,7 @@
 * [Empire 101](http://www.powershellempire.com/?page_id=110) - Empire Introduction from official documentation
 
 ### Powerview
+* [Powerview repository](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon) - contains documentation and how to use Powerview
 * [PowerView-3.0-tricks.ps1](https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993) - Powerview tips and tricks from HarmJ0y
 
 ### Bloodhound
@@ -12,6 +13,7 @@
 ### Mimikatz
 * [Lazykats](https://github.com/bhdresh/lazykatz) -  Mass Mimikatz with AV bypass (questionable)
 * [Direct link to Invoke-Mimikatz.ps1](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1)
+* [Auto dumping domain credentials](https://blog.netspi.com/auto-dumping-domain-credentials-using-spns-powershell-remoting-and-mimikatz/)
 
 ### Enumeration
 * [Invoke-Portscan.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/262a260865d408808ab332f972d410d3b861eff1/Recon/Invoke-Portscan.ps1) - Invoke-Portscan is a module from Powersploit that can perform port scans similar to Nmap straight from Powershell.
