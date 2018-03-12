@@ -25,23 +25,25 @@ Neo4j can be started with powershell on windows.
 * `Import-Module .\Neo4j-Management.psd1`
 
 * `Invoke-Neo4j Console`
+* Likewise to Linux, log in to localhost:7474 and change the password.
 
 ##### Neo4j on Mac
+Similar procedure as linux. Neo4j does not support Java 9, so Java SDK must be version 8 and not 9 \(neo4j not suppported\). So install java 8 with Homebrew
+* `brew update`
+* `brew cask install java8`
+
 
 
 #### Back to Bloodhound
 
 * Install BloodHound according to instructions on the [Github page](https://github.com/BloodHoundAD/BloodHound/wiki/Getting-started)
 
-* If on a Mac, Java SDK must be version 8 and not 9 \(neo4j not suppported\). So
-
 * Launch BloodHound and log in to the neo4j database with credentials from before
 
-The old method:
+The old method of ingesting, where file is dropped to disk:
 
 ```
 powershell -exec bypass
-upload /path/bloodhound.ps1
 Import-Module ./BloodHound.ps1
 Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
 ```
@@ -64,6 +66,10 @@ Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –Ski
 ```
 
 ### More Bloodhound stuff
+
+Explanations of things found under Node info
+https://github.com/BloodHoundAD/BloodHound/wiki/Users
+
 
 https://posts.specterops.io/sharphound-target-selection-and-api-usage-bba517b9e69b
 
