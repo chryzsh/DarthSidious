@@ -20,6 +20,7 @@ Going to try to keep this updated.
 * [Lazykats](https://github.com/bhdresh/lazykatz) -  Mass Mimikatz with AV bypass (questionable)
 * [Direct link to Invoke-Mimikatz.ps1](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1)
 * [Auto dumping domain credentials](https://blog.netspi.com/auto-dumping-domain-credentials-using-spns-powershell-remoting-and-mimikatz/)
+* [eladshamir/Internal-Monologue](https://github.com/eladshamir/Internal-Monologue) - Internal Monologue Attack: Retrieving NTLM Hashes without Touching LSASS
 
 ### Enumeration
 * [Invoke-Portscan.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/262a260865d408808ab332f972d410d3b861eff1/Recon/Invoke-Portscan.ps1) - Invoke-Portscan is a module from Powersploit that can perform port scans similar to Nmap straight from Powershell.
