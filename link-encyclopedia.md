@@ -4,6 +4,7 @@ Going to try to keep this updated.
 
 ### Powershell
 * [Powershell 101](https://hkh4cks.com/blog/2018/01/01/powershell-101/)
+* [p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll) - Run PowerShell with dlls only. Does not require access to powershell.exe as it uses powershell automation dlls.
 
 ### Empire
 * [Empire 101](http://www.powershellempire.com/?page_id=110) - Empire Introduction from official documentation
