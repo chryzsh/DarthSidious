@@ -47,7 +47,7 @@ Going to try to keep this updated.
 * [Breaking Out of Citrix and other Restricted Desktop Environments](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/)
 * [Applocker Case study](https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/) - Breaking out of Applocker using advanced techniques
 * [Bypass Applocker](https://github.com/api0cradle/UltimateAppLockerByPassList) - List of most known Applocker bypass techniques
-
+* [Babushka Dolls or How To Bypass Application Whitelisting and Constrained Powershell](https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell)
 
 
 ## Defense
