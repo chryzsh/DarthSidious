@@ -4,6 +4,7 @@ Going to try to keep this updated.
 
 ### Powershell
 * [Powershell 101](https://hkh4cks.com/blog/2018/01/01/powershell-101/)
+* [Learn Windows PowerShell in a Month of Lunches (Youtube)](https://www.youtube.com/playlist?list=PL6D474E721138865A) - Companion videos to the famous book
 * [p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll) - Run PowerShell with dlls only. Does not require access to powershell.exe as it uses powershell automation dlls.
 
 ### Empire
