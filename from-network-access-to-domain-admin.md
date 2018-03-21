@@ -4,7 +4,7 @@ This article attempts to provide a methodology for domain pentests where the sce
 
 In real engagements you are usually provided with some basics, but to make this is hard as possible I will try to find a manual way to find every piece of information necessary to achieve full compromise.
 
-byt3bl33d3r has made a tool to automate most of the process after gaining domain user credentials. See the DeathStar article in this Gitbook and his own article here: https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-dmin-with-a-push-of-a-button.html
+byt3bl33d3r has made a tool to automate most of the process after gaining domain user credentials. See the DeathStar article in this Gitbook and his own article here: [https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-dmin-with-a-push-of-a-button.html](https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-dmin-with-a-push-of-a-button.html)
 
 ![](/assets/deathstar.png)
 
@@ -43,6 +43,8 @@ We want to discover as much as possible. The best alternative here is to use a c
 
 We're looking for the good stuff here, the domain controllers. In big domains there are usually several.
 
+Other things to look for are port 443 as SSL certificates often contain domain names. 
+
 ## Get a domain user
 
 **Goal: Get domain user access**
@@ -50,7 +52,9 @@ We're looking for the good stuff here, the domain controllers. In big domains th
 **Method**  
 A domain user is any user in the domain. We of course have to figure out the domain name first.
 
-Once you have acquired the domain name, you can try what's refered to as password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other.
+Once you have acquired the domain name, you can try a technique called password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other. That means if we can figure out the syntax we can attempt to authenticate with common passwords.
+
+However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five attempts.
 
 ## Enumerate the domain
 
@@ -58,7 +62,7 @@ Once you have acquired the domain name, you can try what's refered to as passwor
 
 **Method**
 
-We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. These things are all called 
+We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. These things are all called
 
 **Tools**
 
@@ -83,8 +87,8 @@ Once a path has been laid out, you can start moving laterally in the domain. How
 
 ## Hijack Domain Admin access
 
-**Goal: Getting shell or credentials as DA  
-**By this point you have ended up on a box 
+**Goal: Getting shell or credentials as DA    
+**By this point you have ended up on a box
 
 **Tools**
 
