@@ -54,6 +54,7 @@ Going to try to keep this updated.
 * [MS - Securing privileged access](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) - Reference material for securing admin access in AD
 * [MS - What is AD Red Forest](https://social.technet.microsoft.com/wiki/contents/articles/37509.what-is-active-directory-red-forest-design.aspx) - Red forest design is building an administrative AD environement built with security in mind
 * [Managing Applocker with Powershell](https://4sysops.com/archives/managing-applocker-with-powershell/)
+* [SANS - Finding Empire C2 activity](https://www.sans.org/reading-room/whitepapers/detection/disrupting-empire-identifying-powershell-empire-command-control-activity-38315)
 
 ## Lab building
 * [The Eye](https://the-eye.eu/public/MSDN/) - Official MSDN ISOs for all OSes

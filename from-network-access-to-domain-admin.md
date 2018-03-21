@@ -40,7 +40,7 @@ Goal: discover computers, users and groups
 * Bloodhound
 
 ## Identify paths to Domain Admin
-
+Bloodhound should already have given you this. A default query in BH is 
 
 ## Move towards Domain Admin
 
