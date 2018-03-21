@@ -123,12 +123,13 @@ C:\windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogTo
 
 ### Useful links
 
-https://www.youtube.com/watch?v=czJrXiLs0wM
-https://adsecurity.org/?p=2921
-https://bneg.io/2017/07/26/empire-without-powershell-exe/
-https://artofpwn.com/offensive-and-defensive-powershell-ii.html
-https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell
-https://github.com/caseysmithrc/DeviceGuardBypasses
-https://github.com/Joshua1909/AllTheThings
-https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html
+* https://github.com/Ben0xA/AwesomerShell
+* https://www.youtube.com/watch?v=czJrXiLs0wM
+* https://adsecurity.org/?p=2921
+* https://bneg.io/2017/07/26/empire-without-powershell-exe/
+* https://artofpwn.com/offensive-and-defensive-powershell-ii.html
+* https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell
+* https://github.com/caseysmithrc/DeviceGuardBypasses
+* https://github.com/Joshua1909/AllTheThings
+* https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html
 
