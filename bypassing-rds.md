@@ -7,6 +7,7 @@ Additionally this scenario has Applocker on the target box, Powershell is in Lan
 * .Net v3.5 for dll mode in PowerShdll
 
 **Important notes**
+
 powershell.exe _is_ not Powershell. It just hosts the assembly that contains PowerShell and handles I/O. System.Management.Automation.dll
 Learn more from the links at the bottom of this article.
 
