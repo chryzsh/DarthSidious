@@ -43,7 +43,7 @@ We want to discover as much as possible. The best alternative here is to use a c
 
 We're looking for the good stuff here, the domain controllers. In big domains there are usually several.
 
-Other things to look for are port 443 as SSL certificates often contain domain names. 
+Other things to look for are port 443 as SSL certificates often contain domain names. In relation to that you should also look for Outlook Web Access portals.
 
 ## Get a domain user
 
@@ -87,7 +87,7 @@ Once a path has been laid out, you can start moving laterally in the domain. How
 
 ## Hijack Domain Admin access
 
-**Goal: Getting shell or credentials as DA    
+**Goal: Getting shell or credentials as DA      
 **By this point you have ended up on a box
 
 **Tools**
