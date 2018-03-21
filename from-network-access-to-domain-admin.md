@@ -36,7 +36,8 @@ We're looking for the good stuff here, the domain controllers. In big domains th
 A domain user is any user in the domain. We of course have to figure out the domain name first.
 
 ## Enumerate the domain
-
+Goal: discover computers, users and groups
+* Bloodhound
 
 ## Identify paths to Domain Admin
 
