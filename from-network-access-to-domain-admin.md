@@ -22,7 +22,7 @@ Bloodhound is also great here.
 ##### Take steps towards Domain Admin
 This depends on the domain size and configuration. If every user has local administrator access on their workstations and there are hundreds of DAs, this step is usually trivial.
 
-**Hijack Domain Admin access**
+##### Hijack Domain Admin access
 This step is when you are finally close to a DA user. There are numerous ways to hijack a Domain Admin accounts.
 
 ## Enumerate the network
