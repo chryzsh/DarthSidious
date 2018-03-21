@@ -24,4 +24,5 @@
 * [Stealth](becoming-a-ninja-staying-stealthy.md)
 * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
 * [Link encyclopedia](link-encyclopedia.md)
+* [From RDS app to Empire shell](bypassing-rds.md)
 
