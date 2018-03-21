@@ -11,7 +11,7 @@ The general approach to going from network access to domain admin consists of a 
 Since network access is the only thing provided, the first step naturally becomes to enumerate the network to discover computers.
 
 ##### Get a domain user
-Once a domain user has been acquired, enumerating the domain itself can begin.
+Only when a domain user has been acquired, enumerating the domain itself can begin.
 
 ##### Enumerate the domain
 Get an overview of the domain. Bloodhound is a key tool for this step.
