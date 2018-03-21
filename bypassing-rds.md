@@ -23,13 +23,11 @@ Click Help -&gt; View help -&gt; triggers Internet Explorer
 
 ![](/assets/viewhelp.png)
 
-  
 Right click on any link in IE -&gt; save target as -&gt; save as lol.ps1 on the Desktop
 
 ![](/assets/lolps1.png)  
 Press view downloads in IE, press the dropdown on the file, open with -&gt; notepad. then just write powershell.exe in the file and save again
 
-  
 Now right click -&gt; "save target as" in IE again. Go to the dropdown "save as type" and select "all files". The ps1-file you have saved will be revealed and you can just press "run with powershell" and a powershell prompt should pop up. This shell should be in Constrained mode. Verify with `$ExecutionContext.SessionState.LanguageMode`, which should say `ConstrainedLanguage`.
 
 ![](/assets/runwithps.png)
@@ -52,6 +50,15 @@ Verify that constrained language mode has been bypassed with
 It should say FullLanguage
 
 ![](/assets/powershdll.png)
+
+##### Shortcut
+
+Ok, so I discovered much later how to avoid having to do the two last steps. Just generate an Empire stager with `set Base64 false` and `set Outfile shell`
+Now from the unrestricted powershell, download the shell and execute it straight into memory. If you are lucky, Defender doesn't pick it up and you get an Empire shell / agent.
+
+I realize after the fact that this is exactly the same steps as below, just fewer hoops.
+
+#### 
 
 #### Getting meterpreter shell
 
