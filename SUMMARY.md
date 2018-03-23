@@ -49,7 +49,6 @@
 
 ## DEFENSE
 
-
 * [Defense](defense/defense.md)
   * [Best practices](defense/defense.md)
 
