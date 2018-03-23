@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Mini guide to Windows](guide.md)
+    * [Mini guide to Windows](guide.md)
 * [Creating a lab](creating.md)
 * [Preparing](preparing.md)
 * [Pass the hash](pass-the-hash.md)
