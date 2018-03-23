@@ -3,7 +3,7 @@
 * [Introduction](README.md)
     
 * [How stuff works](stuff/how-stuff-works.md)
-    * [Mini guide to Windows](guide.md)
+    * [Mini guide to Windows](stuff/miniguide.md)
 
 * [Creating a lab](labs/creating.md)
     * [Preparing](labs/preparing.md)
@@ -14,13 +14,13 @@
     * [Pass the hash](general/pass-the-hash.md)
     * [BloodHound](general/bloodhound.md)
     * [Ranger](general/using-ranger.md)
-    * [Mimikatz](mimikatz.md)
-    * [Token Impersonation](rotten-potato.md)
-    * [RDP Session Hijacking](rdp-session-hijacking.md)
+    * [Mimikatz](general/mimikatz.md)
+    * [Token Impersonation](general/rotten-potato.md)
+    * [RDP Session Hijacking](general/rdp-session-hijacking.md)
 
 * [Responder](responder.md)
-    * [Responder with NTLM relay and Empire](relay.md)
-    * [DeathStar](deathstar.md)
+    * [Responder with NTLM relay and Empire](responder/relay.md)
+    * [DeathStar](responder/deathstar.md)
 
 * [Bypassing security controls](bypass/bypass-security-controls.md)
     * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
@@ -41,7 +41,6 @@
 
 * [Defense](defense/defense.md)
     * [Best practices](defense/defense-best-practices.md)
-
 
 
 * [Link encyclopedia](link-encyclopedia.md)
