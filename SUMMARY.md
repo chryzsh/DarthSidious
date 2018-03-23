@@ -8,9 +8,13 @@
 ## GETTING STARTED
 
 * [Getting started](labs/getting-started.md)
+
+
 * [Building a lab](labs/building-a-lab.md)
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
+  
+  
 * [How stuff works](stuff/how-stuff-works.md)
   * [Mini guide to Windows](stuff/miniguide.md)
   * [Powershell](powershell/powershell.md)
@@ -29,10 +33,11 @@
   * [MS14-068](exploitation/ms14-068.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
 
-  
+
 * [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
+
 
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
@@ -47,7 +52,7 @@
 
 
 * [Defense](defense/defense.md)
-  * [Best practices](defense/defense-best-practices.md)
+  * [Best practices](defense/defense.md)
 
 ## OTHER
 
