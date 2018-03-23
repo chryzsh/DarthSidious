@@ -46,7 +46,6 @@
   * [Stealth](bypass/becoming-a-ninja-staying-stealthy.md)
   * [From RDS app to Empire shell](bypass/bypassing-rds.md)
 
----
 
 ## DEFENSE
 
