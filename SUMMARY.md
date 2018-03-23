@@ -1,17 +1,17 @@
 # Summary
 
-## GETTING STARTED
+## SUMMARY
 
 * [Introduction](README.md)
-* [How stuff works](stuff/how-stuff-works.md)
-  * [Mini guide to Windows](stuff/miniguide.md)
 
----
+## GETTING STARTED
 
-
-* [Creating a lab](labs/creating.md)
+* [Getting started](labs/getting-started.md)
+* [Building a lab](labs/building-a-lab.md)
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
+* [How stuff works](stuff/how-stuff-works.md)
+  * [Mini guide to Windows](stuff/miniguide.md)
 
 ## GENERAL ATTACKS
 
