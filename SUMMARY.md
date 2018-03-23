@@ -1,22 +1,15 @@
 # Summary
 
 ## GETTING STARTED
----
 
 * [Introduction](README.md)
 * [How stuff works](stuff/how-stuff-works.md)
   * [Mini guide to Windows](stuff/miniguide.md)
-  
----
-
 * [Creating a lab](labs/creating.md)
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
-  
----
 
 ## GENERAL ATTACKS
-
 
 * [General attacks](general/compromising-ad.md)
   * [From network access to Domain Admin](from-network-access-to-domain-admin.md)
@@ -26,13 +19,12 @@
   * [Mimikatz](general/mimikatz.md)
   * [Token Impersonation](general/rotten-potato.md)
   * [RDP Session Hijacking](general/rdp-session-hijacking.md)
-  
----
-
 * [Responder](responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
-  
+
+---
+
 ---
 
 * [Bypassing security controls](bypass/bypass-security-controls.md)
@@ -54,6 +46,9 @@
 
 * [War stories](warstories/warstories.md)
   * [Domain admin in 30 minutes](warstories/domain-admin-in-30-minutes.md)
+  
+---
+
 * [Defense](defense/defense.md)
   * [Best practices](defense/defense-best-practices.md)
 
