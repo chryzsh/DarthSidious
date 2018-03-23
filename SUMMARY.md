@@ -5,7 +5,10 @@
 * [Introduction](README.md)
 * [How stuff works](stuff/how-stuff-works.md)
   * [Mini guide to Windows](stuff/miniguide.md)
-  * How stuff works
+
+---
+
+
 * [Creating a lab](labs/creating.md)
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
