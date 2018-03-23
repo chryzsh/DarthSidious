@@ -1,8 +1,9 @@
-# Summary
+# Darth Sidious
 
 ## SUMMARY
 
 * [Introduction](README.md)
+* [Table of Contents](SUMMARY.md)
 
 ## GETTING STARTED
 
