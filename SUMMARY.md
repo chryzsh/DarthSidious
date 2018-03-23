@@ -1,6 +1,6 @@
 # Summary
 
-## Part 1
+## GETTING STARTED
 ---
 
 * [Introduction](README.md)
@@ -14,6 +14,8 @@
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
   
 ---
+## GENERAL ATTACKS
+
 
 * [General attacks](general/compromising-ad.md)
   * [From network access to Domain Admin](from-network-access-to-domain-admin.md)
