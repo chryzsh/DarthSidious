@@ -37,7 +37,7 @@
   * [Bypassing Applocker](bypass/bypassing-applocker.md)
   * [Bypassing AMSI](bypass/bypassing-amsi.md)
   * [Stealth](bypass/becoming-a-ninja-staying-stealthy.md)
-  * [From RDS app to Empire shell](bypassing-rds.md)
+  * [From RDS app to Empire shell](bypass/bypassing-rds.md)
 
 ---
 
