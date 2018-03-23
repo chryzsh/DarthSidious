@@ -19,7 +19,7 @@
 * [RDP Session Hijacking](rdp-session-hijacking.md)
 * [Bypassing Applocker](bypassing-applocker.md)
 * [Bypassing AMSI](bypassing-amsi.md)
-* [Defense](defense-best-practices.md)
+* [Defense](todo/defense-best-practices.md)
 * [Stealth](becoming-a-ninja-staying-stealthy.md)
 * [Powershell magic](pivoting.md)
 * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
