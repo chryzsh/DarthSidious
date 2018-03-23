@@ -20,7 +20,10 @@
   * [Mimikatz](general/mimikatz.md)
   * [Token Impersonation](general/rotten-potato.md)
   * [RDP Session Hijacking](general/rdp-session-hijacking.md)
-* [Responder](responder.md)
+
+---
+
+* [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
 
