@@ -37,8 +37,8 @@
 * [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
-
-
+  
+  
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
   * [Bypassing Applocker](bypass/bypassing-applocker.md)
