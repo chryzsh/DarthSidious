@@ -23,8 +23,11 @@
   * [BloodHound](general/bloodhound.md)
   * [Ranger](general/using-ranger.md)
   * [Mimikatz](general/mimikatz.md)
-  * [Token Impersonation](general/rotten-potato.md)
   * [RDP Session Hijacking](general/rdp-session-hijacking.md)
+  * [Exploiting MSSQL](exploitation/exploiting-mssql.md)
+  * [MS14-068](exploitation/ms14-068.md)
+  * [Token Impersonation](exploitation/rotten-potato.md)
+
   
 * [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
@@ -37,16 +40,7 @@
   * [Stealth](bypass/becoming-a-ninja-staying-stealthy.md)
   * [From RDS app to Empire shell](bypass/bypassing-rds.md)
 
-
 ---
-
-
-* [Exploiting MSSQL](exploitation/exploiting-mssql.md)
-
-
----
-
-
 
 ## DEFENSE
 
