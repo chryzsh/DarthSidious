@@ -15,6 +15,7 @@ This is commonly known as red team, but I am also very concerned with blue team.
 3. Defending it
 
 I have structured this book so it can be followed more or less sequentally. Naturally, to practice these things, a lab is necessary. That is why I have made several guides on how to build a lab, with varying degrees of comprehensiveness and size of labs.
+
 **
 I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
 
