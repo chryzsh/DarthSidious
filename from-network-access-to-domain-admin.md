@@ -87,7 +87,7 @@ Once a path has been laid out, you can start moving laterally in the domain. How
 
 ## Hijack Domain Admin access
 
-**Goal: Getting shell or credentials as DA      
+**Goal: Getting shell or credentials as DA        
 **By this point you have ended up on a box
 
 **Tools**

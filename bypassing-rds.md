@@ -180,6 +180,7 @@ C:\windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogTo
 * [https://github.com/caseysmithrc/DeviceGuardBypasses](https://github.com/caseysmithrc/DeviceGuardBypasses)
 * [https://github.com/Joshua1909/AllTheThings](https://github.com/Joshua1909/AllTheThings)
 * [https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html](https://disman.tl/2015/01/30/an-improved-reflective-dll-injection-technique.html)
-
+* https://twitter.com/gentilkiwi/status/976939139248640000
+* 
 
 
