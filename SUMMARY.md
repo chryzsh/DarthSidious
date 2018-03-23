@@ -1,13 +1,20 @@
 # Summary
 
 ## Part 1
+---
 
 * [Introduction](README.md)
 * [How stuff works](stuff/how-stuff-works.md)
   * [Mini guide to Windows](stuff/miniguide.md)
+  
+---
+
 * [Creating a lab](labs/creating.md)
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
+  
+---
+
 * [General attacks](general/compromising-ad.md)
   * [From network access to Domain Admin](from-network-access-to-domain-admin.md)
   * [Pass the hash](general/pass-the-hash.md)
@@ -16,9 +23,15 @@
   * [Mimikatz](general/mimikatz.md)
   * [Token Impersonation](general/rotten-potato.md)
   * [RDP Session Hijacking](general/rdp-session-hijacking.md)
+  
+---
+
 * [Responder](responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
+  
+---
+
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
   * [Bypassing Applocker](bypass/bypassing-applocker.md)
