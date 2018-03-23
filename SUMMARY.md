@@ -32,11 +32,15 @@
   * [Exploiting MSSQL](exploitation/exploiting-mssql.md)
   * [MS14-068](exploitation/ms14-068.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
-----
+  
+--------
+
 * [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
-----
+
+--------
+
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
   * [Bypassing Applocker](bypass/bypassing-applocker.md)
