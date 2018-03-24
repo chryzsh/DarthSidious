@@ -12,7 +12,7 @@
 
 * [Building a lab](labs/building-a-lab.md)
   * [Preparing](labs/preparing.md)
-  * [Building a lab with ESXI and Vagrant](building-a-lab-with-esxi-and-vagrant.md)
+  * [Building a lab with ESXI and Vagrant](labs/building-a-lab-with-esxi-and-vagrant.md)
   
   
 * [How stuff works](stuff/how-stuff-works.md)
@@ -23,7 +23,7 @@
 ## OFFENSE
 
 * [General attacks](general/compromising-ad.md)
-  * [From network access to Domain Admin](from-network-access-to-domain-admin.md)
+  * [From network access to Domain Admin](general/from-network-access-to-domain-admin.md)
   * [Pass the hash](general/pass-the-hash.md)
   * [BloodHound](general/bloodhound.md)
   * [Ranger](general/using-ranger.md)
@@ -57,6 +57,7 @@
 ## OTHER
 
 * [Link encyclopedia](link-encyclopedia.md)
+* [Writeups](writeups/lkyv1.md)
 * [War stories](warstories/warstories.md)
   * [Domain admin in 30 minutes](warstories/domain-admin-in-30-minutes.md)
 
