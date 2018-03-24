@@ -57,7 +57,9 @@
 ## OTHER
 
 * [Link encyclopedia](link-encyclopedia.md)
-* [Writeups](writeups/lkyv1.md)
+* [Writeups](writeups/writeups.md)
+  * [lkylabs v1](writeups/lkyv1.md)
+
 * [War stories](warstories/warstories.md)
   * [Domain admin in 30 minutes](warstories/domain-admin-in-30-minutes.md)
 
