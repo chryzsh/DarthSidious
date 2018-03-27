@@ -30,6 +30,16 @@ In os-shell, use oneliner ninshang Invoke-PowerShellTcp.ps1 to get a proper shel
 ## Get a domain user
 Get list of domain users with net users /domain
 
+### Alternative route: password spraying
+https://www.youtube.com/watch?v=hBvrC4t2hn8
+Generate a list of passwords https://github.com/asciimoo/exrex
+
+
+```
+python exrex.py "(Spring|Winter|Autumn|Fall|Summer)(20)1(78)!"
+```
+
+
 
 ## Domain enumeration
 Bloodhound
