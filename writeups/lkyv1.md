@@ -101,17 +101,16 @@ Get-NetGPO -DisplayName MailServer-Config | %{Get-ObjectAcl -ResolveGUIDs -Name 
 ```
 
 
-This shows that Server Admins has write permissions on the GPO, which is a serious misconfig
+This shows that Server Admins has write permissions on the GPO.
 
 
 
 ```
 ActiveDirectoryRights : CreateChild, DeleteChild, ReadProperty, WriteProperty, GenericExecute
-Get-NetGPO -DisplayName MailServer-Config | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
 ```
 
 
-We see that the group "Server Admins" has modification rights on this GPO. Let's trackthis back to which machines the GPO is applied to
+We see that the group "Server Admins" has modification rights on this GPO. Let's trackthis back to which machines the GPO is applied to based on the GUID of the GPO.
 
 
 
