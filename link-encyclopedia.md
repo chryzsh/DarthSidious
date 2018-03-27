@@ -31,6 +31,10 @@ Going to try to keep this updated.
 * [Invoke-Portscan.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/262a260865d408808ab332f972d410d3b861eff1/Recon/Invoke-Portscan.ps1) - Invoke-Portscan is a module from Powersploit that can perform port scans similar to Nmap straight from Powershell.
 * [Walking back local admins](http://www.sixdub.net/?p=591) - Finding local admins in AD
 
+### Kerberos
+* [HarmJ0y - roasting-as-reps](http://www.harmj0y.net/blog/activedirectory/roasting-as-reps/) - Article about Kerberos preauthentication
+* [HarmJ0y/ASREPRoast](https://github.com/HarmJ0y/ASREPRoast) - Project that retrieves crackable hashes from KRB5 AS-REP responses for users without kerberoast preauthentication enabled.
+
 ### Tunneling
 * [SShuttle](http://sshuttle.readthedocs.io/en/stable/) - SShuttle creates an SSH tunnel that works almost just like a VPN
 
