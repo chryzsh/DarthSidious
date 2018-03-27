@@ -97,7 +97,7 @@ Enumerate GPOs further, including the MailServer-Config
 
 
 ```
-Get-NetGPO | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
+Get-NetGPO -DisplayName MailServer-Config | %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}
 ```
 
 
