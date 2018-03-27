@@ -29,6 +29,7 @@ Going to try to keep this updated.
 
 ### Enumeration
 * [Invoke-Portscan.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/262a260865d408808ab332f972d410d3b861eff1/Recon/Invoke-Portscan.ps1) - Invoke-Portscan is a module from Powersploit that can perform port scans similar to Nmap straight from Powershell.
+* [Walking back local admins](http://www.sixdub.net/?p=591) - Finding local admins in AD
 
 ### Tunneling
 * [SShuttle](http://sshuttle.readthedocs.io/en/stable/) - SShuttle creates an SSH tunnel that works almost just like a VPN
