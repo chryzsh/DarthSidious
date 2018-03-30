@@ -1,8 +1,29 @@
 # Stealth
 
-This chapter is about staying stealthy
+This chapter is about staying stealthy and opsec safe. That means not getting caught by the blue team on engagements.
 
-## 
+## General
+These are some key things we must avoid
+
+* Putting files on disk
+* RDP in to boxes
+* Trigger pop-ups on desktops
+* Changing account passwords
+* Locking out users
+* Changing group membership of accounts
+* Changing existing settings and files
+* Changing GPOs permanently
+* Messing up Kerberos tickets
+* Triggering alerts from security products like AV
+* Killing processes you don't own
+* Any sort of DOS
+* Leaving files and tools
+* Not cleaning up
+
+
+    
+
+
 
 ## Obfuscating mimikatz
 
