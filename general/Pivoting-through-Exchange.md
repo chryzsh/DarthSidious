@@ -85,8 +85,6 @@ The simplest method is to use a script microsoft made to get all the rules
 
 You will need to have a global admin role to run the script
 
-
-
 ### Closing Thoughts
 
 with ruler we can pop a shell and pivot across the network its a great tool that has alot to explore what i showed here is a just one of the things its capable of doing i suggest you to explore the rest of it and get better understanding of its true power.
