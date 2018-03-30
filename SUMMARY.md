@@ -31,7 +31,7 @@
   * [Exploiting MSSQL](exploitation/exploiting-mssql.md)
   * [MS14-068](exploitation/ms14-068.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
-  * [Pivoting Through Exchange ](//general/Pivoting-through-Exchange.md)
+  * [Pivoting Through Exchange](general/pivoting-through-exchange.md)
 
 ---
 
