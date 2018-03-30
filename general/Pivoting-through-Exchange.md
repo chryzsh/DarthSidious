@@ -23,9 +23,7 @@ in a real life scenario most employees leave their outlook open because they are
 * VBScript execution through forms
 * VBScript execution through the Outlook Home Page
 
-crazy isnt it? now that we know some of ruler usage lets get starting 
-
-
+crazy isnt it? now that we know some of ruler usage lets get starting
 
 ### Checking that we are good to go :
 
@@ -33,7 +31,7 @@ i wont go through on how to find mail structures,adding dns records etc ill leav
 
 once we know the mail structure,added dns records etc we can start by checking with the exchange server that we  can communicate to it and that we are able to authenticate and open the mailbox.
 
-depends on how you compile ruler it may be different than the syntax below 
+depends on how you compile ruler it may be different than the syntax below
 
 ```
 go ruler run --email test@lab.local --verbose check
@@ -44,14 +42,14 @@ once executed we will get a password prompt,if everything is valid we should get
 ### Viewing Existing Rules :
 
 ```
-go ruler run --email test@lab.local display 
+go ruler run --email test@lab.local display
 ```
 
 ### Setting up an Empire Listener
 
 i wont go into how to set up an empire or its  listener you can refer to chryzsh [link](https://chryzsh.gitbooks.io/darthsidious/content/responder/relay.html) in the book to get an understanding of how to quickly set it up. instead of using a one liner we should generate a .bat powershell and host it on a webdav server.
 
-there are many guides on the net on how to quickly set up a webdav server. 
+there are many guides on the net on how to quickly set up a webdav server.
 
 its worth mentiniong that its possible to evade detection by zipping the .bat and then calling it through webdav directory.
 
@@ -67,25 +65,31 @@ this command basically gonna send an email to the user inbox and trigger our rul
 
 now its worth mentioning that the user wont see the mail in his sent items since its automatically gettin deleted so we dont have to worry about that.
 
-### Deleting the rule & Cleaning up 
+### Deleting the rule & Cleaning up
 
-once we are done we can delete 
+once we are done we can delete
 
-`go ruler run  --email test@lab.local delete --name test `
+`go ruler run  --email test@lab.local delete --name test`
 
 ### Defending against Ruler
 
 1. Enable Multi-factor Authentication for all of your users, especially those with administrative privileges.
 
-1. Monitor your accounts for illicit activity. You can do this manually, or with a security monitoring toolset. This may not prevent the initial breach, but will shorten the duration, and the impact of the breach.
+2. Monitor your accounts for illicit activity. You can do this manually, or with a security monitoring toolset. This may not prevent the initial breach, but will shorten the duration, and the impact of the breach.
 
-### How to Detect it 
+### How to Detect it
 
-The simplest method is to use a script microsoft made to get all the rules 
+The simplest method is to use a script microsoft made to get all the rules
 
 [https://github.com/OfficeDev/O365-InvestigationTooling/blob/master/Get-AllTenantRulesAndForms.ps1](https://github.com/OfficeDev/O365-InvestigationTooling/blob/master/Get-AllTenantRulesAndForms.ps1)
 
-  You will need to have a global admin role to run the script
+You will need to have a global admin role to run the script
+
+
+
+### Closing Thoughts
+
+with ruler we can pop a shell and pivot across the network its a great tool that has alot to explore what i showed here is a just one of the things its capable of doing i suggest you to explore the rest of it and get better understanding of its true power.
 
 
 
