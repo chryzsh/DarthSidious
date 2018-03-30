@@ -21,3 +21,12 @@ I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
 
 
 **Questions/Suggestions:** Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
+
+
+### Changelog
+|  Date | Who  | What  |
+|---|---|---|
+|  May2017 | chryzsh  | Book created  |
+| March 2018  | chryzsh  | Restructured book  |
+| 30.03.2018 | bufferov3rride  | Added article [Pivoting Through Exchange](general/pivoting-through-exhcange.md) |
+
