@@ -4,7 +4,7 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 
 **This guide/tutorial will teach you the following:**
 
-* Creating a virtual Windows domain lab environment with a few hosts and a domain controller
+* Creating a virtual Active Directory domain lab environment
 * Credential Replay Attacks
 * Domain Privilege Escalation
 * Dumping System and Domain Secrets
@@ -13,14 +13,7 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 * Actual pentest experiences
 
 
--If you have no idew what you are doing, we recommend reading the mini guide to Windows and then begin setting up a lab. There are currently two lab building guides in this book:
-
-##### Mini lab for children
-The first lab guide helps you set up a very small and simple lab consisting of a domain controller and a few workstations. The goal is to practice Responder and other fun tools for credential relaying.
-
-##### Big boy labs for big boys
-We have added an article for building a much bigger lab using ESXi and automating a lot of it with Vagrant. If you feel confident, brave and have a lot of time, go for this. It requires fundamental knowledge of setting up Active Directory and configuring Windows machines. It could be used as a companion lab for MCSA and MCSE certifications.
-
+-If you have no idew what you are doing, we recommend reading the [Mini guide to Windows ](stuff/miniguide.md) and then begin [Building a lab](labs/building-a-lab.md). 
 
 **Obvious disclaimer is obvious**
 
@@ -29,7 +22,6 @@ The tools demonstrated in this book should not be used in an environment without
 **Todo list**
 
 * Stealth - improve article
-
 * Introduction to Active Directory
 * Kerberos and authentication in AD
 * Introduction to PowerShell
@@ -43,11 +35,7 @@ The tools demonstrated in this book should not be used in an environment without
 * General recommendations for securing AD
 
 **Future plans**
-
-
-
 * Kerberos Attacks and Defense \(Golden, Silver tickets and more\)
-* Abusing Cross Domain Trusts
 * Delegation Issues
 * Persistence Techniques
 * Abusing SQL Server Trusts in an AD Environment

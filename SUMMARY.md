@@ -1,4 +1,4 @@
-# Darth Sidious
+# Summary
 
 ## SUMMARY
 
@@ -8,14 +8,11 @@
 ## GETTING STARTED
 
 * [Getting started](labs/getting-started.md)
-
 * [Building a lab](labs/building-a-lab.md)
-
   * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](labs/building-a-lab-with-esxi-and-vagrant.md)
-
+  * [Building a small lab](labs/building-a-small-lab.md)
 * [How stuff works](stuff/how-stuff-works.md)
-
   * [Mini guide to Windows](stuff/miniguide.md)
   * [Powershell](powershell/powershell.md)
 
@@ -33,11 +30,13 @@
   * [Token Impersonation](exploitation/rotten-potato.md)
   * [Pivoting Through Exchange](general/pivoting-through-exchange.md)
 
+---
 
 * [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
 
+---
 
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
@@ -55,12 +54,7 @@
 
 * [Link encyclopedia](link-encyclopedia.md)
 * [Writeups](writeups/writeups.md)
-
   * [lkylabs v1](writeups/lkyv1.md)
-
 * [War stories](warstories/warstories.md)
-
   * [Domain admin in 30 minutes](warstories/domain-admin-in-30-minutes.md)
-
-
 
