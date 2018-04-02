@@ -11,14 +11,17 @@ In real engagements you are usually provided with some basics, but to make this 
 
 The general approach to going from external network access to domain admin consists of numerous steps. Usually things don't work out perfectly linearly like this on a real engagement. There will almost always be forks, twists and turns on the way, requiring you to take steps both backwards and to the side.
 
-##### Reconnaissance
-* OSINT
-* Social Engineering
 
 
 ##### Enumerating the external network
 * Port scanning
 * Investigating exposed services
+
+##### Reconnaissance
+* OSINT
+* Social Engineering
+* 
+
 
 
 ##### Get a domain user
