@@ -118,22 +118,19 @@ Depending on your goal, this step can potentially be skipped in favor of startin
 **Tools**
 * Nessus
 * Nmap
+* Metasploit
 
 
 ## Automatically enumerating the domain
 
 **Goal: Discover computers, users, groups and GPOs**
-
-**Method**
-We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. There will also be GPOs applied that can be enumerated. Certain domains may have several trusts too. Bloodhound is a key tool for this step.
+We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. There will also be GPOs applied that can be enumerated. Certain domains may have several trusts too. Bloodhound is a key tool for this step. Bloodhound should already have given you a path now. A default query in BH is "Shortest path do DA" which should give you a few options, granted the size and/or configuration of the domain. If not, however, manual enumeration is needed.
 
 **Technique**
 * Run Bloodhound collection
 * Look for DA sessions
-* Look for local admin
+* Look for local admin privileges for current user
 * Identify paths to Domain Admin
-
-Bloodhound should already have given you a path now. A default query in BH is "Shortest path do DA" which should give you a few options, granted the size and/or configuration of the domain. If not, however, manual enumeration is needed.
 
 **Tools**
 * Bloodhound
@@ -142,25 +139,30 @@ Bloodhound should already have given you a path now. A default query in BH is "S
 
 
 ## Manually enumerating the domain
-**Goal: **
-In a decently patched AD environment, there won't be any point in trying too hard to escalate privileges locally on a box. Usually if you are 
+**Goal: Increasing privileges in the domain **
+Usually if you are a regular user of sorts you won't have privileges to much in the domain. That means you are probably not local administrator anywhere. This is pretty much a key step to be able to use tools like Mimikatz. A typical approach is to go from workstation user -> workstation admin -> server admin -> domain admin.
 
-* Identify if the user you have is local admin on any machine.
+In a decently patched AD environment, there won't be any point in trying too hard to escalate privileges locally on a box.
+
+**Technique**
+* Identify if the user you have is local admin on any machine
+* Identify group memberships
+* Identify GPOs applied to user, group membership or current machine
 * Possibly escalate privileges locally
 
+**Tools**
+* Empire
+* PowerView
+
 ## Move towards Domain Admin
+**Goal: Command execution on a box with Domain Admin session on**
+Once a path has been laid out, you can start moving laterally in the domain. However, since AD is built the way it is you don't necessarily have to pop shells all over the place. Not only does this increase the possibility of detection, but if the environment have the capabilities of remoting in to boxes, then that is a better option. This is why i have written command execution and not shell here. While the difference is only so slight, it can be a very efficient way of getting things done. Also consider you will potentially be doing these kinds of activities over a tunnel, which might add significant delay to your operations. Normally, the deeper you get into the internal network, the tougher it gets.
 
-**Goal: Reaching a box with Domain Admin credentials on**
-
-Once a path has been laid out, you can start moving laterally in the domain. However, since AD is built the way it is you don't necessarily have to pop shells all over the place. Not only does this increase the possibility of detection, but if the environment have the capabilities of remoting in to boxes, then that is a better option.
-
-This step depends a lot on the domain size and configuration. If every user has local administrator access on their workstations or there are hundreds of DAs, this step is usually trivial.
+This step depends a lot on the domain size, security maturity and configuration. If every user has local administrator access on their workstations or there are hundreds of DAs, this step is usually trivial
 
 
 **Technique**
 * 
-
-
 
 **Tools**
 * Powershell
@@ -168,14 +170,18 @@ This step depends a lot on the domain size and configuration. If every user has 
 
 
 ## Hijack Domain Admin access
+**Goal: Command execution as DA or DA credentials**    
+By this point you should have access to execute command on a box that hopefully has a domain admin logged in. The goal of this step is then to escalate privileges to DA. If you are local administrator on the box, this is easy. You can simply use mimikatz to dump credentials (passwords or hashes) for users. If that is not an option you can use token impersonation to steal the DA's token. However, if no admin privileges at all is possible to gain, you should start enumerating who is local admin on this box and see if you can acqurie said privilege.
 
-**Goal: Getting a shell as or DA credentials**    
-By this point you have ended up on a box that hopefully has a domain admin logged in. The goal is then to escalate privileges to DA. If you are local admin this is easy, because you can use mimikatz to dump credentials (passwords or hashes) for users. If that is not an option you can use token impersonation to steal the DA's token.
+**Technique**
+* If local admin -> Mimikatz
+* Else -> enumerate who is local admin
+* Gain user to local admin for said box
 
 **Tools**
-
 * Powershell
 * PowerView
-* Invoke-Tokenimpersonation
+* Invoke-TokenImpersonation
+* Invoke-InternalMonologue
 
 
