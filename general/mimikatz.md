@@ -18,9 +18,6 @@ mimikatz # sekurlsa::logonpasswords
 ```
 
 
-
-
-
 ### DPAPI method
 In certain scenarios like RDP jumpstations a user might find it useful to save RDP credentials locally in Windows to prevent having to retype passwords. A common scenario is a regular user with a separate admin privileged account that is used for RDP-ing into other boxes. The passwords are then stored in the Windows credential manager.
 
@@ -53,6 +50,8 @@ The username and plaintext password should be printed.
 UserName       : LAN\username_adm
 CredentialBlob : Sup3rAw3s0m3Passw0rd!
 ```
+
+Use `vault::list` to figure out what boxes the credentials belong to. Often they are to specific servers.
 
 **Useful links**
 https://github.com/gentilkiwi/mimikatz/wiki/module-%7E-dpapi
