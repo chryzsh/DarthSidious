@@ -13,8 +13,8 @@
   * [Building a small lab](labs/building-a-small-lab.md)
   * [Preparing Kali](labs/preparing.md)
 * [Intro to Windows security](stuff/how-stuff-works.md)
-  * [Intro to Windows hashes](stuff/miniguide.md)
   * [Powershell](powershell/powershell.md)
+  * [Intro to Windows hashes](stuff/miniguide.md)
 
 ## OFFENSE
 
@@ -26,6 +26,7 @@
   * [Mimikatz](general/mimikatz.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
   * [Pivoting Through Exchange](general/pivoting-through-exchange.md)
+  * [Password spraying](general/password-spraying.md)
 
 ---
 

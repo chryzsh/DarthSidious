@@ -21,41 +21,28 @@ The general approach to going from external network access to domain admin consi
 
 
 
-##### Enumerating the internal network
-
-Since network access is the only thing provided, the first step naturally becomes to enumerate the network to discover computers.
-
-
-
-##### Enumerate the domain
-* Bloodhound
-* Powerview
-
-
-
-##### Take steps towards Domain Admin
-
-This depends on the domain size and configuration. If every user has local administrator access on their workstations and there are hundreds of DAs, this step is usually trivial.
-
-
-### Enumerating the external network
-**Goal: find a target**
+## Enumerating the external network
+**Goal: Find a target**
+You are on the external network, often this will be the Internet. You should of course have a target in mind already. If you're targeting a lab environment, a set of IP addressed should already be available. The first step will be enumerating a set of IPs or subnets. Once one or more target machines and services have been discovered, they should be investigated thoroughly.
 
 **Technique**
 * Port scanning
 * Investigating exposed services
 
-
+**Tools**
+* Nmap
+* Firefox
 
 ## Acquiring domain user credentials
-
 **Goal: Get domain user credentials**
+A domain user is any user in the domain. We of course have to figure out the domain name first. Once you have acquired the domain name, you can try a technique called password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other. That means if we can figure out the syntax we can attempt to authenticate with common passwords. However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five attempts.
 
 **Method** 
 * Figure out the domain name
 * Figure out the domain account name syntax
 * Acquire a domain user account name
 * Acquire a domain account's password
+
 
 **Technique**
 * OSINT
@@ -65,48 +52,54 @@ This depends on the domain size and configuration. If every user has local admin
 
 
 **Tools**
+* OSINT
 * Burp Intruder
 * Mailsniper
 
 
-A domain user is any user in the domain. We of course have to figure out the domain name first. Once you have acquired the domain name, you can try a technique called password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other. That means if we can figure out the syntax we can attempt to authenticate with common passwords. However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five attempts.
-
-
-* Password spraying
 
 
 
 ### Acquiring a shell on the internal network
 **Goal: Getting a shell on a machine in the internal network**
+The goal here is getting a payload executed on the internal network that connects back to you. This, so you gain a shell on a machine in the internal network.
 
-**Method**
+The most obvious method is like hacking in 2003, you exploit some vulnrability in an externally exposed service. That can be everything from an RCE in wordpress, Sharepoint or an SQL injection somewhere. If this is not possible, there are tools that can help you abuse existing services like Ruler abuses Exchange. The last alternative is phishing, which may . 
+
+**Technique**
 * Abusing externally exposed services
 * Exploiting vulnerabilities
 * Phishing
 
-**Technique**
 
 **Tools**
-
+* Ruler
+* Phishing with HTA payload
+* Metasploit
 
 
 
 ### Command and Control (C2)
 **Goal: establishing a communication system to the internal network**
-* Tunneling traffic
-* Persistence
-
+A shell gained through for example an SQL injection might not be the most stable channel to work with. We need to set up a better channel for interacting with the system. This is where a command and control infrastructure comes in. It can easily be set up from an environment where you control port openings like at home, or through an AWS box.
 
 **Technique**
+* Establish a C2 server
+* Open a port and listener on the server
+* Connect back from domain
+* Establish persistence
 
 **Tools**
-
+* Empire
+* dnscat2
+* Empire persistence modules
 
 
 
 ## Enumerate the internal network
-**Goal: Find a domain controller**  
+**Goal: Find vulnerabilites on machines in the internal network**  
 
+**Method**
 Only when a domain user shell has been acquired and a stable means of communicating and interacting with the internal network has been established, enumerating the domain itself can begin.
 
 We want to discover as much as possible. The best alternative here is to use a commercial vulnerability scanner. If such a tool is not available, use free tools like Nmap, but remember to stay organized when working in large networks. The output can be enormous.
@@ -115,48 +108,64 @@ We're looking for the good stuff here, the domain controllers. In big domains th
 
 Other things to look for are port 443 as SSL certificates often contain domain names. In relation to that you should also look for Outlook Web Access portals.
 
+Depending on your goal, this step can potentially be skipped in favor of starting to enumerate the domain instead. You might discover domain admin is wonderfully close, and if that's your goal then spending a lot of time scanning for vulnerabilites is essentially a waste. However, you might discover machines in the domain vulnerable to MS17-010 and if they in fact are exploitable, you have very easy SYSTEM access on boxes. Note that port and vulnerability scanning inside a controlled network usually gets picked up by the blue team very fast. So it's not a good option if you're looking to be stealthy.
+
+**Technique**
+* Scan for vulnerabilites
+* Review results
+* Pick a target
+
 **Tools**
 * Nessus
-* 
+* Nmap
 
 
-## Enumerate the domain
+## Automatically enumerating the domain
 
 **Goal: Discover computers, users, groups and GPOs**
 
 **Method**
-
 We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. There will also be GPOs applied that can be enumerated. Certain domains may have several trusts too. Bloodhound is a key tool for this step.
 
+**Technique**
+* Run Bloodhound collection
+* Look for DA sessions
+* Look for local admin
+* Identify paths to Domain Admin
+
+Bloodhound should already have given you a path now. A default query in BH is "Shortest path do DA" which should give you a few options, granted the size and/or configuration of the domain. If not, however, manual enumeration is needed.
 
 **Tools**
-
 * Bloodhound
 * PowerView
 * Empire
 
-## Identify paths to Domain Admin
-
-**Goal: Make a plan for reaching DA**  
-Bloodhound should already have given you this. A default query in BH is "Shortest path do DA" which should give you a few options, granted the size and/or configuration of the domain. If not, however, manual enumeration is needed.
-
-**Tools**
-* Bloodhound
-* PowerView
 
 ## Manually enumerating the domain
 **Goal: **
 In a decently patched AD environment, there won't be any point in trying too hard to escalate privileges locally on a box. Usually if you are 
 
 * Identify if the user you have is local admin on any machine.
-* 
 * Possibly escalate privileges locally
 
 ## Move towards Domain Admin
 
 **Goal: Reaching a box with Domain Admin credentials on**
 
-Once a path has been laid out, you can start moving laterally in the domain. However, since AD is built the way it is
+Once a path has been laid out, you can start moving laterally in the domain. However, since AD is built the way it is you don't necessarily have to pop shells all over the place. Not only does this increase the possibility of detection, but if the environment have the capabilities of remoting in to boxes, then that is a better option.
+
+This step depends a lot on the domain size and configuration. If every user has local administrator access on their workstations or there are hundreds of DAs, this step is usually trivial.
+
+
+**Technique**
+* 
+
+
+
+**Tools**
+* Powershell
+* WinRM
+
 
 ## Hijack Domain Admin access
 
