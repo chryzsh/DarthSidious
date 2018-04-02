@@ -22,15 +22,10 @@
   * [From network access to Domain Admin](general/from-network-access-to-domain-admin.md)
   * [Pass the hash](general/pass-the-hash.md)
   * [BloodHound](general/bloodhound.md)
-  * [Ranger](general/using-ranger.md)
   * [Mimikatz](general/mimikatz.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
   * [Pivoting Through Exchange](general/pivoting-through-exchange.md)
   * [Password spraying](general/password-spraying.md)
-
----
-
-* [Responder](responder/responder.md)
   * [Responder with NTLM relay and Empire](responder/relay.md)
   * [DeathStar](responder/deathstar.md)
 

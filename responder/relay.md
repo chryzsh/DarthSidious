@@ -18,7 +18,24 @@ Where the CIDR is your domain subnet. This generates a list of hosts which have 
 
 #### Responder
 
-Now in the previous attack Responder had set up an HTTP and SMB server to act as a middleman. We now want to give our captured hashes to NTLMrelay, so we edit `Responder.conf` to turn off the HTTP and SMB server.
+https://www.sternsecurity.com/blog/local-network-attacks-llmnr-and-nbt-ns-poisoning
+
+Responder does not pick up on FQDN queries, but it does pick up on NetBIOS and LLMNR, because Windows boxes are very chatty. When Windows boxes try to authenticate to things like file shares they default to NetBIOS for queries. This occurs with the use of NetNTLMv2 hashes.
+
+Responder captures these NetNTLMv2 hashes. You can not pass the hash with these but you can crack them or you can relay them to other machines. This part will only explain how to run Responder and capture hashes.
+
+**Start Responder**
+```
+Responder -I eth0 -wrf
+```
+
+Where -I is for interface and eth0 is your interface. The -wrf is optional, but -f is useful as it fingerprints the OS version. The other options are explained with -h.
+
+To try this out in your lab, open explorer on a Windows machine and type `\\share\` in the address bar and wait for the credential prompt. This will trigger a name resolution request over SMB to find a resource using the current account's credentials. That should allow Responder to capture the NetNTLMv2 hash of the user making the request and print them in your terminal.
+
+You can now crack the hashes using your favorite tool, but another alternative is relaying those hashes.
+
+Now so far, Responder had set up an HTTP and SMB server to act as a middleman between the one requesting a resource and the file share. We now want to give our captured hashes to the tool NTLMrelay, so we edit `Responder.conf` to turn off the HTTP and SMB server.
 
 After that is done, run Responder like before:
 
@@ -26,13 +43,14 @@ After that is done, run Responder like before:
 Responder -I eth0 -wrf
 ```
 
-where eth0 is your interface. The -wrf is optional.
-
 #### Empire
 
-Now getting into Empire should take an hour or so to have it all memorized. A short guide can be found [here](https://www.sw1tch.net/2015/08/11/powershellempire-5-minute-quick-start-guide-featuring-kali-linux-andor-debian-8-0/), but a few commands are listed below:
+Now getting into Empire shouldn't be too hard if you are familiar with tools such as Metasploit. A short guide can be found [here](https://www.sw1tch.net/2015/08/11/powershellempire-5-minute-quick-start-guide-featuring-kali-linux-andor-debian-8-0/).
+
+Start up Empire, open a listener and create a so called stager, point it to your listener. The generated output is your payload. Note that this kind of output is normally picked up by antivirus in real environment.
 
 ```
+./empire
 uselistener http
 set Port 81
 execute
@@ -55,7 +73,7 @@ Now copypaste the payload from Empire into the NTLMrelay command above. This wil
 
 #### Back to Empire
 
-Now I have had some trouble where agents are not always spawned or hashes are not captured. Here's what you can try:
+Now in my lab environment I have had some trouble where agents are not always spawned or hashes are not captured. Here's what you can try:
 
 * Trigger a few requests from the Windows machines using the `\\share\` trick.
 * Restart all the tools.
