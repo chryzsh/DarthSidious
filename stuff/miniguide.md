@@ -22,6 +22,15 @@ NTLM hash is just as good as plaintext creds when authenticating to windows mach
 
 Cracking hashes can be a lot of fun, and since most user passwords are shitty / not complex they can easily be cracked in the manner of seconds or minutes. Imagine if the domain has a password reset policy of 90 days. If you crack a user's credentials in two hours it's a big fail for them. If you can crack a domain admin's creds in two hours or even a few days it's game over for them. But instead of cracking hashes, we can reuse them by relaying.
 
+
+### Authentication in Windows
+There are numerous ways of proving identity in Windows systems.
+* **Passwords** - Passwords are
+* **Hashes** - Windows can use hashes for authentication. It is possible to leverage attacks like pass-the-hash to prove identity with a compromised user, completely without the account password.
+* **Tokens** - the concept of token is identity.  When a user or service logs in to a system, the system validates their identity once, and mints a token, which is handed to that user/service and serves as their identity. The system then doesn't need to validate identity every time a program opens a file, for example. This basically ensures a clean separation between authentication (proving a user/service is who they say they are) and authorization (determining whether a user/service can access some resource).
+* **Tickets **- usually refers to Kerberos tickets, see below.
+
+
 ### Kerberos
 
 Kerberos is an authentication protocol in Windows based on \_tickets \_to allow machines communicating over non-secure networks to provide their identity to one another in a secure manner. Kerberos builds on symmetric key cryptography and requires a trusted third party, and optionally may use public-key cryptography during certain phases of authentication. Kerberos uses UDP port 88 by default.
@@ -40,7 +49,7 @@ There are a few different name resolution protocols and names in Windows:
 * **LLMNR** - Link-Local Multicast Name Resolution
 * **WPAD** - Web Proxy Auto-Discovery Protocol
 
-If the name is a **FQDN**, which means a full name including domain name like `share.hacklab.net` it queries the hosts file, and then a DNS-server for name resolution.
+If the name is a **FQDN**, which means a full name including domain name like `test.lab.local` it queries the hosts file, and then a DNS-server for name resolution.
 
 If the name is an unqualified name like `\\fileshare`, the following name resolutions are attempted to find the that fileshare:  
 1. **LLMNR** - uses multicast to perform name resolution for the names of neighboring computers without requiring a DNS server.  
