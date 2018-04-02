@@ -2,6 +2,8 @@
 
 This should cover the basics necessary to follow the attacks performed in this guide.
 
+https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4
+
 ### Windows hashes
 
 There are a few different types of hashes in Windows and they can be very confusing. Some explanations can be found [here](http://www.adshotgyan.com/2012/02/lm-hash-and-nt-hash.html), but read this first:
