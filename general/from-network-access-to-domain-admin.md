@@ -127,7 +127,7 @@ We want to learn as much as possible about the domain. That means identifying wh
 
 
 ## Manually enumerating the domain
-**Goal: Increasing privileges in the domain **
+**Goal: Increasing privileges in the domain**
 Usually if you are a regular user of sorts you won't have privileges to much in the domain. That means you are probably not local administrator anywhere. This is pretty much a key step to be able to use tools like Mimikatz. A typical approach is to go from workstation user -> workstation admin -> server admin -> domain admin.
 
 In a decently patched AD environment, there won't be any point in trying too hard to escalate privileges locally on a box.
@@ -150,11 +150,15 @@ This step depends a lot on the domain size, security maturity and configuration.
 
 
 **Technique**
-* 
+* Pick a target box where DA has session
+* Enumerate privileges on that box
+* Enumerate whether remote command execution is possible
 
 **Tools**
-* Powershell
 * WinRM
+* WMI
+* PsExec
+* Empire lateral movement modules
 
 
 ## Hijack Domain Admin access
