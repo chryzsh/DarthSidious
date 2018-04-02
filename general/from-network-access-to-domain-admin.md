@@ -10,19 +10,9 @@ In certain engagements some level of access is usually provided. Very often this
 
 The general approach to going from external network access to domain admin consists of numerous steps. On a real domain pentest, this isn't possible in a linear fashion outlined here. There will almost always be forks, twists and turns on the way, requiring you to take steps both backwards and to the side. As an example, you can get a shell from an sql injection without having a domain user, so those steps are interchangeable.
 
-1. Enumerating the external network
-2. Acquire domain user credentials
-3. Acquire a shell on the internal network
-4. 
-5. 
-
-
-
-
-
 
 ## Enumerating the external network
-**Goal: Find a target**
+**Goal: Find a target machine**
 You are on the external network, often this will be the Internet. You should of course have a target in mind already. If you're targeting a lab environment, a set of IP addressed should already be available. The first step will be enumerating a set of IPs or subnets. Once one or more target machines and services have been discovered, they should be investigated thoroughly.
 
 **Technique**
@@ -55,8 +45,6 @@ A domain user is any user in the domain. We of course have to figure out the dom
 * OSINT
 * Burp Intruder
 * Mailsniper
-
-
 
 
 
