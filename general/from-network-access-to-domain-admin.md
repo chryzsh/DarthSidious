@@ -18,16 +18,19 @@ The general approach to going from external network access to domain admin consi
 
 ##### Enumerating the external network
 * Port scanning
-* 
+* Investigating exposed services
+
+
+##### Get a domain user
+
+Only when a domain user has been acquired, enumerating the domain itself can begin.
+
 
 
 ##### Enumerating the internal network
 
 Since network access is the only thing provided, the first step naturally becomes to enumerate the network to discover computers.
 
-##### Get a domain user
-
-Only when a domain user has been acquired, enumerating the domain itself can begin.
 
 ##### Enumerate the domain
 
@@ -67,11 +70,11 @@ However, when spraying passwords beware of lockout tresholds. Many enterprises h
 
 ## Enumerate the domain
 
-**Goal: Discover computers, users and groups**
+**Goal: Discover computers, users, groups and GPOs**
 
 **Method**
 
-We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. These things are all called
+We want to learn as much as possible about the domain. That means identifying what computers are in the domain, which users and who these belong too. There will also be GPOs applied that can be enumerated. Certain domains may be added. These things are all called
 
 **Tools**
 
