@@ -1,6 +1,6 @@
 # Bypassing Applocker and Powershell contstrained language mode
 
-[https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/](https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/)
+
 
 There will be environments where Applocker severely restricts which commands can be run on a system. That means no binaries that are not signed by Microsoft. Usually this means an environment where you basically have access to certain whitelisted applications like Internet explorer and notepad. This means getting a shell will be hard.
 
@@ -43,4 +43,11 @@ StarVighter.vbs contents go here with copypasted powershell
 Then get the file on the box, right click on it, select Open with-&gt; Microsoft \(R\) HTML Application host and it should immediately launch and you should get an agent in Empire.
 
 ![](/assets/import.png)
+
+
+**Useful links**
+[https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/](https://oddvar.moe/2017/12/21/applocker-case-study-how-insecure-is-it-really-part-2/)
+https://github.com/api0cradle/UltimateAppLockerByPassList
+http://cn33liz.blogspot.no/2016/05/bypassing-amsi-using-powershell-5-dll.html
+
 

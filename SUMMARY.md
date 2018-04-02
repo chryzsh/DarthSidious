@@ -45,8 +45,6 @@
 
 * [Bypassing security controls](bypass/bypass-security-controls.md)
   * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
-  * [Bypassing Applocker](bypass/bypassing-applocker.md)
-  * [Bypassing AMSI](bypass/bypassing-amsi.md)
   * [From RDS app to Empire shell](bypass/bypassing-rds.md)
   * [Stealth](bypass/stealth.md)
 
