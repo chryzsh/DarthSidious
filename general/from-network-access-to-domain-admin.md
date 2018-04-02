@@ -12,7 +12,7 @@ The general approach to going from external network access to domain admin consi
 
 
 ## Enumerating the external network
-**Goal: Find a target machine**
+**Goal: Acquire a target machine and service**
 You are on the external network, often this will be the Internet. You should of course have a target in mind already. If you're targeting a lab environment, a set of IP addressed should already be available. The first step will be enumerating a set of IPs or subnets. Once one or more target machines and services have been discovered, they should be investigated thoroughly.
 
 **Technique**
@@ -24,7 +24,7 @@ You are on the external network, often this will be the Internet. You should of 
 * Firefox
 
 ## Acquiring domain user credentials
-**Goal: Get domain user credentials**
+**Goal: Acquire domain user credentials**
 A domain user is any user in the domain. We of course have to figure out the domain name first. Once you have acquired the domain name, you can try a technique called password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other. That means if we can figure out the syntax we can attempt to authenticate with common passwords. However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five attempts.
 
 **Method** 
@@ -52,7 +52,7 @@ A domain user is any user in the domain. We of course have to figure out the dom
 **Goal: Getting a shell on a machine in the internal network**
 The goal here is getting a payload executed on the internal network that connects back to you. This, so you gain a shell on a machine in the internal network.
 
-The most obvious method is like hacking in 2003, you exploit some vulnrability in an externally exposed service. That can be everything from an RCE in wordpress, Sharepoint or an SQL injection somewhere. If this is not possible, there are tools that can help you abuse existing services like Ruler abuses Exchange. The last alternative is phishing, which may . 
+The most obvious method is like hacking in 2003, you exploit some vulnrability in an externally exposed service. That can be everything from an RCE in wordpress, Sharepoint or an SQL injection somewhere. If this is not possible, there are tools that can help you abuse existing services like Ruler abuses Exchange. The last alternative is phishing, which may gain you command execution, but at the same time is a somewhat loud way to go about.
 
 **Technique**
 * Abusing externally exposed services
