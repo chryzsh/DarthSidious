@@ -1,8 +1,13 @@
 ### Mapping AD with BloodHound
 
+**Update march 2018:** Bloodhound has been released in version 1.5 which now includes GPO enumeration. More to come regarding this.
+
+
 One of the glorious design features of AD is that everyone in the domain needs to know where everything is. So when you get user credentials and/or a shell, you can basically map the entire domain without breaking any rules. Any user can query Active Directory for computers, domain controllers, groups and sessions.
 
-Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. Do the following:
+Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. There are two software requirements, you need Bloodhound and a database to store. The recommended choice is neo4j, see below.
+
+### Installing neo4j
 
 * [Install neo4j](https://neo4j.com/developer/kb/how-do-i-enable-remote-https-access-with-neo4j-30x/) [Community Edition](https://neo4j.com/download/community-edition/) manually from their [website](https://neo4j.com/download/?ref=hro) , not through apt.
 * [http://neo4j.com/download/other-releases/\#releases](http://neo4j.com/download/other-releases/#releases)
@@ -34,19 +39,14 @@ Similar procedure as linux. Neo4j does not support Java 9, so Java SDK must be v
 
 
 
-#### Back to Bloodhound
+#### Installing Bloodhound
 
 * Install BloodHound according to instructions on the [Github page](https://github.com/BloodHoundAD/BloodHound/wiki/Getting-started)
 
 * Launch BloodHound and log in to the neo4j database with credentials from before
 
-The old method of ingesting, where file is dropped to disk:
-
-```
-powershell -exec bypass
-Import-Module ./BloodHound.ps1
-Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
-```
+#### Ingestion
+To collect data in a format Bloodhound can read is called ingestion. There are several ways of doing this and different types of collection methods.
 
 The new method:
 
@@ -65,19 +65,16 @@ Import-module SharpHound.ps1
 Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –SkipPing
 ```
 
+From Bloodhound [version 1.5](https://github.com/BloodHoundAD/BloodHound/releases/tag/1.5): the container update, you can use the new "All" collection open. See the blogpost from [Specter Ops](https://posts.specterops.io/bloodhound-1-5-the-container-update-fdf1ed2ad9da) for details.
+
+
 ### More Bloodhound stuff
 
 Explanations of things found under Node info
 https://github.com/BloodHoundAD/BloodHound/wiki/Users
-
-
 https://posts.specterops.io/sharphound-target-selection-and-api-usage-bba517b9e69b
-
 https://github.com/porterhau5/BloodHound
-
 [https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/](https://porterhau5.com/blog/representing-password-reuse-in-bloodhound/)
-
 [https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/](https://porterhau5.com/blog/extending-bloodhound-track-and-visualize-your-compromise/)
-
 http://threat.tevora.com/lay-of-the-land-with-bloodhound/
 
