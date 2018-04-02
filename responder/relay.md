@@ -1,6 +1,6 @@
 ### Responder with NTLM relay attack
 
-byt3bl33d3r is a very prominent figure in this area. He has written some good guides on this attack. Because [b3t3bl33d3r's guide](https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html) is good I'll try to make it short.
+byt3bl33d3r has written some good guides on this attack. See [b3t3bl33d3r's guide](https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html)
 
 NetNTLMv2 is microsoft's challenge and response protocol. When authenticating to a server the user's hash followed by the server's challenge is used. With relaying hashes you simply take the NetNTLMv2 hash you collected and relay it to a set of hosts and hopefully the user\(s\) have administrator access. Then you execute a payload and woop de doo you have an admin shell.
 
