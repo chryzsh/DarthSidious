@@ -1,14 +1,14 @@
-# From network access to Domain Admin
+# From external network access to Domain Admin
 
-This article attempts to provide a methodology for domain pentests where the scenario is usually the type where you have network access to a network with one or several domains and nothing more. The goal is to get access as Domain Admin, because DA can do anything. You could say Enterprise Admin is an even bigger target, but to gain access to an EA is trivial once you have DA.
+#### Intro
+This article attempts to provide a methodology for domain pentests. The scenario is that you have been provided internal network access to a network with one or several domains and nothing more. The goal is to get access as Domain Admin.
 
-In real engagements you are usually provided with some basics, but to make this is hard as possible I will try to provide a manual way to find every piece of information necessary to achieve full compromise.
+In certain pentesting engagements some level of access is usually provided. Very often this is internal network access, but that does not mean you should necessarily skip the parts before. There will potentially be things on the internet that will help on the way to domain admin. I try with this article to provide a manual way to find every piece of information necessary to achieve DA access.
 
-In certain engagements some level of access is usually provided. Very often this is internal network access, but that does not mean you should necessarily skip the parts before. There will potentially be things on the internet that will help on the way to domain admin.
 
-## Step by step approach
+#### Step by step approach
 
-The general approach to going from external network access to domain admin consists of numerous steps. On a real domain pentest, this isn't possible in a linear fashion outlined here. There will almost always be forks, twists and turns on the way, requiring you to take steps both backwards and to the side. As an example, you can get a shell from an sql injection without having a domain user, so those steps are interchangeable.
+The general approach to going from external network access to domain admin consists of numerous steps. On a real domain pentest, this usually isn't possible in such a linear fashion as outlined here. There will always be twists and turns requiring you to take steps in multiple directions. However, these steps should help you structure your approach to domain pentesting.
 
 
 ## Enumerating the external network
