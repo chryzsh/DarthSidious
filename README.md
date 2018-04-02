@@ -15,10 +15,9 @@ This is commonly known as red team, but I am also very concerned with blue team.
 2. Hacking it  
 3. Defending it
 
-I have structured this book so it can be followed more or less sequentally. Naturally, to practice these things, a lab is necessary. That is why I have made several guides on how to build a lab, with varying degrees of comprehensiveness and size of labs.
+I have structured this book so it can be followed more or less sequentally. To practice many of these things, a lab is necessary. That is why I have made a few guides on how to build a lab, with varying degrees of comprehensiveness and size.
 
-**  
-I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
+**I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
 
 **Questions/Suggestions:** Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
 
@@ -29,6 +28,8 @@ I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
 | May 2017 | chryzsh | Book created |
 | March 2018 | chryzsh | Restructured book |
 | 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](general/pivoting-through-exchange.md) |
+| 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
+
 
 
 

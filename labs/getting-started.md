@@ -9,11 +9,10 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 * Domain Privilege Escalation
 * Dumping System and Domain Secrets
 * Tools like Empire, Bloodhound and ranger
-* Cool attacks on Microsoft infrastructure
 * Actual pentest experiences
 
 
--If you have no idew what you are doing, we recommend reading the [Mini guide to Windows ](stuff/miniguide.md) and then begin [Building a lab](labs/building-a-lab.md). 
+-If you have no idea what you are doing, we recommend reading the [Mini guide to Windows ](stuff/miniguide.md) and then begin [Building a lab](labs/building-a-lab.md). 
 
 **Obvious disclaimer is obvious**
 

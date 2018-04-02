@@ -4,15 +4,24 @@ This article attempts to provide a methodology for domain pentests where the sce
 
 In real engagements you are usually provided with some basics, but to make this is hard as possible I will try to find a manual way to find every piece of information necessary to achieve full compromise.
 
-byt3bl33d3r has made a tool to automate most of the process after gaining domain user credentials. See the DeathStar article in this Gitbook and his own article here: [https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-dmin-with-a-push-of-a-button.html](https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-dmin-with-a-push-of-a-button.html)
 
 ![](/assets/deathstar.png)
 
 ## Step by step approach
 
-The general approach to going from network access to domain admin consists of a few steps. Usually things don't work out perfectly linearly like this on a real engagement. There will almost always be forks, twists and turns on the way.
+The general approach to going from external network access to domain admin consists of numerous steps. Usually things don't work out perfectly linearly like this on a real engagement. There will almost always be forks, twists and turns on the way, requiring you to take steps both backwards and to the side.
 
-##### Enumerating the network
+##### Reconnaissance
+* OSINT
+* Social Engineering
+
+
+##### Enumerating the external network
+* Port scanning
+* 
+
+
+##### Enumerating the internal network
 
 Since network access is the only thing provided, the first step naturally becomes to enumerate the network to discover computers.
 

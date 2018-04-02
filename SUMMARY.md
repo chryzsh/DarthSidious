@@ -9,11 +9,11 @@
 
 * [Getting started](labs/getting-started.md)
 * [Building a lab](labs/building-a-lab.md)
-  * [Preparing](labs/preparing.md)
   * [Building a lab with ESXI and Vagrant](labs/building-a-lab-with-esxi-and-vagrant.md)
   * [Building a small lab](labs/building-a-small-lab.md)
-* [How stuff works](stuff/how-stuff-works.md)
-  * [Mini guide to Windows](stuff/miniguide.md)
+  * [Preparing Kali](labs/preparing.md)
+* [Intro to Windows security](stuff/how-stuff-works.md)
+  * [Intro to Windows hashes](stuff/miniguide.md)
   * [Powershell](powershell/powershell.md)
 
 ## OFFENSE
@@ -24,9 +24,6 @@
   * [BloodHound](general/bloodhound.md)
   * [Ranger](general/using-ranger.md)
   * [Mimikatz](general/mimikatz.md)
-  * [RDP Session Hijacking](general/rdp-session-hijacking.md)
-  * [Exploiting MSSQL](exploitation/exploiting-mssql.md)
-  * [MS14-068](exploitation/ms14-068.md)
   * [Token Impersonation](exploitation/rotten-potato.md)
   * [Pivoting Through Exchange](general/pivoting-through-exchange.md)
 
