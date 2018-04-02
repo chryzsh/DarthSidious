@@ -5,6 +5,9 @@
 Harmj0y has tips and tricks on his Github too https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
 
 #### User functions
+`Invoke-EnumerateLocalAdmin`
+Enumerates members of the local Administrators groups across all machines in the domain.
+
 
 
 #### Group functions
@@ -19,5 +22,6 @@ Gets members of users who can RDP to a specific machine.
 `Get-NetGPOGroup -ResolveMemberSIDs`
 Gets all GPOs in a domain that set "Restricted Groups" on on target machines, and resolve the SIDs of the member groups or users.
 
-`Get-NetGPO -DisplayName "SQL RDP Users"| %{Get-ObjectAcl -ResolveGUIDs -Name $_.Name}`
-Gets 
+
+`Find-GPOLocation -UserName testuser -LocalGroup RDP`
+Takes a speicifc user or group and checks where the user has access to through GPO enumeration. Here we can see what boxes testuser can RDP into.
