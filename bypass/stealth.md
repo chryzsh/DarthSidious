@@ -20,6 +20,8 @@ These are some key things we must avoid
 * Leaving files and tools
 * Not cleaning up
 
+## Using DLLs
+https://pentestlab.blog/tag/rundll32/
 
 ## Obfuscating mimikatz
 
