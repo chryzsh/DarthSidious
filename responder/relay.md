@@ -93,3 +93,6 @@ To check if the user is part of the Domain Admins group, run `net user "Domain A
 
 Now if you're so lucky that you're a DA you can start looking into lateral movement modules in Empire to get into the DC and have some fun.
 
+
+**Useful links**
+https://blog.stealthbits.com/lateral-movement-with-crackmapexec/
