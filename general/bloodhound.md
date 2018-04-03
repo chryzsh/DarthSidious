@@ -46,26 +46,23 @@ Similar procedure as linux. Neo4j does not support Java 9, so Java SDK must be v
 * Launch BloodHound and log in to the neo4j database with credentials from before
 
 #### Ingestion
-To collect data in a format Bloodhound can read is called ingestion. There are several ways of doing this and different types of collection methods.
 
-The new method:
+To collect data in a format Bloodhound can read is called ingestion. There are several ways of doing this and different types of collection methods. The most useable is the Powershell ingestor called SharpHound, it's bundled with the latest release.
 
-```
-scriptimport /path/to/powershell-script.ps1
-scrimptcmd Invoke-BloodHound -URI http://SERVER:7474/ -UserPass "user:pass"
-```
+From Bloodhound [version 1.5](https://github.com/BloodHoundAD/BloodHound/releases/tag/1.5): the container update, you can use the new "All" collection open. See the blogpost from [Specter Ops](https://posts.specterops.io/bloodhound-1-5-the-container-update-fdf1ed2ad9da) for details.
+
+#### Powershell ingestion
+What I recommend doing if you have internal network access is to run Bloodhound using runas /netonly from your own local box. This way you're not cluttering a domain joined machine with files and you don't have to extract them either, so its generally more covert.
+`runas /netonly /FQDN\user\<username> powershell`
+Type in password when prompted. This should spawn a new window. This window will use the local DNS settings to find the nearest domain controller and perform the various LDAP queries Bloodhound performs. First, import the powershell module
+`Import-module SharpHound.ps1`
+`Invoke-BloodHound -CollectionMethod All -CompressData -RemoveCSV`
 
 You should now see data being populated into the database and you can play with BloodHound to create really some really cool maps. You can also perform queries to show the shortest path to DA, etc.
 
-Another method:
+#### Python ingestion from Kali
+If you have a Kali box on the local network you can use the [ Bloodhound.py ingestor](https://github.com/fox-it/BloodHound.py).
 
-```
-Powershell -exec bypass
-Import-module SharpHound.ps1
-Invoke-BloodHound -CollectionMethod ACL,ObjectProps,Default -CompressData –SkipPing
-```
-
-From Bloodhound [version 1.5](https://github.com/BloodHoundAD/BloodHound/releases/tag/1.5): the container update, you can use the new "All" collection open. See the blogpost from [Specter Ops](https://posts.specterops.io/bloodhound-1-5-the-container-update-fdf1ed2ad9da) for details.
 
 
 ### More Bloodhound stuff
