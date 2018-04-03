@@ -1,6 +1,6 @@
 # Getting started
 
-This is a guide to setting up a windows domain in a virtual lab to practice penetration testing. It is a collaborative effort between three persistent pentesters: chryzsh, bufferov3rride and lkys37en. Wanna get in contact with any of us, write to either one of us on http://netsecfocus.slack.com/
+This is a guide to setting up a windows domain in a virtual lab to practice penetration testing and hacking it.
 
 **This guide/tutorial will teach you the following:**
 
@@ -12,7 +12,9 @@ This is a guide to setting up a windows domain in a virtual lab to practice pene
 * Actual pentest experiences
 
 
--If you have no idea what you are doing, we recommend reading the [Mini guide to Windows ](stuff/miniguide.md) and then begin [Building a lab](labs/building-a-lab.md). 
+If you have no idea what you are doing, we recommend reading the [Mini guide to Windows ](stuff/miniguide.md) and then begin [Building a lab](labs/building-a-lab.md). 
+
+If you have an idea what you're doing and/or already have a lab environment I recommend you check out the article [Network access to Domain Admin](general/network-access-to-domain-admin.md) for a general approach to hacking Active Directory domains.
 
 **Obvious disclaimer is obvious**
 
