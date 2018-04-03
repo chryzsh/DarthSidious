@@ -10,7 +10,6 @@
 * [Getting started](labs/getting-started.md)
 * [Network access to Domain Admin](general/network-access-to-domain-admin.md)
 * [Intro to Windows security](stuff/how-stuff-works.md)
-  * [Powershell](powershell/powershell.md)
   * [Intro to Windows hashes](stuff/miniguide.md)
 
 ## Building a lab
@@ -22,6 +21,7 @@
 
 ## ENUMERATION
 
+* [Powershell](powershell/powershell.md)
 * [BloodHound](general/bloodhound.md)
 * [PowerView](general/powerview.md)
 

