@@ -19,6 +19,14 @@ You are on the external network, often this will be the Internet. You should of 
 * Port scanning
 * Investigating exposed services
 
+**Things to look out for**
+* IIS (80, 443)
+* RDP (3389)
+* MSSQL (1433)
+* RDS (3389)
+* RDWEB (3389, navigate to http://ip/rdweb)
+* OWA (80, navigate to subdomain email.domain.com)
+
 **Tools**
 * Nmap
 * Firefox
