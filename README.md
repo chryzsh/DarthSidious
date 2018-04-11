@@ -29,6 +29,12 @@ I have structured this book so it can be followed more or less sequentally. To p
 | March 2018 | chryzsh | Restructured book |
 | 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](general/pivoting-through-exchange.md) |
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
+| 11.04.2018 | chryzsh | Added an article about building a malware analysis lab |
+
+
+
+
+
 
 
 

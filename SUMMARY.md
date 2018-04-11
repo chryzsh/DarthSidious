@@ -18,6 +18,7 @@
   * [Building a lab with ESXI and Vagrant](labs/building-a-lab-with-esxi-and-vagrant.md)
   * [Building a small lab](labs/building-a-small-lab.md)
   * [Preparing Kali](labs/preparing.md)
+  * [Cuckoo malware analysis lab](labs/cuckoo-malware-analysis-lab.md)
 
 ## ENUMERATION
 
