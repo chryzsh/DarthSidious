@@ -111,14 +111,15 @@ Remember it does not necessarily make much sense running rule based attacks on t
 
 Another options for keyboard walking, is using the `Keyboard-Combinations.txt` list mentioned above.
 
-###### Target wordlist
+##### Target wordlist
 Often in pentesting engagements you are in an enterprise with very specific names and details. More than often enough, people set passwords with the name of the company for both service accounts and user accounts. A very simple trick can be to just write a few company related names into a list, but a more effective way is to use the web crawling tool Cewl on the enterprise's public website.
 ```
-
+cewl -w list.txt -d 5 -m 5  http://example.com
 ```
-We should now have a decently sized wordlist based on words that are relevant for the specific enterprise, like names, etc. There is here also the possibility of cracking with the usernames in a wordlist, but note that certain password policies does not allow this.
+We should now have a decently sized wordlist based on words that are relevant for the specific enterprise, like names, locations and a lot of their business lingo.
 
-Another thing is that 
+Another targeted possibility is cracking with the usernames as a wordlist, but note that certain password policies does not allow this.
+
 
 ### Rules-based attack
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
@@ -152,6 +153,12 @@ separator ":" -r .\rules\dive.rule
 
 Recovered........: 1200/2278 (52.68%)
 ```
+
+**Mega attack (takes some time)**
+```
+
+```
+
 ### Mask attack
 Try all combinations from a given keyspace just like in Brute-Force attack, but more specific.
 
