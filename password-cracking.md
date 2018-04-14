@@ -47,14 +47,14 @@ The limitation here is as with all wordlist attacks the fact that if the passwor
 * [Keyboard-Combinations.txt](https://github.com/danielmiessler/SecLists/blob/5c9217fe8e930c41d128aacdc68cbce7ece96e4f/Passwords/Keyboard-Combinations.txt) - This is a so-called keyboard walking list following regular patterns on a QWERTY keyboard layout. See chapter below.
 
 
-##### Generating your own wordlists
+#### Generating your own wordlists
 Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.
 1. I need a non-english language wordlist
 2. I need a keyboard walking wordlist
 3. I need a target wordlist
 
 
-####### Non-english wordlist
+##### Non-english wordlist
 For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
 ```
 wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
@@ -79,7 +79,7 @@ sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newl
 You should now have a pretty good working list in a specific language.
 
 
-####### Keyboard walking wordlist
+##### Keyboard walking wordlist
 Keyboard walking is following regular patterns on a QWERTY keyboard layout to make a password that's easily rememberable. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
 
 Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate pretty big lists based on a number of patterns and sizes. A quick example of generating a 2-16 character long list.
@@ -92,8 +92,7 @@ Remember it does not necessarily make much sense running rule based attacks on t
 Another options for keyboard walking, is using the `Keyboard-Combinations.txt` list mentioned above.
 
 ###### Target wordlist
-Often in pentesting engagements you are 
-
+Often in pentesting engagements you are in an enterprise with very specific names and details. More than often enough, people set passwords with the name of the company for both service accounts and user accounts. A very simple trick can be to just write a few company related names into a list, but a more effective way is to use the web crawling tool Cewl on the enterprise's public website.
 
 ### Rules-based attack
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
@@ -126,6 +125,12 @@ Recovered........: 1199/2278 (52.63%)
 separator ":" -r .\rules\dive.rule
 
 Recovered........: 1200/2278 (52.68%)
+```
+### Mask attack
+Try all combinations from a given keyspace just like in Brute-Force attack, but more specific.
+
+```
+hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
 ```
 
 ### Useful hashcat options you can play with
