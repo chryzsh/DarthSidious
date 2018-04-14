@@ -29,9 +29,43 @@ The most basic hashcat attacks are dictionary based. That means a hash is comput
 
 For dictionary attacks, the quality of your dictionary is the most important factor. It can either be very big, to cover a lot of ground. This can be useful for less expensive hashes like NTLM, but with expensive ones like MsCacheV2 you often want a more curated list based on OSINT and certain assumptions (like password policy) and instead apply rules.
 
-#### Dictionary recommendations
-[Weakpass](https://weakpass.com/) has a lot of both good and small lists with both statistics and a calculator. A few I've used from there is 
-* rockyou.txt - 
+##### Dictionary recommendations
+* [SecLists](https://github.com/danielmiessler/SecLists) - A huge collection of all kinds of lists, not only for password cracking.
+* [Weakpass](https://weakpass.com/) has a lot of both good and small lists with both statistics and a calculator for estimating crack time. I'm listing a few of those and some others you should know about below.
+* rockyou.txt - Old, reliable, fast
+* norsk.txt - A Norwegian wordlist I made myself from downloading Wikipedia and a lot of Norwegian wordlists and combining them, filtering out duplicates naturally.
+* weakpass_2a - 90 GB wordlist, it's huge
+* [Keyboard-Combinations.txt](https://github.com/danielmiessler/SecLists/blob/5c9217fe8e930c41d128aacdc68cbce7ece96e4f/Passwords/Keyboard-Combinations.txt) - This is a so-called keyboard walking list following regular patterns on a QWERTY keyboard layout. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
+
+##### Generating your own wordlists
+Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.
+1. I need a non-english language wordlist
+2. I need a keyboard walking wordlist
+
+####### Non-english wordlist
+For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
+```
+wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
+
+bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort | uniq | pw-inspector -m1 -M20 > nowiki.lst
+
+wc -l nowiki.lst
+3567894
+```
+Excellent, we got a 3.5 million word dictionary for a language in only a few minutes. Another trick that can be used to get dictionaries for specific languages is using google with a specific site: Github. So do a few Google searches like this and pull what you need.
+```
+greek wordlist site:github.com
+greek dictionary site:github.com
+```
+
+Once you have downloaded a lot, use this to concatenate them, trim away special characters and make them all lowercase. One thing I noticed is that some of the lists I pulled which had regional characters like ÆØÅ sometimes get replaced by special characters
+```
+
+```
+
+####### Keyboard walking wordlist
+Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate 
+
 
 
 Here is a very basic dictionary attack using the world famous rockyou wordlist. 
@@ -45,31 +79,26 @@ The limitation here is as with all wordlist attacks the fact that if the passwor
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
 
 ##### Rule recommendations
-Hashcat has a few built in rules, like the dive.rule which is huge. However, people have used statistics to try and generate rules that are more efficient at cracking. This article details a ruleset aptly named [One Rule to Rule Them All](https://www.notsosecure.com/one-rule-to-rule-them-all/) and can be downloaded from [their Github](https://github.com/NotSoSecure/password_cracking_rules). I have had great success with this rule, and it's statistically proven to be very good.
+Hashcat has a few built in rules, like the dive.rule which is huge. However, people have used statistics to try and generate rules that are more efficient at cracking. This article details a ruleset aptly named [One Rule to Rule Them All](https://www.notsosecure.com/one-rule-to-rule-them-all/) and can be downloaded from [their Github](https://github.com/NotSoSecure/password_cracking_rules). I have had great success with this rule, and it's statistically proven to be very good. If you need quicker cracking with fewer rules there are plenty of built-in rules in hashcat like the best64.rule. We could probably generate statistics about what works best, but I find experimenting here a lot of fun and 
 
-The next step is to start adding rules. That means each word in the wordlist is slightly changed.
+Run rockyou with the best64 ruleset.
+```
+hashcat64.exe -a 0 -m 1000 -r ./rules/best64.rule ntlm.txt rockyou.txt
+```
+You are free to experiment with both lists and rules in this part. Only the sky is the limit (or your GPU / tolerance for hot computer smell)
 
-```
-hashcat64.exe -m 1000 -r ./rules/best64.rule ntlm.txt rockyou.txt
-```
 
+After cracking a good amount of the hashes, output the cracked passwords to a new file. The outfile-format 2 specifies to print the passwords only.
 ```
-.\hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt  -potfile .\hashcat.potfile --session 1 --separator ":" -w 2
-```
+.\hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt --outfile cracked.txt --outfile-format 2
 
-After cracking a good amount of the hashes, output the cracked passwords to a new file.
-
-```
-.\hashcat64.exe -a 0 -m 1000 ..\onlyntlm.txt .\rockyou -potfile ..\hashcat.potfile --show
- --separator ":" --outfile cracked.txt --outfile-format 2
+Recovered........: 1100/2278 (48.28%)
 ```
 
-Proceed to run a round with the new found passwords and recover a few more.
-
+Proceed to run a round with the cracked passwords as a wordlist with a big ruleset to recover a few more. You can iterate this a few times, in case you crack a lot of hashes using this technique.
 ```
 .\hashcat64.exe -a 0 -m 1000 ..\onlyntlm.txt .\cracked.txt -potfile ..\hashcat.potfile --
 separator ":" -r .\rules\OneRuleToRuleThemAll.rule
-
 Recovered........: 1199/2278 (52.63%)
 
 .\hashcat64.exe -a 0 -m 1000 ..\onlyntlm.txt .\cracked.txt -potfile ..\hashcat.potfile --
@@ -78,9 +107,13 @@ separator ":" -r .\rules\dive.rule
 Recovered........: 1200/2278 (52.68%)
 ```
 
-## 
+### Useful hashcat options you can play with
 
-## 
+* Print hashes that haven't been cracked using `--left`
+* Boost up the GPU with `-w 3` where the number is from 1-3
+* 
+
+
 
 ## Domain Password Audit Tool \(DPAT\)
 
