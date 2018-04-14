@@ -49,9 +49,9 @@ The limitation here is as with all wordlist attacks the fact that if the passwor
 
 #### Generating your own wordlists
 Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.
-1. I need a non-english language wordlist
-2. I need a keyboard walking wordlist
-3. I need a target wordlist
+    1. I need a non-english language wordlist
+    2. I need a keyboard walking wordlist
+    3. I need a targeted wordlist
 
 
 ##### Non-english wordlist
@@ -78,6 +78,19 @@ sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newl
 
 You should now have a pretty good working list in a specific language.
 
+Bonus:
+Later I discovered that you can find lists with names, places and these are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling Now all these were in JSON, but I don't let that stop me.
+
+Linux magic to the rescue
+```
+cat *.json | sed 's/,/\n/g' | cut -f '"' -f2 | sort -u > nornames.txt
+```
+
+I can now add this to my other Norwegian list and filter duplicates. Put them both in the same dir
+```
+cat norsk.txt nor_names.txt >  
+```
+
 
 ##### Keyboard walking wordlist
 Keyboard walking is following regular patterns on a QWERTY keyboard layout to make a password that's easily rememberable. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
@@ -93,6 +106,12 @@ Another options for keyboard walking, is using the `Keyboard-Combinations.txt` l
 
 ###### Target wordlist
 Often in pentesting engagements you are in an enterprise with very specific names and details. More than often enough, people set passwords with the name of the company for both service accounts and user accounts. A very simple trick can be to just write a few company related names into a list, but a more effective way is to use the web crawling tool Cewl on the enterprise's public website.
+```
+
+```
+We should now have a decently sized wordlist based on words that are relevant for the specific enterprise, like names, etc. There is here also the possibility of cracking with the usernames in a wordlist, but note that certain password policies does not allow this.
+
+Another thing is that 
 
 ### Rules-based attack
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
