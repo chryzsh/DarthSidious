@@ -76,21 +76,18 @@ Once you have downloaded a lot of lists and fixed eventual errors, use this to c
 sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newlist.txt
 ```
 
-You should now have a pretty good working list.
+You should now have a pretty good working list in a specific language.
+
 
 ####### Keyboard walking wordlist
 Keyboard walking is following regular patterns on a QWERTY keyboard layout to make a password that's easily rememberable. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
 
-Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate pretty big lists based on a number of patterns and sizes. A quick example
+Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate pretty big lists based on a number of patterns and sizes. A quick example of generating a 2-16 character long list.
+```
+/kw.out -s 1 basechars/full.base keymaps/en.keymap routes/2-to-16-max-3-direction-changes.route -o words.txt
 ```
 
-```
-
-####### Keyboard walking wordlist
-
-
-
-
+Another options is using the `Keyboard-Combinations.txt` list mentioned above.
 
 ### Rules-based attack
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
