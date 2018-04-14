@@ -51,7 +51,7 @@ The limitation here is as with all wordlist attacks the fact that if the passwor
 Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.
 1. I need a non-english language wordlist
 2. I need a keyboard walking wordlist
-3. I need a target based wordlist
+3. I need a target wordlist
 
 
 ####### Non-english wordlist
@@ -87,7 +87,13 @@ Hashcat published a keyboard-walk generator a few years ago called [kwprocessor]
 /kw.out -s 1 basechars/full.base keymaps/en.keymap routes/2-to-16-max-3-direction-changes.route -o words.txt
 ```
 
-Another options is using the `Keyboard-Combinations.txt` list mentioned above.
+Remember it does not necessarily make much sense running rule based attacks on this kind of list.
+
+Another options for keyboard walking, is using the `Keyboard-Combinations.txt` list mentioned above.
+
+###### Target wordlist
+Often in pentesting engagements you are 
+
 
 ### Rules-based attack
 Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
@@ -126,13 +132,20 @@ Recovered........: 1200/2278 (52.68%)
 
 * Print hashes that haven't been cracked using `--left`
 * Print hashes that haven't been cracked using `--left`
-* Print cracked password in this format `username:hash:password` using `--show`
+* Print cracked password  in this format `hash:password` using `--show`
+* Print cracked password in this format `username:hash:password` using `--show --username`
 * Burn your GPU with `-w <number>` where the scale is 1 to 3
-* 
+* Write cracked hashes to file using `--outfile cracked.txt --outfile-format 2` where 2 is the output format. See `--help` for possible values
 
 
 
 ## Domain Password Audit Tool \(DPAT\)
+[clr2of8/DPAT](https://github.com/clr2of8/DPAT)
+A python script that will generate password use statistics from password hashes dumped from a domain controller and a password crack file such as hashcat.potfile generated from the Hashcat tool during password cracking. The report is an HTML report with clickable links.
 
-[https://github.com/clr2of8/DPAT](https://github.com/clr2of8/DPAT)
+## Other
 
+#### Rainbow tables
+Rainbox tables are pre-computed hashes you can use to compare against if hashes are not salted, like NTLM.
+[Free rainbow tables](https://web.archive.org/web/20160402172945/https://www.freerainbowtables.com/en/tables2
+)
