@@ -27,7 +27,16 @@ The most basic hashcat attacks are dictionary based. That means a hash is comput
 
 ### Dictionary attack
 
-For dictionary attacks, the quality of your dictionary is the most important factor. It can either be very big, to cover a lot of ground. This can be useful for less expensive hashes like NTLM, but with expensive ones like MsCacheV2 you often want a more curated list based on OSINT and certain assumptions (like password policy) and instead apply rules.
+For dictionary attacks, the quality of your dictionary is the most important factor. It can either be very big, to cover a lot of ground. This can be useful for less expensive hashes like NTLM, but with expensive ones like MsCacheV2 you often want a more curated list based on OSINT and certain assumptions or enumerationi (like password policy) and instead apply rules.
+
+## Dictionary attack
+
+Here is a very basic dictionary attack using the world famous rockyou wordlist. 
+```
+hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
+```
+The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack.
+
 
 ##### Dictionary recommendations
 * [SecLists](https://github.com/danielmiessler/SecLists) - A huge collection of all kinds of lists, not only for password cracking.
@@ -35,12 +44,15 @@ For dictionary attacks, the quality of your dictionary is the most important fac
 * rockyou.txt - Old, reliable, fast
 * norsk.txt - A Norwegian wordlist I made myself from downloading Wikipedia and a lot of Norwegian wordlists and combining them, filtering out duplicates naturally.
 * weakpass_2a - 90 GB wordlist, it's huge
-* [Keyboard-Combinations.txt](https://github.com/danielmiessler/SecLists/blob/5c9217fe8e930c41d128aacdc68cbce7ece96e4f/Passwords/Keyboard-Combinations.txt) - This is a so-called keyboard walking list following regular patterns on a QWERTY keyboard layout. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
+* [Keyboard-Combinations.txt](https://github.com/danielmiessler/SecLists/blob/5c9217fe8e930c41d128aacdc68cbce7ece96e4f/Passwords/Keyboard-Combinations.txt) - This is a so-called keyboard walking list following regular patterns on a QWERTY keyboard layout. See chapter below.
+
 
 ##### Generating your own wordlists
 Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.
 1. I need a non-english language wordlist
 2. I need a keyboard walking wordlist
+3. I need a target based wordlist
+
 
 ####### Non-english wordlist
 For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
@@ -57,22 +69,27 @@ Excellent, we got a 3.5 million word dictionary for a language in only a few min
 greek wordlist site:github.com
 greek dictionary site:github.com
 ```
+One thing I noticed is that some of the lists I pulled which had regional characters like ÆØÅ sometimes get replaced by special characters, so rememebr to quickly review the lists you download and replace characters if necessary.
 
-Once you have downloaded a lot, use this to concatenate them, trim away special characters and make them all lowercase. One thing I noticed is that some of the lists I pulled which had regional characters like ÆØÅ sometimes get replaced by special characters
+Once you have downloaded a lot of lists and fixed eventual errors, use this to concatenate them, trim away special characters and make them all lowercase
+```
+sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newlist.txt
+```
+
+You should now have a pretty good working list.
+
+####### Keyboard walking wordlist
+Keyboard walking is following regular patterns on a QWERTY keyboard layout to make a password that's easily rememberable. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
+
+Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate pretty big lists based on a number of patterns and sizes. A quick example
 ```
 
 ```
 
 ####### Keyboard walking wordlist
-Hashcat published a keyboard-walk generator a few years ago called [kwprocessor](https://github.com/hashcat/kwprocessor). You can use this to generate 
 
 
 
-Here is a very basic dictionary attack using the world famous rockyou wordlist. 
-```
-hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
-```
-The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack.
 
 
 ### Rules-based attack
