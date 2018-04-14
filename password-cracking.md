@@ -59,24 +59,27 @@ For the first scenario, my friend @tro shared his trick with me. So we download 
 ```
 wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
 
-bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort | uniq | pw-inspector -m1 -M20 > nowiki.lst
+bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
 
 wc -l nowiki.lst
 3567894
 ```
-Excellent, we got a 3.5 million word dictionary for a language in only a few minutes. Another trick that can be used to get dictionaries for specific languages is using google with a specific site: Github. So do a few Google searches like this and pull what you need.
+Excellent, we got a 3.5 million word dictionary for a language in only a few minutes.
+
+Another trick that can be used to get dictionaries for specific languages is using google with a specific site: Github. So do a few Google searches like this and pull what you need.
 ```
 greek wordlist site:github.com
 greek dictionary site:github.com
 ```
+
 One thing I noticed is that some of the lists I pulled which had regional characters like ÆØÅ sometimes get replaced by special characters, so rememebr to quickly review the lists you download and replace characters if necessary.
 
-Once you have downloaded a lot of lists and fixed eventual errors, use this to concatenate them, trim away special characters and make them all lowercase
+Once you have downloaded a lot of lists and fixed potential errors, use the Linux command line to concatenate them, trim away special characters and make them all lowercase
 ```
 sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newlist.txt
 ```
 
-You should now have a pretty good working list in a specific language.
+You should now have a pretty good working list in a specific language and you should start to understand why learning things like cut, tr, sed, awk, piping and redirection is so damn applicable.
 
 **Bonus**
 Later I discovered that you can find lists with names and places. These are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling.. Now all these were in JSON, but that is not a concern.
@@ -131,6 +134,7 @@ Run rockyou with the best64 ruleset.
 ```
 hashcat64.exe -a 0 -m 1000 -r ./rules/best64.rule ntlm.txt rockyou.txt
 ```
+
 You are free to experiment with both lists and rules in this part. Only the sky is the limit (or your GPU / tolerance for hot computer smell)
 
 
@@ -174,15 +178,16 @@ hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
 * Print cracked password in this format `username:hash:password` using `--show --username`
 * Burn your GPU with `-w <number>` where the scale is 1 to 3
 * Write cracked hashes to file using `--outfile cracked.txt --outfile-format 2` where 2 is the output format. See `--help` for possible values
+* Start hashcat as a session that can be stopped and resumed with `--session <id>` where the id is juts a number. When restoring a session use the same parameter with the same id.
 
-
+### Online cracking tools
+To be honest, I prefer not using these and especially not in pentesting engagements. You do not want to submit something you don't know what contains to an online repository for eternal storage. Odds are it won't ever be detected, but err on the side of caution here. If you decide to submit hashes from a lab or hashes you know the plaintext for already, [Crackstation.net](https://crackstation.net/) is a good choice.
 
 ## Domain Password Audit Tool \(DPAT\)
 [clr2of8/DPAT](https://github.com/clr2of8/DPAT)
 A python script that will generate password use statistics from password hashes dumped from a domain controller and a password crack file such as hashcat.potfile generated from the Hashcat tool during password cracking. The report is an HTML report with clickable links.
 
 ## Other
-
 #### Rainbow tables
 Rainbox tables are pre-computed hashes you can use to compare against if hashes are not salted, like NTLM.
 [Free rainbow tables](https://web.archive.org/web/20160402172945/https://www.freerainbowtables.com/en/tables2
