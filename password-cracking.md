@@ -30,18 +30,65 @@ The most basic hashcat attacks are dictionary based. That means a hash is comput
 
 For dictionary attacks, the quality of your dictionary is the most important factor. It can either be very big, to cover a lot of ground. This can be useful for less expensive hashes like NTLM, but with expensive ones like MsCacheV2 you often want a more curated list based on OSINT and certain assumptions or enumerationi \(like password policy\) and instead apply rules.
 
-## Dictionary attack
-
 Here is a very basic dictionary attack using the world famous rockyou wordlist.
-
 ```
 hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
 ```
 
-The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack.
+The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack, a rule-based attack.
 
-##### Dictionary recommendations
 
+### Rules-based attack
+
+Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
+
+Hashcat has a few built in rules, like the dive.rule which is huge. However, people have used statistics to try and generate rules that are more efficient at cracking. This article details a ruleset aptly named [One Rule to Rule Them All](https://www.notsosecure.com/one-rule-to-rule-them-all/) and can be downloaded from [their Github](https://github.com/NotSoSecure/password_cracking_rules). I have had great success with this rule, and it's statistically proven to be very good. If you need quicker cracking with fewer rules there are plenty of built-in rules in hashcat like the best64.rule. We could probably generate statistics about what works best, but I find experimenting here a lot of fun and
+
+Run rockyou with the best64 ruleset.
+
+```
+hashcat64.exe -a 0 -m 1000 -r ./rules/best64.rule ntlm.txt rockyou.txt
+```
+
+You are free to experiment with both lists and rules in this part. Only the sky is the limit \(or your GPU / tolerance for hot computer smell\)
+
+After cracking a good amount of the hashes, output the cracked passwords to a new file. The outfile-format 2 specifies to print the passwords only.
+
+```
+hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt --outfile cracked.txt --outfile-format 2
+
+Recovered........: 1100/2278 (48.28%)
+```
+
+Proceed to run a round with the cracked passwords as a wordlist with a big rule set to recover a few more. You can iterate this a few times, in case you crack a lot of hashes using this technique.
+
+```
+hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\OneRuleToRuleThemAll.rule
+
+Recovered........: 1199/2278 (52.63%)
+
+hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\dive.rule
+
+Recovered........: 1200/2278 (52.68%)
+```
+
+**Mega attack using the weakpass\_2a \(90 GB\) wordlist and the oneruletorulethemall rule set**
+
+```
+hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\oneruletorulethem.rule
+```
+
+
+
+### Mask attack
+Try all combinations from a given keyspace just like in Brute-Force attack, but more specific.
+
+```
+hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
+```
+
+
+### Recommendations
 * [SecLists](https://github.com/danielmiessler/SecLists) - A huge collection of all kinds of lists, not only for password cracking.
 * [Weakpass](https://weakpass.com/) has a lot of both good and small lists with both statistics and a calculator for estimating crack time. I'm listing a few of those and some others you should know about below.
 * rockyou.txt - Old, reliable, fast
@@ -51,21 +98,21 @@ The limitation here is as with all wordlist attacks the fact that if the passwor
 
 #### Generating your own wordlists
 
-Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are two scenarios where I have needed to make my own lists.  
-    1. I need a non-english language wordlist  
-    2. I need a keyboard walking wordlist  
-    3. I need a targeted wordlist
+Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are several scenarios where I have had to make my own lists.
+1. I need a non-english language wordlist
+2. I need a keyboard walking wordlist
+3. I need a targeted wordlist
 
 ##### Non-english wordlist
 
 For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
 
-    wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
+wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
 
-    bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
+bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
 
-    wc -l nowiki.lst
-    3567894
+wc -l nowiki.lst
+3567894
 
 Excellent, we got a 3.5 million word dictionary for a language in only a few minutes.
 
@@ -81,12 +128,12 @@ One thing I noticed is that some of the lists I pulled which had regional charac
 Once you have downloaded a lot of lists and fixed potential errors, use the Linux command line to concatenate them, trim away special characters and make them all lowercase
 
 ```
-sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newlist.txt
+sed -e 's/[;,()'\'']/ /g;s/ */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newlist.txt
 ```
 
 You should now have a pretty good working list in a specific language and you should start to understand why learning things like cut, tr, sed, awk, piping and redirection is so damn applicable.
 
-**Bonus**  
+**Bonus**
 I discovered that you can find lists with names and places. These are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling.. Now all these were in JSON, but that is not a concern.
 
 Linux magic to the rescue
@@ -130,62 +177,14 @@ Another options for keyboard walking, is using the `Keyboard-Combinations.txt` l
 Often in pentesting engagements you are in an enterprise with very specific names and details. More than often enough, people set passwords with the name of the company for both service accounts and user accounts. A very simple trick can be to just write a few company related names into a list, but a more effective way is to use the web crawling tool Cewl on the enterprise's public website.
 
 ```
-cewl -w list.txt -d 5 -m 5  http://example.com
+cewl -w list.txt -d 5 -m 5 http://example.com
 ```
 
 We should now have a decently sized wordlist based on words that are relevant for the specific enterprise, like names, locations and a lot of their business lingo.
 
 Another targeted possibility is cracking with the usernames as a wordlist, but note that certain password policies does not allow this.
 
-### Rules-based attack
 
-Rules are different modifications on words like cut or extend words, add numbers, add special characters and more or less everything you can think of. Like dictionaries, there are also big lists of rules. A rule-based attack is therefore basically like a dictionary attack, but with a lot of modifications on the words. This naturally increases the amount of hashes we are able to crack.
-
-##### Rule recommendations
-
-Hashcat has a few built in rules, like the dive.rule which is huge. However, people have used statistics to try and generate rules that are more efficient at cracking. This article details a ruleset aptly named [One Rule to Rule Them All](https://www.notsosecure.com/one-rule-to-rule-them-all/) and can be downloaded from [their Github](https://github.com/NotSoSecure/password_cracking_rules). I have had great success with this rule, and it's statistically proven to be very good. If you need quicker cracking with fewer rules there are plenty of built-in rules in hashcat like the best64.rule. We could probably generate statistics about what works best, but I find experimenting here a lot of fun and
-
-Run rockyou with the best64 ruleset.
-
-```
-hashcat64.exe -a 0 -m 1000 -r ./rules/best64.rule ntlm.txt rockyou.txt
-```
-
-You are free to experiment with both lists and rules in this part. Only the sky is the limit \(or your GPU / tolerance for hot computer smell\)
-
-After cracking a good amount of the hashes, output the cracked passwords to a new file. The outfile-format 2 specifies to print the passwords only.
-
-```
-hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt --outfile cracked.txt --outfile-format 2
-
-Recovered........: 1100/2278 (48.28%)
-```
-
-Proceed to run a round with the cracked passwords as a wordlist with a big rule set to recover a few more. You can iterate this a few times, in case you crack a lot of hashes using this technique.
-
-```
-hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\OneRuleToRuleThemAll.rule
-
-Recovered........: 1199/2278 (52.63%)
-
-hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\dive.rule
-
-Recovered........: 1200/2278 (52.68%)
-```
-
-**Mega attack using the weakpass\_2a \(90 GB\) wordlist and the oneruletorulethemall rule set**
-
-```
-hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\oneruletorulethem.rule
-```
-
-### Mask attack
-
-Try all combinations from a given keyspace just like in Brute-Force attack, but more specific.
-
-```
-hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
-```
 
 ### Useful hashcat options you can play with
 
