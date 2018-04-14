@@ -184,6 +184,7 @@ We should now have a decently sized wordlist based on words that are relevant fo
 
 Another targeted possibility is cracking with the usernames as a wordlist, but note that certain password policies does not allow this.
 
+Also, if you have dumped a database from a domain controller you probably also have access to the full names of employees. So a neat trick would be to make a wordlist with every first and last name and use that for password cracking with rules. That could provide some extra results.
 
 
 ### Useful hashcat options you can play with
