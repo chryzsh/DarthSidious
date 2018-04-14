@@ -4,11 +4,14 @@ One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy 
 
 ## Hashcat
 
-FAQ: [https://hashcat.net/wiki/doku.php?id=frequently\_asked\_questions\#how\_can\_i\_show\_previously\_cracked\_passwords\_and\_output\_them\_in\_a\_specific\_format\_eg\_emailpassword](https://hashcat.net/wiki/doku.php?id=frequently_asked_questions#how_can_i_show_previously_cracked_passwords_and_output_them_in_a_specific_format_eg_emailpassword)
+* [FAQ](https://hashcat.net/wiki/doku.php?id=frequently_asked_questions#how_can_i_show_previously_cracked_passwords_and_output_them_in_a_specific_format_eg_emailpassword)
+* [Command line options](https://hashcat.net/wiki/doku.php?id=hashcat)
+* [Hashcat mode codes](https://hashcat.net/wiki/doku.php?id=example_hashes)
+* [Hashview, web front end for hashcat](http://www.hashview.io/screenshots.html)
 
 Hashcat can be used to crack all kinds of hashes with GPU. In our case the most relevant things to crack is NTLM hashes, Kerberos tickets and other things you could potentially stumble upon like Keepass databases. The goal is naturally to crack as many as possible as fast as possible, while being smug about all the shitty passwords you'll see. I highly recommend a good GPU, you'll crack faster and have more fun. Even with my not ideal GTX1060 3GB I'm still cracking NTLM's like it was nothing.
 
-The most basic hashcat attacks are dictionary based. That means a hash is computed for each entry in the dictionary and compared to the hash you want to crack. The hashcat syntax is very easy to understand, but you need to know the different "modes" hashcat uses and those can be found here: [https://hashcat.net/wiki/doku.php?id=example\_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes). For fast lookup I have added the most commonly seen ones in AD environments below
+The most basic hashcat attacks are dictionary based. That means a hash is computed for each entry in the dictionary and compared to the hash you want to crack. The hashcat syntax is very easy to understand, but you need to know the different "modes" hashcat uses and those can be found here:. For fast lookup I have added the most commonly seen ones in AD environments below
 
 | Mode | Hash | Description |
 | --- | --- | --- |
@@ -16,15 +19,11 @@ The most basic hashcat attacks are dictionary based. That means a hash is comput
 | 1100 | MsCache | Domain cached credentials, old version |
 | 2100 | MsCache v2 | Domain cached credentials, new version |
 | 3000 | LM | Old, rarely used anymore \(still a part of NTLM\) |
-| 5500 |  |  |
-| 5600 |  |  |
-| 7500 |  |  |
-| 13100 |  |  |
+| 5500 | NetNTLMv1 / NetNTLMv1+ESS | NTLM for authentication over the network |
+| 5600 | NetNTLMv2 | NTLM for authentication over the network |
+| 7500 | Kerberos 5 AS-REQ Pre-Auth etype 23 | AS_REQ is the initial user authentication request of Kerberoas |
+| 13100 | Kerberos 5 TGS-REP etype 23  | TGS_REP is the reply of the Ticket Granting Server to the previous request |
 
-5500 =   
-5600 = NetNTLMv1  
-7500 = Kerberos 5 AS-REQ Pre-Auth etype 23   
-13100 = Kerberos 5 TGS-REP etype 23
 
 #### Dictionary recommendations
 
