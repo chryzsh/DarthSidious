@@ -1,9 +1,9 @@
 # Password cracking and auditing
 
-One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy passwords flowing across the screen for hours on end. I myself am a sucker for hashcat so this article is pretty much going to be about that
+One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy passwords flowing across the screen for hours on end. I am a sucker for hashcat so this article is pretty much going to be details for using that. John is a viable alternative and Orphcrack can be used if comparing hashes with rainbow tables.
 
 ## Hashcat
-
+**Useful links**
 * [FAQ](https://hashcat.net/wiki/doku.php?id=frequently_asked_questions#how_can_i_show_previously_cracked_passwords_and_output_them_in_a_specific_format_eg_emailpassword)
 * [Command line options](https://hashcat.net/wiki/doku.php?id=hashcat)
 * [Hashcat mode codes](https://hashcat.net/wiki/doku.php?id=example_hashes)
@@ -99,6 +99,7 @@ Proceed to run a round with the cracked passwords as a wordlist with a big rules
 ```
 .\hashcat64.exe -a 0 -m 1000 ..\onlyntlm.txt .\cracked.txt -potfile ..\hashcat.potfile --
 separator ":" -r .\rules\OneRuleToRuleThemAll.rule
+
 Recovered........: 1199/2278 (52.63%)
 
 .\hashcat64.exe -a 0 -m 1000 ..\onlyntlm.txt .\cracked.txt -potfile ..\hashcat.potfile --
@@ -110,7 +111,9 @@ Recovered........: 1200/2278 (52.68%)
 ### Useful hashcat options you can play with
 
 * Print hashes that haven't been cracked using `--left`
-* Boost up the GPU with `-w 3` where the number is from 1-3
+* Print hashes that haven't been cracked using `--left`
+* Print cracked password in this format `username:hash:password` using `--show`
+* Burn your GPU with `-w <number>` where the scale is 1 to 3
 * 
 
 
