@@ -78,19 +78,26 @@ sed -e 's/[;,()'\'']/ /g;s/  */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newl
 
 You should now have a pretty good working list in a specific language.
 
-Bonus:
-Later I discovered that you can find lists with names, places and these are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling Now all these were in JSON, but I don't let that stop me.
+**Bonus**
+Later I discovered that you can find lists with names and places. These are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling.. Now all these were in JSON, but that is not a concern.
 
 Linux magic to the rescue
 ```
 cat *.json | sed 's/,/\n/g' | cut -f '"' -f2 | sort -u > nornames.txt
-```
 
-I can now add this to my other Norwegian list and filter duplicates. Put them both in the same dir
+wc -l nornames.txt
+9785
 ```
-cat norsk.txt nor_names.txt >  
-```
+So we have added a few more words.
 
+I can now add this to my other Norwegian list and filter duplicates. Put them both in the same file
+```
+cat norsk.txt nor_names.txt sort -u > norsk.txt
+
+wc norsk.txt -l
+2191221
+```
+Awesome, more than 2 million unique Norwegian words.
 
 ##### Keyboard walking wordlist
 Keyboard walking is following regular patterns on a QWERTY keyboard layout to make a password that's easily rememberable. Apparently people think this generates secure passwords, but in reality they are highly predictable. Hence, these patterns can be generated from a keymap and wordlists can easily be generated.
