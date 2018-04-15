@@ -37,7 +37,7 @@ Mimikatz works by wdigest within Windows. A simple registry edit can get rid of 
 Had any one of those steps been in place, the attack would have been dead and he would need to look for another vector. Sadly, its rare that any of these are in place, and the above attack is the "go to" method on any internal engagement, because 99% of the time, it works.
 
 
-###¤ SMB Signing
+### SMB Signing
 
 SMB signing can prevent relaying. It is designed to limit man-in-the-middle attacks. SMB Message signing signs SMB packets to ensure that they cannot be replayed against a different system. SMB Message signing is actually four different settings.
 
