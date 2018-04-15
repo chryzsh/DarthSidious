@@ -38,7 +38,7 @@ Here is a very basic dictionary attack using the world famous rockyou wordlist.
 hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
 ```
 
-The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack, a rule-based attack.
+The limitation here is as with all wordlist attacks the fact that** if the password you are trying to crack is not in the list; you won't be able to crack it**. This leads us to the next type of attack, a rule-based attack.
 
 ### Rules-based attack
 
@@ -220,7 +220,7 @@ Open the HTML report in a web browser and enjoy the results.
 
 #### Cleaning up
 
-After you've cracked hashes and delivered your report you may want to clean up both hashes and cracked passwords. This is important because you don't want to accidentally leak or lose track of potentially thousands of passwords for an enterprise. Be very careful with the files, especially when redirectinng to new files, etc. Remember to clean up your potfile to.
+After you've cracked hashes and delivered your report you may want to clean up both hashes and cracked passwords. This is important because you don't want to accidentally leak or lose track of potentially thousands of passwords for an enterprise. Be very careful with the files, especially when redirectinng to new files, etc. Remember to clean up your potfile too, as the hashes are stored there after cracking.
 
 #### Rainbow tables
 
