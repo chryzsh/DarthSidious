@@ -56,7 +56,7 @@
 
 ## OTHER
 
-* [Password cracking and auditing](password-cracking.md)
+* [Password cracking and auditing](general/password-cracking.md)
 * [Link encyclopedia](link-encyclopedia.md)
 * [Writeups](writeups/writeups.md)
   * [lkylabs v1](writeups/lkyv1.md)
