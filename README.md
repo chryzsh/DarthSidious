@@ -2,7 +2,7 @@
 
 _Building an Active Directory domain, hacking it and defending it_
 
-![](http://assets1.ignimgs.com/2015/05/27/lightsabersjpg-b61171_1280w.jpg)
+![](https://www.designerd.com.br/wp-content/uploads/2014/07/8.png)
 
 A book-in-progress about hacking Microsoft technology, and specifically Active Directory.
 
