@@ -2,7 +2,7 @@
 
 ![](/assets/pwcrack.png)
 
-One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy passwords flowing across the screen for hours on end. I am a sucker for hashcat so this article is pretty much going to be details for using that. John is a viable alternative and Orphcrack can be used if comparing hashes with rainbow tables.
+One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy passwords flowing across the screen for hours on end. I am a sucker for hashcat so this article is pretty much going to be details for using that. John is a viable alternative and Orphcrack can be used if comparing hashes with rainbow tables, but I'm not going to detail them in this guide yet.
 
 ## Hashcat
 
