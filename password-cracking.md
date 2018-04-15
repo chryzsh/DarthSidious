@@ -75,7 +75,7 @@ Recovered........: 1200/2278 (52.68%)
 **Mega attack using the weakpass\_2a \(90 GB\) wordlist and the oneruletorulethemall rule set**
 
 ```
-hashcat64.exe -a 0 -m 1000 ntlm.txt cracked.txt -r .\rules\oneruletorulethem.rule
+hashcat64.exe -a 0 -m 1000 ntlm.txt weakpass_2a.txt -r .\rules\oneruletorulethem.rule
 ```
 
 
@@ -107,12 +107,14 @@ Sometimes a wordlist from the internet just doesn't cut it so you have to make y
 
 For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
 
+```
 wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
 
 bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
 
 wc -l nowiki.lst
 3567894
+```
 
 Excellent, we got a 3.5 million word dictionary for a language in only a few minutes.
 
