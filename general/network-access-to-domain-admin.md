@@ -31,6 +31,8 @@ You are on the external network, often this will be the Internet. You should of 
 * Nmap
 * Firefox
 
+------------
+
 ## Acquiring domain user credentials
 **Goal: Acquire domain user credentials**
 A domain user is any user in the domain. We of course have to figure out the domain name first. Once you have acquired the domain name, you can try a technique called password spraying. Most enterprises provide numerous ways of authenticating. Common ways are through Outlook Web Access, SMB or other. That means if we can figure out the syntax we can attempt to authenticate with common passwords. However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five attempts.
@@ -54,6 +56,8 @@ A domain user is any user in the domain. We of course have to figure out the dom
 * Burp Intruder
 * Mailsniper
 
+------------
+
 
 
 ### Acquiring a shell on the internal network
@@ -74,6 +78,8 @@ The most obvious method is like hacking in 2003, you exploit some vulnrability i
 * Metasploit
 
 
+------------
+
 
 ### Command and Control (C2)
 **Goal: establishing a communication system to the internal network**
@@ -90,6 +96,8 @@ A shell gained through for example an SQL injection might not be the most stable
 * dnscat2
 * Empire persistence modules
 
+
+------------
 
 
 ## Enumerate the internal network
@@ -116,6 +124,8 @@ Depending on your goal, this step can potentially be skipped in favor of startin
 * Nmap
 * Metasploit
 
+------------
+
 
 ## Automatically enumerating the domain
 
@@ -132,6 +142,9 @@ We want to learn as much as possible about the domain. That means identifying wh
 * Bloodhound
 * PowerView
 * Empire
+
+------------
+
 
 
 ## Manually enumerating the domain
@@ -150,6 +163,10 @@ In a decently patched AD environment, there won't be any point in trying too har
 * Empire
 * PowerView
 
+------------
+
+
+
 ## Move towards Domain Admin
 **Goal: Command execution on a box with Domain Admin session on**
 Once a path has been laid out, you can start moving laterally in the domain. However, since AD is built the way it is you don't necessarily have to pop shells all over the place. Not only does this increase the possibility of detection, but if the environment have the capabilities of remoting in to boxes, then that is a better option. This is why i have written command execution and not shell here. While the difference is only so slight, it can be a very efficient way of getting things done. Also consider you will potentially be doing these kinds of activities over a tunnel, which might add significant delay to your operations. Normally, the deeper you get into the internal network, the tougher it gets.
@@ -167,6 +184,8 @@ This step depends a lot on the domain size, security maturity and configuration.
 * WMI
 * PsExec
 * Empire lateral movement modules
+
+------------
 
 
 ## Hijack Domain Admin access
