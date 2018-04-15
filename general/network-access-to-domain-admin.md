@@ -1,5 +1,6 @@
 # From external network access to Domain Admin
 
+
 #### Intro
 This article attempts to provide a methodology for domain pentests. The scenario is that you have been provided internal network access to a network with one or several domains and nothing more. The goal is to get access as Domain Admin.
 
