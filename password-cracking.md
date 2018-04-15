@@ -210,7 +210,7 @@ Run DPAT on the file that contains the hashes \(\`username:lm:nt:::\`\) and the 
 ./dpat.py -n onlyntlm.txt -c hashcat.potfile -g Domain_Admins
 ```
 
-Open the HTML report in a web browser.
+Open the HTML report in a web browser and enjoy the results.
 
 ![](/assets/dpat.png)
 
