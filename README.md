@@ -6,7 +6,7 @@ _Building an Active Directory domain and hacking it_
 
 A book-in-progress about hacking Microsoft technology, and specifically Active Directory.
 
-**The goal is simple** - to share my modest knowledge about hacking Windows systems. This is commonly refered to as red team exercises. This book however, is also very concerned with the blue team; the defender. That is, helping those who are working as defenders, analysts and security experts to . Having knowledge about both is what separates the average infosec people from the really good ones.
+**The goal is simple** - to share my modest knowledge about hacking Windows systems. This is commonly refered to as red team exercises. This book however, is also very concerned with the blue team; the defenders. That is, helping those who are working as defenders, analysts and security experts to build secure Active Directory environments and monitor them for malicious activity.
 
 **There are three major parts in this book**  
 1. Building a lab  
