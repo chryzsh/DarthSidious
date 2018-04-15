@@ -16,9 +16,8 @@ A book-in-progress about hacking Microsoft technology, and specifically Active D
 I have structured this book so it can be followed more or less sequentally. To practice many of these things, a lab is necessary. That is why I have made a few guides on how to build a lab, with varying degrees of comprehensiveness and size.
 
 ## Getting started
-**I recommend starting here:** [GETTING STARTED](labs/getting-started.md)
+[GETTING STARTED](labs/getting-started.md)
 
-**Questions/Suggestions:** Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
 
 ## Getting the Source Code
 The source for this book is available in the [book's github repository](https://github.com/chryzsh/DarthSidious).
@@ -33,6 +32,9 @@ The source for this book is available in the [book's github repository](https://
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
 | 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](labs/labs/cuckoo-malware-analysis-lab.md) |
 | 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](general/password-cracking.md) |
+
+
+Questions/Suggestions: Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
 
 
 
