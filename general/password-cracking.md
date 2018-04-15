@@ -1,5 +1,7 @@
 # Password cracking and auditing
 
+![](/assets/pwcrack.png)
+
 One of the most fun parts of a pentest! Sit back with a cup of coffee and enjoy passwords flowing across the screen for hours on end. I am a sucker for hashcat so this article is pretty much going to be details for using that. John is a viable alternative and Orphcrack can be used if comparing hashes with rainbow tables.
 
 ## Hashcat
@@ -217,6 +219,7 @@ Open the HTML report in a web browser and enjoy the results.
 ## Other
 
 #### Cleaning up
+
 After you've cracked hashes and delivered your report you may want to clean up both hashes and cracked passwords. This is important because you don't want to accidentally leak or lose track of potentially thousands of passwords for an enterprise. Be very careful with the files, especially when redirectinng to new files, etc. Remember to clean up your potfile to.
 
 #### Rainbow tables
