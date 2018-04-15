@@ -49,11 +49,6 @@
   * [From RDS app to Empire shell](bypass/bypassing-rds.md)
   * [Stealth](bypass/stealth.md)
 
-## DEFENSE
-
-* [Defense](defense/defense.md)
-  * [Best practices](defense/defense.md)
-
 ## OTHER
 
 * [Password cracking and auditing](general/password-cracking.md)
