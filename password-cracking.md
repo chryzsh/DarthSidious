@@ -16,7 +16,7 @@ Hashcat can be used to crack all kinds of hashes with GPU. In our case the most 
 The most basic hashcat attacks are dictionary based. That means a hash is computed for each entry in the dictionary and compared to the hash you want to crack. The hashcat syntax is very easy to understand, but you need to know the different "modes" hashcat uses and those can be found here:. For fast lookup I have added the most commonly seen ones in AD environments below
 
 | Mode | Hash | Description |
-| :--- | :----- | :---------- |
+| :--- | :--- | :--- |
 | 1000 | NTLM | Extremely common, used for general domain authentication |
 | 1100 | MsCache | Domain cached credentials, old version |
 | 2100 | MsCache v2 | Domain cached credentials, new version |
@@ -31,12 +31,12 @@ The most basic hashcat attacks are dictionary based. That means a hash is comput
 For dictionary attacks, the quality of your dictionary is the most important factor. It can either be very big, to cover a lot of ground. This can be useful for less expensive hashes like NTLM, but with expensive ones like MsCacheV2 you often want a more curated list based on OSINT and certain assumptions or enumerationi \(like password policy\) and instead apply rules.
 
 Here is a very basic dictionary attack using the world famous rockyou wordlist.
+
 ```
 hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
 ```
 
 The limitation here is as with all wordlist attacks the fact that if the password you are trying to crack is not in the list; you won't be able to crack it. This leads us to the next type of attack, a rule-based attack.
-
 
 ### Rules-based attack
 
@@ -78,17 +78,16 @@ Recovered........: 1200/2278 (52.68%)
 hashcat64.exe -a 0 -m 1000 ntlm.txt weakpass_2a.txt -r .\rules\oneruletorulethem.rule
 ```
 
-
-
 ### Mask attack
+
 Try all combinations from a given keyspace just like in Brute-Force attack, but more specific.
 
 ```
 hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
 ```
 
-
 ### Recommendations
+
 * [SecLists](https://github.com/danielmiessler/SecLists) - A huge collection of all kinds of lists, not only for password cracking.
 * [Weakpass](https://weakpass.com/) has a lot of both good and small lists with both statistics and a calculator for estimating crack time. I'm listing a few of those and some others you should know about below.
 * rockyou.txt - Old, reliable, fast
@@ -98,23 +97,21 @@ hashcat64.exe -a 3 -m 1000 ntlm.txt .\masks\8char-1l-1u-1d-1s-compliant.hcmask
 
 #### Generating your own wordlists
 
-Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are several scenarios where I have had to make my own lists.
-1. I need a non-english language wordlist
-2. I need a keyboard walking wordlist
+Sometimes a wordlist from the internet just doesn't cut it so you have to make your own. There are several scenarios where I have had to make my own lists.  
+1. I need a non-english language wordlist  
+2. I need a keyboard walking wordlist  
 3. I need a targeted wordlist
 
 ##### Non-english wordlist
 
 For the first scenario, my friend @tro shared his trick with me. So we download Wikipedia in any given language and then use a somewhat tricky one-liner to trim it into a lowercase-only list without special characters.
 
-```
-wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
+    wget http://download.wikimedia.org/nowiki/latest/nowiki-latest-pages-articles.xml.bz2
 
-bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
+    bzcat nowiki-latest-pages-articles.xml.bz2 | grep '^[a-zA-Z]' | sed 's/[-_:.,;#@+?{}()&|§!¤%`<>="\/]/\ /g' | tr ' ' '\n' | sed 's/[0-9]//g' | sed 's/[^A-Za-z0-9]//g' | sed -e 's/./\L\0/g' | sed 's/[^abcdefghijklmnopqrstuvwxyzæøå]//g' | sort -u | pw-inspector -m1 -M20 > nowiki.lst
 
-wc -l nowiki.lst
-3567894
-```
+    wc -l nowiki.lst
+    3567894
 
 Excellent, we got a 3.5 million word dictionary for a language in only a few minutes.
 
@@ -135,7 +132,7 @@ sed -e 's/[;,()'\'']/ /g;s/ */ /g' list.txt | tr '[:upper:]' '[:lower:]' > newli
 
 You should now have a pretty good working list in a specific language and you should start to understand why learning things like cut, tr, sed, awk, piping and redirection is so damn applicable.
 
-**Bonus**
+**Bonus**  
 I discovered that you can find lists with names and places. These are often used for passwords. People love their kids and grandkids and thus use it as password. I found such things on [Github](https://gist.github.com/eiriks/8b028e05d9b53f8de628) by a little Googling.. Now all these were in JSON, but that is not a concern.
 
 Linux magic to the rescue
@@ -188,7 +185,6 @@ Another targeted possibility is cracking with the usernames as a wordlist, but n
 
 Also, if you have dumped a database from a domain controller you probably also have access to the full names of employees. So a neat trick would be to make a wordlist with every first and last name and use that for password cracking with rules. That could provide some extra results.
 
-
 ### Useful hashcat options you can play with
 
 * Print hashes that haven't been cracked using `--left`
@@ -207,6 +203,16 @@ To be honest, I prefer not using these and especially not in pentesting engageme
 
 [clr2of8/DPAT](https://github.com/clr2of8/DPAT)  
 A python script that will generate password use statistics from password hashes dumped from a domain controller and a password crack file such as hashcat.potfile generated from the Hashcat tool during password cracking. The report is an HTML report with clickable links.
+
+Run DPAT on the file that contains the hashes \(username:nt:lm:::\) and the potfile containing your cracked hashes.
+
+```
+./dpat.py -n onlyntlm.txt -c hashcat.potfile
+```
+
+Open the HTML report in a web browser.
+
+![](/assets/dpat.png)
 
 ## Other
 
