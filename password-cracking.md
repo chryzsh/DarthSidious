@@ -204,10 +204,10 @@ To be honest, I prefer not using these and especially not in pentesting engageme
 [clr2of8/DPAT](https://github.com/clr2of8/DPAT)  
 A python script that will generate password use statistics from password hashes dumped from a domain controller and a password crack file such as hashcat.potfile generated from the Hashcat tool during password cracking. The report is an HTML report with clickable links.
 
-Run DPAT on the file that contains the hashes \(username:nt:lm:::\) and the potfile containing your cracked hashes.
+Run DPAT on the file that contains the hashes \(\`username:lm:nt:::\`\) and the potfile containing your cracked hashes. Add the list of Domain Admins to a file called Domain\_Admins with the syntax \`domain\username\`. Then it will also display how many of those you cracked. Fun stuff!
 
 ```
-./dpat.py -n onlyntlm.txt -c hashcat.potfile
+./dpat.py -n onlyntlm.txt -c hashcat.potfile -g Domain_Admins
 ```
 
 Open the HTML report in a web browser.
