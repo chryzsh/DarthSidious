@@ -192,8 +192,8 @@ Also, if you have dumped a database from a domain controller you probably also h
 * Print cracked password  in this format `hash:password` using `--show`
 * Print cracked password in this format `username:hash:password` using `--show --username`
 * Burn your GPU with `-w <number>` where the scale is 1 to 3
-* Write cracked hashes to file using `--outfile cracked.txt --outfile-format 2` where 2 is the output format. See `--help` for possible values
-* Start hashcat as a session that can be stopped and resumed with `--session <id>` where the id is juts a number. When restoring a session use the same parameter with the same id.
+* Write cracked hashes to file using `--show --outfile cracked.txt --outfile-format 2` where 2 is the output format. See `--help` for possible values.
+* Start hashcat as a session that can be stopped and resumed with `--session <session_name>` where you specify a name. When restoring a session use the same parameter with the same id and set `--restore` too.
 
 ### Online cracking tools
 
@@ -215,6 +215,9 @@ Open the HTML report in a web browser and enjoy the results.
 ![](/assets/dpat.png)
 
 ## Other
+
+#### Cleaning up
+After you've cracked hashes and delivered your report you may want to clean up both hashes and cracked passwords. This is important because you don't want to accidentally leak or lose track of potentially thousands of passwords for an enterprise. Be very careful with the files, especially when redirectinng to new files, etc. Remember to clean up your potfile to.
 
 #### Rainbow tables
 
