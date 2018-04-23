@@ -134,5 +134,3 @@ SMB         10.8.14.10      445    DC01             [*] Windows Server 2012 R2 S
 SMB         10.8.14.10      445    DC01             [+] LAB\dead 49a074a39dd0651f647e765c2cc794c7 (Pwn3d!)
 SMB         10.8.14.10      445    DC01             [+] Executed command 
 ```
-
-_Written by [@filipposmastro](https://twitter.com/filipposmastro)_

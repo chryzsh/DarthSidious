@@ -32,6 +32,10 @@ The source for this book is available in the [book's github repository](https://
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
 | 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](labs/labs/cuckoo-malware-analysis-lab.md) |
 | 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](general/password-cracking.md) |
+| 23.04.2018 | chryzsh | Added the article [CrackMapExec](general/crackmapexec.md) |
+
+
+
 
 
 Questions/Suggestions: Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
