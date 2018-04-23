@@ -20,22 +20,23 @@
   * [Preparing Kali](labs/preparing.md)
   * [Cuckoo malware analysis lab](labs/cuckoo-malware-analysis-lab.md)
 
+## Initial compromise
+
+* [Pivoting Through Exchange](general/pivoting-through-exchange.md)
+* [Password spraying](general/password-spraying.md)
+
 ## ENUMERATION
 
 * [Powershell](powershell/powershell.md)
 * [BloodHound](general/bloodhound.md)
 * [PowerView](general/powerview.md)
 
-## Initial compromise
-
-* [Pivoting Through Exchange](general/pivoting-through-exchange.md)
-* [Password spraying](general/password-spraying.md)
-
 ## Domain exploitation
 
 * [Pass the hash](general/pass-the-hash.md)
 * [Responder with NTLM relay and Empire](responder/relay.md)
 * [DeathStar](responder/deathstar.md)
+* [CrackMapExec](general/crackmapexec.md)
 
 ## Privilege escalation
 
