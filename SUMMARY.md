@@ -1,61 +1,63 @@
-# Summary
+# Table of contents
+
+* [Introduction](README.md)
 
 ## SUMMARY
 
-* [Introduction](README.md)
-* [Table of Contents](SUMMARY.md)
+* [Darth Sidious](summary/introduction.md)
+* [Table of Contents](summary/table-of-contents.md)
 
 ## GETTING STARTED
 
-* [Getting started](labs/getting-started.md)
-* [Network access to Domain Admin](general/network-access-to-domain-admin.md)
-* [Intro to Windows security](stuff/how-stuff-works.md)
-  * [Intro to Windows hashes](stuff/miniguide.md)
+* [Getting started](getting-started/getting-started.md)
+* [Network access to Domain Admin](getting-started/network-access-to-domain-admin.md)
+* [Intro to Windows security](getting-started/intro-to-windows-security/README.md)
+  * [Intro to Windows hashes](getting-started/intro-to-windows-security/intro-to-windows-hashes.md)
 
 ## Building a lab
 
-* [Building a lab](labs/building-a-lab.md)
-  * [Building a lab with ESXI and Vagrant](labs/building-a-lab-with-esxi-and-vagrant.md)
-  * [Building a small lab](labs/building-a-small-lab.md)
-  * [Preparing Kali](labs/preparing.md)
-  * [Cuckoo malware analysis lab](labs/cuckoo-malware-analysis-lab.md)
+* [Building a lab](building-a-lab/building-a-lab/README.md)
+  * [Building a lab with ESXI and Vagrant](building-a-lab/building-a-lab/building-a-lab-with-esxi-and-vagrant.md)
+  * [Building a small lab](building-a-lab/building-a-lab/building-a-small-lab.md)
+  * [Preparing Kali](building-a-lab/building-a-lab/preparing-kali.md)
+  * [Cuckoo malware analysis lab](building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
 
 ## Initial compromise
 
-* [Pivoting Through Exchange](general/pivoting-through-exchange.md)
-* [Password spraying](general/password-spraying.md)
+* [Pivoting Through Exchange](initial-compromise/pivoting-through-exchange.md)
+* [Password spraying](initial-compromise/password-spraying.md)
 
 ## ENUMERATION
 
-* [Powershell](powershell/powershell.md)
-* [BloodHound](general/bloodhound.md)
-* [PowerView](general/powerview.md)
+* [Powershell](enumeration/powershell.md)
+* [BloodHound](enumeration/bloodhound.md)
+* [PowerView](enumeration/powerview.md)
 
 ## Domain exploitation
 
-* [Pass the hash](general/pass-the-hash.md)
-* [Responder with NTLM relay and Empire](responder/relay.md)
-* [DeathStar](responder/deathstar.md)
-* [CrackMapExec](general/crackmapexec.md)
+* [Pass the hash](domain-exploitation/pass-the-hash.md)
+* [Responder with NTLM relay and Empire](domain-exploitation/responder-with-ntlm-relay-and-empire.md)
+* [DeathStar](domain-exploitation/deathstar.md)
+* [CrackMapExec](domain-exploitation/crackmapexec.md)
 
 ## Privilege escalation
 
-* [Mimikatz](general/mimikatz.md)
-* [Token Impersonation](exploitation/rotten-potato.md)
+* [Mimikatz](privilege-escalation/mimikatz.md)
+* [Token Impersonation](privilege-escalation/token-impersonation.md)
 
 ## Bypassing security controls
 
-* [Bypassing security controls](bypass/bypass-security-controls.md)
-  * [Bypassing Applocker and Powershell contstrained language mode](bypass/bypassing-applocker-and-powershell-contstrained-language-mode.md)
-  * [From RDS app to Empire shell](bypass/bypassing-rds.md)
-  * [Stealth](bypass/stealth.md)
+* [Bypassing security controls](bypassing-security-controls/bypassing-security-controls/README.md)
+  * [Bypassing Applocker and Powershell contstrained language mode](bypassing-security-controls/bypassing-security-controls/bypassing-applocker-and-powershell-contstrained-language-mode.md)
+  * [From RDS app to Empire shell](bypassing-security-controls/bypassing-security-controls/from-rds-app-to-empire-shell.md)
+  * [Stealth](bypassing-security-controls/bypassing-security-controls/stealth.md)
 
 ## OTHER
 
-* [Password cracking and auditing](general/password-cracking.md)
-* [Link encyclopedia](link-encyclopedia.md)
-* [Writeups](writeups/writeups.md)
-  * [lkylabs v1](writeups/lkyv1.md)
-* [War stories](warstories/warstories.md)
-  * [Domain admin in 30 minutes](warstories/domain-admin-in-30-minutes.md)
+* [Password cracking and auditing](other/password-cracking-and-auditing.md)
+* [Link encyclopedia](other/link-encyclopedia.md)
+* [Writeups](other/writeups/README.md)
+  * [lkylabs v1](other/writeups/lkylabs-v1.md)
+* [War stories](other/war-stories/README.md)
+  * [Domain admin in 30 minutes](other/war-stories/domain-admin-in-30-minutes.md)
 

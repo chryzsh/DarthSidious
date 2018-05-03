@@ -1,6 +1,8 @@
-# Introduction
+---
+description: Building an Active Directory domain and hacking it
+---
 
-_Building an Active Directory domain and hacking it_
+# Darth Sidious
 
 ![](https://www.designerd.com.br/wp-content/uploads/2014/07/8.png)
 
@@ -17,7 +19,7 @@ I have structured this book so it can be followed more or less sequentally. To p
 
 ## Getting started
 
-[GETTING STARTED](https://github.com/chryzsh/DarthSidious/tree/0e49fde4b2fbe3bb11f970f29d20f6310f36faa3/labs/getting-started.md)
+[GETTING STARTED](../getting-started/getting-started.md)
 
 ## Getting the Source Code
 
@@ -29,10 +31,10 @@ The source for this book is available in the [book's github repository](https://
 | --- | --- | --- |
 | May 2017 | chryzsh | Book created |
 | March 2018 | chryzsh | Restructured book |
-| 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](https://github.com/chryzsh/DarthSidious/tree/0e49fde4b2fbe3bb11f970f29d20f6310f36faa3/general/pivoting-through-exchange.md) |
+| 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](../initial-compromise/pivoting-through-exchange.md) |
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
-| 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](https://github.com/chryzsh/DarthSidious/tree/0e49fde4b2fbe3bb11f970f29d20f6310f36faa3/labs/labs/cuckoo-malware-analysis-lab.md) |
-| 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](https://github.com/chryzsh/DarthSidious/tree/0e49fde4b2fbe3bb11f970f29d20f6310f36faa3/general/password-cracking.md) |
+| 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](https://github.com/chryzsh/DarthSidious/tree/fdd707cf9dbbc2faf3cf3dbbcd712b06fceeee87/labs/labs/cuckoo-malware-analysis-lab.md) |
+| 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](../other/password-cracking-and-auditing.md) |
 
 Questions/Suggestions: Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
 
