@@ -1,3 +1,9 @@
+---
+description: >-
+  A general method detailing each step from going from external access only to
+  domain admin in AD.
+---
+
 # Network access to Domain Admin
 
 #### Intro

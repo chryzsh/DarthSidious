@@ -11,8 +11,7 @@
 
 * [Getting started](getting-started/getting-started.md)
 * [Network access to Domain Admin](getting-started/network-access-to-domain-admin.md)
-* [Intro to Windows security](getting-started/intro-to-windows-security/README.md)
-  * [Intro to Windows hashes](getting-started/intro-to-windows-security/intro-to-windows-hashes.md)
+* [Intro to Windows hashes](getting-started/intro-to-windows-hashes.md)
 
 ## Building a lab
 
@@ -22,10 +21,10 @@
   * [Preparing Kali](building-a-lab/building-a-lab/preparing-kali.md)
   * [Cuckoo malware analysis lab](building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
 
-## Initial compromise
+## Initial access
 
-* [Pivoting Through Exchange](initial-compromise/pivoting-through-exchange.md)
 * [Password spraying](initial-compromise/password-spraying.md)
+* [Initial access through exchange](initial-compromise/pivoting-through-exchange.md)
 
 ## ENUMERATION
 

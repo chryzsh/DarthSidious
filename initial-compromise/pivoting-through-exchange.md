@@ -1,19 +1,24 @@
-# Pivoting Through Exchange
+---
+description: Getting initial access through exchange
+---
 
-## Pre-requisits
+# Initial access through exchange
 
-* **Installing **[**GO **](https://github.com/golang)
-* [**ruler** ](https://github.com/sensepost/ruler)
+## Requirements
+
+* Installing [golang ](https://github.com/golang)
+* Installing [ruler](https://github.com/sensepost/ruler)
+* A valid domain user credentials
 
 ## Introduction
 
-Ruler is a tool that allows you to interact with Exchange servers remotely, through either the MAPI/HTTP or RPC/HTTP protocol. The main aim is abuse the client-side Outlook features and gain a shell remotely.
+Ruler is a tool that allows you to interact with Exchange servers remotely, through either the MAPI/HTTP or RPC/HTTP protocol. The main aim isto  abuse the client-side Outlook features and gain a shell remotely.
 
 Ruler attempts to interact with Exchange and uses the Autodiscover service \(just like in your organization\) to discover the relevant information needed to proceed.
 
 ## What can we use ruler for
 
-We can use ruler to do many things ill list its main feature below but, what i am going to show you is gonna be a way to pop a shell through ruler and the only thing we need is a valid username/password and the user to have outlook open.
+We can use ruler to do many things ill list its main feature below but, what i am going to show you is gonna be a way to pop a shell through ruler and the only thing we need is a valid username/password and the user to have outlook open. This can be very useful to pop a shell after a successful password spraying.
 
 in a real life scenario most employees leave their outlook open because they are often checking for incoming mails etc.
 

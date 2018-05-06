@@ -1,3 +1,9 @@
+---
+description: >-
+  Quite extensive guide for automating the building of a lab on ESXi using
+  Vagrant
+---
+
 # Building a lab with ESXI and Vagrant
 
 ## Lab design

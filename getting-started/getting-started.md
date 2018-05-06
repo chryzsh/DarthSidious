@@ -1,6 +1,10 @@
-# Getting started
+---
+description: >-
+  This is a guide to setting up a windows domain in a virtual lab to practice
+  penetration testing and hacking it.
+---
 
-This is a guide to setting up a windows domain in a virtual lab to practice penetration testing and hacking it.
+# Getting started
 
 **This guide/tutorial will teach you the following:**
 

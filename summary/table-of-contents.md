@@ -9,8 +9,8 @@
 
 * [Getting started](../getting-started/getting-started.md)
 * [Network access to Domain Admin](../getting-started/network-access-to-domain-admin.md)
-* [Intro to Windows security](../getting-started/intro-to-windows-security/)
-  * [Intro to Windows hashes](../getting-started/intro-to-windows-security/intro-to-windows-hashes.md)
+* [Intro to Windows security]()
+  * [Intro to Windows hashes](../getting-started/intro-to-windows-hashes.md)
 
 ## Building a lab
 

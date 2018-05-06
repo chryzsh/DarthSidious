@@ -1,12 +1,14 @@
+---
+description: >-
+  This part covers hashes as they are a fundamental part of Windows
+  environments.
+---
+
 # Intro to Windows hashes
-
-This should cover the basics necessary to follow the attacks performed in this guide.
-
-[https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4](https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4)
 
 ## Windows hashes
 
-There are a few different types of hashes in Windows and they can be very confusing. Some explanations can be found [here](http://www.adshotgyan.com/2012/02/lm-hash-and-nt-hash.html), but read this first:
+There are a few different types of hashes in Windows and they can be very confusing. Some explanations can be found [here](http://www.adshotgyan.com/2012/02/lm-hash-and-nt-hash.html) and [here](https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4) but read this first:
 
 No Windows hashes are salted, so two identical hashes will yield the same plaintext. Windows hashes are broken down into two hashes. LMhash and NTLMhash. This is an example: `testuser:29418:aad3b435b51404eeaad3b435b51404ee:58a478135a93ac3bf058a5ea0e8fdb71`
 
