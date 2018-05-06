@@ -1,11 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
-
-## SUMMARY
-
-* [Darth Sidious](summary/darth-sidious.md)
-* [Table of Contents](summary/table-of-contents.md)
+* [Darth Sidious](README.md)
 
 ## GETTING STARTED
 
