@@ -1,9 +1,3 @@
----
-description: >-
-  This is a quick guide to setting up a lab environment. It's meant to be very
-  simple and be used for things like credential replay attacks.
----
-
 # Building a small lab
 
 ## VMware or Virtualbox

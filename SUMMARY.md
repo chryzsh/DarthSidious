@@ -4,13 +4,13 @@
 
 ## SUMMARY
 
-* [Darth Sidious](summary/introduction.md)
-* [Table of Contents](SUMMARY.md)
+* [Darth Sidious](summary/darth-sidious.md)
+* [Table of Contents](summary/table-of-contents.md)
 
 ## GETTING STARTED
 
 * [Getting started](getting-started/getting-started.md)
-* [External network access to Domain Admin](getting-started/network-access-to-domain-admin.md)
+* [External network access to Domain Admin](getting-started/external-network-access-to-domain-admin.md)
 * [Intro to Windows hashes](getting-started/intro-to-windows-hashes.md)
 
 ## Building a lab
@@ -23,8 +23,8 @@
 
 ## Initial access
 
-* [Password spraying](initial-compromise/password-spraying.md)
-* [Initial access through exchange](initial-compromise/pivoting-through-exchange.md)
+* [Password spraying](initial-access/password-spraying.md)
+* [Initial access through exchange](initial-access/initial-access-through-exchange.md)
 
 ## ENUMERATION
 
@@ -34,10 +34,10 @@
 
 ## Execution
 
-* [Pass the hash](domain-exploitation/pass-the-hash.md)
-* [Responder with NTLM relay and Empire](domain-exploitation/responder-with-ntlm-relay-and-empire.md)
-* [DeathStar](domain-exploitation/deathstar.md)
-* [CrackMapExec](domain-exploitation/crackmapexec.md)
+* [Pass the hash](execution/pass-the-hash.md)
+* [Responder with NTLM relay and Empire](execution/responder-with-ntlm-relay-and-empire.md)
+* [DeathStar](execution/deathstar.md)
+* [CrackMapExec](execution/crackmapexec.md)
 
 ## Privilege escalation
 
@@ -46,9 +46,9 @@
 
 ## Defense evasion
 
-* [Bypassing Applocker and Powershell contstrained language mode](bypassing-security-controls/bypassing-applocker-and-powershell-contstrained-language-mode.md)
-* [From RDS app to Empire shell](bypassing-security-controls/from-rds-app-to-empire-shell.md)
-* [Stealth](bypassing-security-controls/stealth.md)
+* [Bypassing Applocker and Powershell contstrained language mode](defense-evasion/bypassing-applocker-and-powershell-contstrained-language-mode.md)
+* [From RDS app to Empire shell](defense-evasion/from-rds-app-to-empire-shell.md)
+* [Stealth](defense-evasion/stealth.md)
 
 ## OTHER
 

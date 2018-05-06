@@ -1,7 +1,3 @@
----
-description: A brute force technique to gain access to a domain user's credentials
----
-
 # Password spraying
 
 ## General approach

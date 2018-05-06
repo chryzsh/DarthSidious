@@ -1,7 +1,3 @@
----
-description: Getting initial access through exchange
----
-
 # Initial access through exchange
 
 ## Requirements

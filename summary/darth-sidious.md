@@ -1,7 +1,3 @@
----
-description: Building an Active Directory domain and hacking it
----
-
 # Darth Sidious
 
 ![](https://www.designerd.com.br/wp-content/uploads/2014/07/8.png)
@@ -31,11 +27,11 @@ The source for this book is available in the [book's github repository](https://
 | --- | --- | --- |
 | May 2017 | chryzsh | Book created |
 | March 2018 | chryzsh | Restructured book |
-| 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](../initial-compromise/pivoting-through-exchange.md) |
+| 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](../initial-access/initial-access-through-exchange.md) |
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
 | 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](https://github.com/chryzsh/DarthSidious/tree/fdd707cf9dbbc2faf3cf3dbbcd712b06fceeee87/labs/labs/cuckoo-malware-analysis-lab.md) |
 | 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](../credential-access/password-cracking-and-auditing.md) |
-| 23.04.2018 | filippos | Added the article [CrackMapExec](../domain-exploitation/crackmapexec.md) |
+| 23.04.2018 | filippos | Added the article [CrackMapExec](../execution/crackmapexec.md) |
 
 Questions/Suggestions: Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)
 

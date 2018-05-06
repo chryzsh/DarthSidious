@@ -1,9 +1,3 @@
----
-description: >-
-  This part covers hashes as they are a fundamental part of Windows
-  environments.
----
-
 # Intro to Windows hashes
 
 ## Windows hashes

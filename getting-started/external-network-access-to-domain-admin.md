@@ -1,9 +1,3 @@
----
-description: >-
-  A general method detailing each step from going from external access only to
-  domain admin in AD. This is nearly the entire cyber kill chain step by step.
----
-
 # External network access to Domain Admin
 
 #### Intro

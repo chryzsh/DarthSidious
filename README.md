@@ -1,7 +1,3 @@
----
-description: Building an Active Directory domain and hacking it
----
-
 # Introduction
 
 

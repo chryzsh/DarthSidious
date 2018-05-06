@@ -1,7 +1,3 @@
----
-description: Preparing the tools necessary for hacking an AD environment
----
-
 # Preparing Kali
 
 You need some tools for this guide. Get ready! Make a directory to put all this in, because it can get messy. I won't explain all the tools and how to install them, because the different tools and procedures might change.
