@@ -1,11 +1,11 @@
 # Table of Contents
 
-## SUMMARY
+## Summary
 
 * [Introduction](introduction.md)
 * [Table of Contents](table-of-contents.md)
 
-## GETTING STARTED
+## Getting started
 
 * [Getting started](../getting-started/getting-started.md)
 * [Network access to Domain Admin](../getting-started/network-access-to-domain-admin.md)
@@ -20,42 +20,42 @@
   * [Preparing Kali](../building-a-lab/building-a-lab/preparing-kali.md)
   * [Cuckoo malware analysis lab](../building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
 
-## Initial compromise
+## Initial access
 
 * [Pivoting Through Exchange](../initial-compromise/pivoting-through-exchange.md)
 * [Password spraying](../initial-compromise/password-spraying.md)
 
-## ENUMERATION
+## Enumeration
 
 * [Powershell](../enumeration/powershell.md)
 * [BloodHound](../enumeration/bloodhound.md)
 * [PowerView](../enumeration/powerview.md)
 
-## Domain exploitation
+## Credential access
 
 * [Pass the hash](../domain-exploitation/pass-the-hash.md)
 * [Responder with NTLM relay and Empire](../domain-exploitation/responder-with-ntlm-relay-and-empire.md)
 * [DeathStar](../domain-exploitation/deathstar.md)
-* [CrackMapExec](../domain-exploitation/crackmapexec.md)
+* [CrackMapExe](../domain-exploitation/crackmapexec.md)
+* [Mimikatz](../privilege-escalation/mimikatz.md)
+* [Password cracking and auditing](../credential-access/password-cracking-and-auditing.md)
 
 ## Privilege escalation
 
-* [Mimikatz](../privilege-escalation/mimikatz.md)
 * [Token Impersonation](../privilege-escalation/token-impersonation.md)
 
-## Bypassing security controls
+## Defense evasion
 
-* [Bypassing security controls](../bypassing-security-controls/bypassing-security-controls/)
-  * [Bypassing Applocker and Powershell contstrained language mode](../bypassing-security-controls/bypassing-security-controls/bypassing-applocker-and-powershell-contstrained-language-mode.md)
-  * [From RDS app to Empire shell](../bypassing-security-controls/bypassing-security-controls/from-rds-app-to-empire-shell.md)
-  * [Stealth](../bypassing-security-controls/bypassing-security-controls/stealth.md)
+* [Bypassing Applocker and Powershell contstrained language mod](../bypassing-security-controls/bypassing-applocker-and-powershell-contstrained-language-mode.md)
+* [From RDS app to Empire shell](../bypassing-security-controls/from-rds-app-to-empire-shell.md)
+* [Stealth](../bypassing-security-controls/stealth.md)
 
-## OTHER
+## Other
 
-* [Password cracking and auditing](../other/password-cracking-and-auditing.md)
 * [Link encyclopedia](../other/link-encyclopedia.md)
-* [Writeups](../other/writeups/)
-  * [lkylabs v1](../other/writeups/lkylabs-v1.md)
-* [War stories](../other/war-stories/)
-  * [Domain admin in 30 minutes](../other/war-stories/domain-admin-in-30-minutes.md)
+
+## Writeups
+
+* [lkylabs v1](../other/writeups/lkylabs-v1.md)
+* [Domain admin in 30 minutes](../other/war-stories/domain-admin-in-30-minutes.md)
 

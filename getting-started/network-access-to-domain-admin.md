@@ -1,10 +1,10 @@
 ---
 description: >-
   A general method detailing each step from going from external access only to
-  domain admin in AD.
+  domain admin in AD. This is nearly the entire cyber kill chain step by step.
 ---
 
-# Network access to Domain Admin
+# External network access to Domain Admin
 
 #### Intro
 
@@ -20,7 +20,7 @@ The general approach to going from external network access to domain admin consi
 
 **Goal: Acquire a target machine and service** You are on the external network, often this will be the Internet. You should of course have a target in mind already. If you're targeting a lab environment, a set of IP addressed should already be available. The first step will be enumerating a set of IPs or subnets. Once one or more target machines and services have been discovered, they should be investigated thoroughly.
 
-**Technique**
+**Techniques**
 
 * Port scanning
 * Investigating exposed services
@@ -32,7 +32,7 @@ The general approach to going from external network access to domain admin consi
 * MSSQL \(1433\)
 * RDS \(3389\)
 * RDWEB \(3389, navigate to [http://ip/rdweb](http://ip/rdweb)\)
-* OWA \(80, navigate to subdomain email.domain.com\)
+* OWA \(80, navigate to subdomain email.domain.com or http://ip/owa\)
 
 **Tools**
 

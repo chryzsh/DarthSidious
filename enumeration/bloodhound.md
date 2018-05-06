@@ -1,3 +1,9 @@
+---
+description: >-
+  A truly awesome tool to graphically map out an entire AD forest and all its
+  objects
+---
+
 # BloodHound
 
 ## Mapping AD with BloodHound

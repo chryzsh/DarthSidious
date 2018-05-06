@@ -34,7 +34,7 @@ The source for this book is available in the [book's github repository](https://
 | 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](../initial-compromise/pivoting-through-exchange.md) |
 | 02.04.2018 | chryzsh | Restructured book again and removed some unfinished articles |
 | 11.04.2018 | chryzsh | Added the article [Building a malware analysis lab](https://github.com/chryzsh/DarthSidious/tree/fdd707cf9dbbc2faf3cf3dbbcd712b06fceeee87/labs/labs/cuckoo-malware-analysis-lab.md) |
-| 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](../other/password-cracking-and-auditing.md) |
+| 14.04.2018 | chryzsh | Added the article [Password cracking and auditing](../credential-access/password-cracking-and-auditing.md) |
 | 23.04.2018 | filippos | Added the article [CrackMapExec](../domain-exploitation/crackmapexec.md) |
 
 Questions/Suggestions: Ping me on Twitter [@chryzsh](https://twitter.com/chryzsh)

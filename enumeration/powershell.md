@@ -1,3 +1,7 @@
+---
+description: Leveraging Powershell for numerous things
+---
+
 # Powershell
 
 This article is about using different techniques to achieve both enumeration of the domain, popping shells, pivoting and executing exploits to gain further access. Pivoting means to move across machines in an environment. Of course we use the prevalence of Powershell in modern Windows environments to our advantage. We also string together many of these tricks towards efficient and stealthy hacking with a small footprint. Powershhell can do a lot straight into memory without dropping files to disk. BOX01 will be the name of the example box in this article. 10.10.10.10 is also just an example of what would be your local IP address when performing such attacks. Hosting files for download from kali is easy using `python -SimpleHTTPServer 80`
