@@ -1,3 +1,7 @@
+---
+description: Get started with hacking Active Directory!
+---
+
 # Getting started
 
 **This guide/tutorial will teach you the following:**
