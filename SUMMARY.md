@@ -5,7 +5,7 @@
 ## SUMMARY
 
 * [Darth Sidious](summary/introduction.md)
-* [Table of Contents](summary/table-of-contents.md)
+* [Table of Contents](summary.md)
 
 ## GETTING STARTED
 
