@@ -58,47 +58,6 @@ Install all the software requirements and download the necessary ISOs. They can 
 * Windows 10 Enterprise Edition
 * CentOS 7.4
 
-### Installing Vagrant
-
-Install Vagrant and the plugins
-
-```text
-vagrant plugin install vagrant-vmware-esxi
-vagrant plugin install vagrant-winrm-syncedfolders
-vagrant plugin install vagrant-reload
-
-vagrant plugin list
-    vagrant-reload (0.0.1)
-    vagrant-vmware-esxi (2.3.1)
-    vagrant-winrm-syncedfolders (1.0.1)
-```
-
-### \(NEW WAY\) - Build VMs with Packer
-
-Packer helps us automate the tiresome process of preparing images into VMs ready for deployment.
-
-### \(OLD WAY\) - Downloading operating systems in Vagrant
-
-Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have any configuration management built in; those are usually indicated by `nocm`.
-
-```text
-vagrant box add opentable/win-2008r2-enterprise-amd64-nocm
-vagrant box add opentable/win-2012r2-standard-amd64-nocm
-vagrant box add StefanScherer/windows_2016
-vagrant box add opentable/win-7-enterprise-amd64-nocm
-vagrant box add StefanScherer/windows_10`
-```
-
-[Vagrant box opentable/win-2008r2-enterprise-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-2008r2-enterprise-amd64-nocm)
-
-[Vagrant box opentable/win-2012-standard-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-2012-standard-amd64-nocm)
-
-[Vagrant box StefanScherer/windows\_2016 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_2016)
-
-[Vagrant box opentable/win-7-enterprise-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-7-enterprise-amd64-nocm)
-
-[Vagrant box StefanScherer/windows\_10 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
-
 ## Installing ESXI
 
 Download ESXI 6.5 image
@@ -153,7 +112,51 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 4. Click port group, ADD port group.
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
 
-### Preparing base images for every OS
+
+
+### Installing Vagrant
+
+Install Vagrant and the plugins
+
+```text
+vagrant plugin install vagrant-vmware-esxi
+vagrant plugin install vagrant-winrm-syncedfolders
+vagrant plugin install vagrant-reload
+
+vagrant plugin list
+    vagrant-reload (0.0.1)
+    vagrant-vmware-esxi (2.3.1)
+    vagrant-winrm-syncedfolders (1.0.1)
+```
+
+### \(NEW WAY\) - Build VMs with Packer
+
+Packer helps us automate the tiresome process of preparing images into VMs ready for deployment.
+
+### \(OLD WAY\) - Downloading operating systems in Vagrant
+
+Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have any configuration management built in; those are usually indicated by `nocm`.
+
+```text
+vagrant box add opentable/win-2008r2-enterprise-amd64-nocm
+vagrant box add opentable/win-2012r2-standard-amd64-nocm
+vagrant box add StefanScherer/windows_2016
+vagrant box add opentable/win-7-enterprise-amd64-nocm
+vagrant box add StefanScherer/windows_10`
+```
+
+[Vagrant box opentable/win-2008r2-enterprise-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-2008r2-enterprise-amd64-nocm)
+
+[Vagrant box opentable/win-2012-standard-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-2012-standard-amd64-nocm)
+
+[Vagrant box StefanScherer/windows\_2016 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_2016)
+
+[Vagrant box opentable/win-7-enterprise-amd64-nocm - Vagrant Cloud](https://app.vagrantup.com/opentable/boxes/win-7-enterprise-amd64-nocm)
+
+[Vagrant box StefanScherer/windows\_10 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
+
+
+### (OLD WAY) - Preparing base images for every OS
 
 Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. This process must be repeated for every VM, which is a drag, but it only has to be done once.
 
