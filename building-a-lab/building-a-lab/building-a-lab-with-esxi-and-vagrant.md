@@ -22,6 +22,8 @@ Nothing here yet
 
 ## Prepping
 
+Install all the software requirements and download the necessary ISOs. They can be acquired from the [MS Evaluation Center](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016) \(trial\) or [The-Eye](https://the-eye.eu/public/MSDN/) \(Volume Licensing \(VL\)\).
+
 ### Hardware requirements
 
 * ESXi 6.5 compatible hardware \(can use 6.0 if incompatible\)
@@ -35,19 +37,18 @@ Nothing here yet
 
 #### VMware
 
-* ESXi 6.5
+* [ESXi 6.5](https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6)
 * VMware Workstation 1x.x
-* VMware ovftool
+* [VMware ovftool](https://www.vmware.com/support/developer/ovf/)
 * vCenter appliance
 * vSphere client
 
 #### Orchestration
 
-* Web browser to do management from
-* Vagrant
-* Vagrant VMware ESXi plugin
-* Vagrant Reload Provisioner
-* Vagrant WinRM Syncedfolders
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+* Vagrant VMware ESXi plugin - [josenk/vagrant-vmware-esxi: A Vagrant plugin that adds a vmware ESXi provider support](https://github.com/josenk/vagrant-vmware-esxi)
+* Vagrant Reload Provisioner - [aidanns](https://github.com/aidanns)/[vagrant-reload](https://github.com/aidanns/vagrant-reload)
+* Vagrant WinRM Syncedfolders - [Cimpress-MCP](https://github.com/Cimpress-MCP)/[vagrant-winrm-syncedfolders](https://github.com/Cimpress-MCP/vagrant-winrm-syncedfolders)
 
 #### ISOs
 
@@ -57,36 +58,28 @@ Nothing here yet
 * Windows 10 Enterprise Edition
 * CentOS 7.4
 
-#### Future additions
-
-* Sharepoint
-* Office 2013 or 2016
-* Microsoft Exchange
-
 ### Installing Vagrant
 
-Install Vagrant and the vagrant VMware ESXi plugin.
-
-[https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
-
-[josenk/vagrant-vmware-esxi: A Vagrant plugin that adds a vmware ESXi provider support.](https://github.com/josenk/vagrant-vmware-esxi)
-
-[aidanns](https://github.com/aidanns)/[vagrant-reload](https://github.com/aidanns/vagrant-reload)
-
-[Cimpress-MCP](https://github.com/Cimpress-MCP)/[vagrant-winrm-syncedfolders](https://github.com/Cimpress-MCP/vagrant-winrm-syncedfolders)
-
-This plugin requires `ovftool`from VMware. Download from VMware website.
-
-[https://www.vmware.com/support/developer/ovf/](https://www.vmware.com/support/developer/ovf/)
+Install Vagrant and the plugins
 
 ```text
 vagrant plugin install vagrant-vmware-esxi
 vagrant plugin install vagrant-winrm-syncedfolders
 vagrant plugin install vagrant-reload
-vagrant version
+
+vagrant plugin list
+    vagrant-reload (0.0.1)
+    vagrant-vmware-esxi (2.3.1)
+    vagrant-winrm-syncedfolders (1.0.1)
 ```
 
-### Downloading operating systems in Vagrant
+### \(NEW WAY\) - Build VMs with Packer
+
+Packer helps us automate the tiresome process of preparing images into VMs ready for deployment.
+
+
+
+### \(OLD WAY\) - Downloading operating systems in Vagrant
 
 Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have any configuration management built in; those are usually indicated by `nocm`.
 
@@ -110,13 +103,15 @@ vagrant box add StefanScherer/windows_10`
 
 ## Installing ESXI
 
-Download ESXI 6.5 image [https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6](https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6)
+Download ESXI 6.5 image
 
 Use [Rufus ](http://rufus.akeo.ie/)to make a bootable USB key from the ESXI image.
 
 Boot the lab machine from USB and install ESXi on the small drive as per instruction.
 
 After installation, reboot the server. ESXi should now provide a DHCP-leased IP-address you can access from a web panel.
+
+It can be a good idea to set a static IP at this point to prevent the ESXi network adapter' IP to keep changing when you're doing things.
 
 #### Troubleshooting
 
