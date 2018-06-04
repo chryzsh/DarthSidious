@@ -132,7 +132,7 @@ The Vagrant ESXi plugin requires SSH to be anabled.
 3. Choose Enable ESXi shell and Enable SSH and press Enter once on each of them
 4. Press Esc until you return to the main direct console screen.
 
-### Seting static IP for the ESXi host
+### Setting static IP for the ESXi host
 
 1. Press F2 on the ESXi console, provide credentials when prompted
 2. Configure management network -&gt; IPV4 Configuration
@@ -154,6 +154,8 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 3. Don't assign 
 4. Click port group, ADD port group. 
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
+
+### 
 
 ### Preparing base images for every OS
 
