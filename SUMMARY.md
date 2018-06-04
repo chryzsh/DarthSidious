@@ -11,10 +11,10 @@
 ## Building a lab
 
 * [Building a lab](building-a-lab/building-a-lab/README.md)
-  * [Preparing Kali](building-a-lab/building-a-lab/preparing-kali.md)
-  * [Building a small lab](building-a-lab/building-a-lab/building-a-small-lab.md)
-  * [Building a lab with ESXI and Vagrant](building-a-lab/building-a-lab/building-a-lab-with-esxi-and-vagrant.md)
-  * [Cuckoo malware analysis lab](building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
+* [Preparing Kali](building-a-lab/building-a-lab/preparing-kali.md)
+* [Building a small lab](building-a-lab/building-a-lab/building-a-small-lab.md)
+* [Building a lab with ESXI and Vagrant](building-a-lab/building-a-lab/building-a-lab-with-esxi-and-vagrant.md)
+* [Cuckoo malware analysis lab](building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
 
 ## Initial access
 
@@ -56,4 +56,3 @@
 ## Credential access
 
 * [Password cracking and auditing](credential-access/password-cracking-and-auditing.md)
-
