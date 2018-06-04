@@ -77,8 +77,6 @@ vagrant plugin list
 
 Packer helps us automate the tiresome process of preparing images into VMs ready for deployment.
 
-
-
 ### \(OLD WAY\) - Downloading operating systems in Vagrant
 
 Using the following syntax download the required operating systems using Vagrant. Select `vmware_desktop` as provider when prompted. It is wise to choose boxes from the Vagrant cloud that doesn't have any configuration management built in; those are usually indicated by `nocm`.
@@ -113,7 +111,7 @@ After installation, reboot the server. ESXi should now provide a DHCP-leased IP-
 
 It can be a good idea to set a static IP at this point to prevent the ESXi network adapter' IP to keep changing when you're doing things.
 
-#### Troubleshooting
+### Troubleshooting
 
 Troubleshooting write speeds with SSD: [https://communities.vmware.com/thread/554004](https://communities.vmware.com/thread/554004)
 
@@ -144,18 +142,16 @@ The Vagrant ESXi plugin requires SSH to be anabled.
 Add the big drive, where the virtual machines will be stored as a datastore in ESXi.
 
 1. In the ESXi web client press `Storage`in the left side pane.
-2. Just follow the instructions after selecting `New datastore`from the menu, 
+2. Just follow the instructions after selecting `New datastore`from the menu,
 3. Add a drive, give it a name like `VMs` and use the whole drive as one partition.
 
 ### Adding a network configuration to ESXi
 
 1. Select Networking on the left side pane
 2. Click Add standard switch, name it vSwitch1
-3. Don't assign 
-4. Click port group, ADD port group. 
+3. I forgot what step 3 was
+4. Click port group, ADD port group.
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
-
-### 
 
 ### Preparing base images for every OS
 
@@ -276,4 +272,3 @@ If the box is shut down and booting it is necessary you want to up it without pr
 `vagrant up BOX01 --no-provision`
 
 After the box has been deployed and provisioned it might be a good idea to shut it down and take a snapshot. This can also be done from vagrant using `vagrant snapshot push` to take a snapshot and `vagrant snapshot pop` to roll back. To show all snpashots do `vagrant snapshot list`
-
