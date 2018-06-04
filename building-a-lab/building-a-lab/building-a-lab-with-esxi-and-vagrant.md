@@ -105,7 +105,7 @@ vagrant box add StefanScherer/windows_10`
 
 Download ESXI 6.5 image
 
-Use [Rufus ](http://rufus.akeo.ie/)to make a bootable USB key from the ESXI image.
+Use [Rufus](http://rufus.akeo.ie/)to make a bootable USB key from the ESXI image.
 
 Boot the lab machine from USB and install ESXi on the small drive as per instruction.
 
