@@ -27,7 +27,7 @@ There are numerous ways of proving identity in Windows systems.
 * **Passwords** - Passwords are
 * **Hashes** - Windows can use hashes for authentication. It is possible to leverage attacks like pass-the-hash to prove identity with a compromised user, completely without the account password.
 * **Tokens** - the concept of token is identity.  When a user or service logs in to a system, the system validates their identity once, and mints a token, which is handed to that user/service and serves as their identity. The system then doesn't need to validate identity every time a program opens a file, for example. This basically ensures a clean separation between authentication \(proving a user/service is who they say they are\) and authorization \(determining whether a user/service can access some resource\).
-* **Tickets **- usually refers to Kerberos tickets, see below.
+* **Tickets** - usually refers to Kerberos tickets, see below.
 
 ## Kerberos
 

@@ -38,7 +38,7 @@ Here is a very basic dictionary attack using the world famous rockyou wordlist.
 hashcat64.exe -a 0 -m 1000 ntlm.txt rockyou.txt
 ```
 
-The limitation here is as with all wordlist attacks the fact that** if the password you are trying to crack is not in the list; you won't be able to crack it**. This leads us to the next type of attack, a rule-based attack.
+The limitation here is as with all wordlist attacks the fact that **if the password you are trying to crack is not in the list; you won't be able to crack it**. This leads us to the next type of attack, a rule-based attack.
 
 ### Rules-based attack
 

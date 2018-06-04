@@ -2,15 +2,11 @@
 
 ## Lab design
 
-ESXi 6.5 installed on a physical box, with multiple VMs on an isolated virtual network. VPN access will be set up to connect straight into the network, but no domain user provided.
-
-A virtual firewall - Sophos?
-
-Internal virtual network
+ESXi 6.5 installed on a physical box, with multiple VMs on an isolated virtual network. A virtual firewall is the border for the internal network and supplies VPN access. VPN access will be set up to connect straight into the network, but no domain user provided.
 
 ## Domain design
 
-Active directory with OU, GPOs, hardening blabla
+Nothing here yet
 
 ## Server plan
 
@@ -22,6 +18,7 @@ Active directory with OU, GPOs, hardening blabla
 | WS01 | Workstation | W10 Enterprise |
 | WS02 | Workstation | W7 Enterprise |
 | CENT01 | Annoying Linux box | CentOS 7.4 |
+| FW01 | Firewall | pfSense |
 
 ## Prepping
 
@@ -36,17 +33,26 @@ Active directory with OU, GPOs, hardening blabla
 
 ### Software requirements
 
+#### VMware
+
 * ESXi 6.5
 * VMware Workstation 1x.x
+* VMware ovftool
+* vCenter appliance
+* vSphere client
+
+#### Orchestration
+
 * Web browser to do management from
 * Vagrant
 * Vagrant VMware ESXi plugin
 * Vagrant Reload Provisioner
 * Vagrant WinRM Syncedfolders
-* VMware ovftool
-* Windows Server 2008 R2
+
+#### ISOs
+
 * Windows Server 2012 R2
-* Windows Server 2016 Tech Evaluation
+* Windows Server 2016
 * Windows 7 Enterprise Edition
 * Windows 10 Enterprise Edition
 * CentOS 7.4

@@ -8,8 +8,8 @@ description: >-
 
 ![](https://www.designerd.com.br/wp-content/uploads/2014/07/8.png)
 
-**The goal is simple  
-**To share my modest knowledge about hacking Windows systems. This is commonly refered to as red team exercises. This book however, is also very concerned with the blue team; the defenders. That is, helping those who are working as defenders, analysts and security experts to build secure Active Directory environments and monitor them for malicious activity.
+**The goal is simple**  
+To share my modest knowledge about hacking Windows systems. This is commonly refered to as red team exercises. This book however, is also very concerned with the blue team; the defenders. That is, helping those who are working as defenders, analysts and security experts to build secure Active Directory environments and monitor them for malicious activity.
 
 **There are three major parts in this book**  
 1. Building a lab  
