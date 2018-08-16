@@ -1,9 +1,3 @@
----
-description: >-
-  A book-in-progress about hacking Microsoft technology, and specifically Active
-  Directory.
----
-
 # Darth Sidious
 
 ![](https://www.designerd.com.br/wp-content/uploads/2014/07/8.png)
@@ -29,7 +23,7 @@ The source for this book is available in the [book's github repository](https://
 ## Changelog
 
 | Date | Who | What |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | May 2017 | chryzsh | Book created |
 | March 2018 | chryzsh | Restructured book |
 | 30.03.2018 | bufferov3rride | Added article [Pivoting Through Exchange](initial-access/initial-access-through-exchange.md) |

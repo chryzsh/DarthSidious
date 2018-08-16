@@ -112,8 +112,6 @@ Add the big drive, where the virtual machines will be stored as a datastore in E
 4. Click port group, ADD port group.
 5. Give it the name `Lab Network`, asign it to `VLAN 0`, assign it to `vSwitch0`which is the default virtual switch.
 
-
-
 ### Installing Vagrant
 
 Install Vagrant and the plugins
@@ -155,8 +153,7 @@ vagrant box add StefanScherer/windows_10`
 
 [Vagrant box StefanScherer/windows\_10 - Vagrant Cloud](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
 
-
-### (OLD WAY) - Preparing base images for every OS
+### \(OLD WAY\) - Preparing base images for every OS
 
 Deploying to Vagrant and applying things like powershell config during deployment will be a lot easier if the VMs are prepped. This process must be repeated for every VM, which is a drag, but it only has to be done once.
 
@@ -275,3 +272,4 @@ If the box is shut down and booting it is necessary you want to up it without pr
 `vagrant up BOX01 --no-provision`
 
 After the box has been deployed and provisioned it might be a good idea to shut it down and take a snapshot. This can also be done from vagrant using `vagrant snapshot push` to take a snapshot and `vagrant snapshot pop` to roll back. To show all snpashots do `vagrant snapshot list`
+

@@ -10,11 +10,11 @@
 
 ## Building a lab
 
-* [Building a lab](building-a-lab/building-a-lab/README.md)
-* [Preparing Kali](building-a-lab/building-a-lab/preparing-kali.md)
-* [Building a small lab](building-a-lab/building-a-lab/building-a-small-lab.md)
-* [Building a lab with ESXI and Vagrant](building-a-lab/building-a-lab/building-a-lab-with-esxi-and-vagrant.md)
-* [Cuckoo malware analysis lab](building-a-lab/building-a-lab/cuckoo-malware-analysis-lab.md)
+* [Building a lab](building-a-lab/building-a-lab.md)
+* [Preparing Kali](building-a-lab/preparing-kali.md)
+* [Building a small lab](building-a-lab/building-a-small-lab.md)
+* [Building a lab with ESXI and Vagrant](building-a-lab/building-a-lab-with-esxi-and-vagrant.md)
+* [Cuckoo malware analysis lab](building-a-lab/cuckoo-malware-analysis-lab.md)
 
 ## Initial access
 
@@ -38,6 +38,7 @@
 
 * [Mimikatz](privilege-escalation/mimikatz.md)
 * [Token Impersonation](privilege-escalation/token-impersonation.md)
+* [Juicy Potato](privilege-escalation/juicy-potato.md)
 
 ## Defense evasion
 
@@ -56,3 +57,4 @@
 ## Credential access
 
 * [Password cracking and auditing](credential-access/password-cracking-and-auditing.md)
+

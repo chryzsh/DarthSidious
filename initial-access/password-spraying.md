@@ -1,7 +1,3 @@
----
-description: A technique to obtain and verify credentials for users.
----
-
 # Password spraying
 
 ## General approach

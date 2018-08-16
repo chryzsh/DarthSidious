@@ -47,3 +47,4 @@ These steps must be performed for all hosts: W7, W8 and W10.
 * To confirm the group was added, run `net localgroup Administrators` and you should see "Domain Users" added to that group
 * Log in to each of the domain users you created earlier on the workstations, except one box of your choosing, where you log in as DA
 * Ping all the machines back and forth to make sure everything is working. Ping Kali and the host as well.
+
