@@ -31,6 +31,8 @@ Now, it appears that nothing is happening, but take a look at spoolsv in Process
 
 Bham! cmd.exe with subprocesses conhost and notepad has spawned as SYSTEM! 
 
+### Windows 10 - works!
+
 0day priv esc confirmed on Windows 10 1803. No patch has been released by MS yet \(28.08.2018\)
 
 ![](../.gitbook/assets/image%20%283%29.png)
@@ -41,11 +43,15 @@ Edit on the above: @plaintext notified me that the processes spawn in session 0 
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
-### Tested on Server 2016: it works
+###  Server 2016 - works
 
 ![](../.gitbook/assets/image%20%2811%29.png)
 
-**I also** 
+### Windows 7 - Nothing happens
+
+![](../.gitbook/assets/image%20%2813%29.png)
+
+\*\*\*\*
 
 \*\*\*\*
 
