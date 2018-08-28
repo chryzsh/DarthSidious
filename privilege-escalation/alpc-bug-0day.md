@@ -19,7 +19,7 @@ A 0day for a local priv esc for Windows was published August 28th on Twitter by 
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2811%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -35,7 +35,11 @@ Bham! cmd.exe with subprocesses conhost and notepad has spawned as SYSTEM!
 
 ![](../.gitbook/assets/image%20%283%29.png)
 
-Tthis could probably be tweaked to open an actual cmd window as SYSTEM instead of a windowless process in the background.
+This could probably be tweaked to open an actual cmd window as SYSTEM instead of a windowless process in the background.
+
+### Tested on Server 2016: it works
+
+![](../.gitbook/assets/image%20%2810%29.png)
 
 **Bonus**: when you kill the spawned cmd.exe process, a popup asking you to save the print output spawns.
 
