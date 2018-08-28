@@ -9,17 +9,17 @@ A 0day for a local priv esc for Windows was published August 28th on Twitter by 
 * As Administrator, open [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) - right click, "Run as administrator"
 * As a regular user, launch notepad. If you opened it from cmd, you get a subprocess notepad inside cmd. This thread runs with the user context you launched it with. Note that the PID of the notepad process is `3872`
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 * If you need to see username and  integrity level in Process Explorer you can go to View -&gt; Select columns and check 
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -37,11 +37,19 @@ Bham! cmd.exe with subprocesses conhost and notepad has spawned as SYSTEM!
 
 This could probably be tweaked to open an actual cmd window as SYSTEM instead of a windowless process in the background.
 
+Edit on the above: @plaintext notified me that the processes spawn in session 0 which is why they won't be visible to the user which operations in session 1. If you toggle Session in the columns panel in ProcExplorer you can see that very clearly.
+
+![](../.gitbook/assets/image%20%284%29.png)
+
 ### Tested on Server 2016: it works
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2811%29.png)
+
+**I also** 
+
+\*\*\*\*
 
 **Bonus**: when you kill the spawned cmd.exe process, a popup asking you to save the print output spawns.
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
