@@ -11,15 +11,15 @@ A 0day for a local priv esc for Windows was published August 28th on Twitter by 
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 * If you need to see username and  integrity level in Process Explorer you can go to View -&gt; Select columns and check 
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -29,9 +29,15 @@ Now, it appears that nothing is happening, but take a look at spoolsv in Process
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
-Bham, notepad has spawned as SYSTEM! 0day priv esc confirmed on Windows 10 1803. No patch has been released by MS yet \(28.08.2018\)
+Bham! cmd.exe with subprocesses conhost and notepad has spawned as SYSTEM! 
+
+0day priv esc confirmed on Windows 10 1803. No patch has been released by MS yet \(28.08.2018\)
 
 ![](../.gitbook/assets/image%20%283%29.png)
 
 Tthis could probably be tweaked to open an actual cmd window as SYSTEM instead of a windowless process in the background.
+
+**Bonus**: when you kill the spawned cmd.exe process, a popup asking you to save the print output spawns.
+
+![](../.gitbook/assets/image%20%285%29.png)
 

