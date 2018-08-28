@@ -25,7 +25,7 @@ The technique has certain requirements that must be fulfilled for it to work. It
 
 External password spraying is when we perform the attack from outside a domain. Most enterprises provide their employees a way of accessing e-mail from the internet. Therefore, most organizations have a portal for Outlook Web App \(OWA\). It usually looks something like this:
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 That means if we can figure out the syntax we can attempt to authenticate with common passwords. However, when spraying passwords beware of lockout tresholds. Many enterprises have a lockout policy after five or ten attempts, but some have lockouts as low as three attemps. There is also usually a treshold for this lockout set around 30 minutes. But mind you, that these are all educated guesses and may vary. So always err on the side of caution when password spraying.
 
