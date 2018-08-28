@@ -39,6 +39,7 @@
 * [Mimikatz](privilege-escalation/mimikatz.md)
 * [Token Impersonation](privilege-escalation/token-impersonation.md)
 * [Juicy Potato](privilege-escalation/juicy-potato.md)
+* [ALPC bug 0day](privilege-escalation/alpc-bug-0day.md)
 
 ## Defense evasion
 
