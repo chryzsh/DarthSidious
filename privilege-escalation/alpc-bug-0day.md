@@ -7,20 +7,19 @@
 A 0day for a local priv esc for Windows was published August 28th on Twitter by @sandboxescaper, whose account was pulled quickly. The PoC is on [Github](https://github.com/SandboxEscaper/randomrepo). The video posted with the PoC wasn't evident so I made a quick reproduction to verify whether it works, and it certainly does.
 
 * As Administrator, open [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) - right click, "Run as administrator"
-* As a regular user, fire up cmd and launch notepad. 
-* You should now get a process in process explorer cmd with a subprocess notepad inside it like this. This thread runs with the user context you launched it with. Note that the PID here is `3872`
+* As a regular user, launch notepad. If you opened it from cmd, you get a subprocess notepad inside cmd. This thread runs with the user context you launched it with. Note that the PID of the notepad process is `3872`
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 * If you need to see username and  integrity level in Process Explorer you can go to View -&gt; Select columns and check 
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -30,7 +29,9 @@ Now, it appears that nothing is happening, but take a look at spoolsv in Process
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
-Bham, notepad has spawned as SYSTEM! 0day priv esc confirmed!
+Bham, notepad has spawned as SYSTEM! 0day priv esc confirmed on Windows 10 1803. No patch has been released by MS yet \(28.08.2018\)
+
+![](../.gitbook/assets/image%20%283%29.png)
 
 Tthis could probably be tweaked to open an actual cmd window as SYSTEM instead of a windowless process in the background.
 
