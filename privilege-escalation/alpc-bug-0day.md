@@ -11,17 +11,17 @@ A 0day for a local priv esc for Windows was published August 28th on Twitter by 
 * As Administrator, open [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) - right click, "Run as administrator"
 * As a regular user, launch notepad. If you opened it from cmd, you get a subprocess notepad inside cmd. This thread runs with the user context you launched it with. Note that the PID of the notepad process is `3872`
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 * If you need to see username and  integrity level in Process Explorer you can go to View -&gt; Select columns and check 
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -43,15 +43,15 @@ This could probably be tweaked to open an actual cmd window as SYSTEM instead of
 
 Edit on the above: @plaintext notified me that the processes spawn in session 0 which is why they won't be visible to the user which operations in session 1. If you toggle Session in the columns panel in ProcExplorer you can see that very clearly.
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 ###  Server 2016 - works
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ### Windows 7 - Nothing happens
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 \*\*\*\*
 
@@ -69,7 +69,7 @@ void* pMyBinaryData = ::LockResource(myResourceData);
 
 When clicking that one, we can see this exploit.dll which in the PoC just spawns notepad can't be read since I don't have it in that absolute path.
 
-![](../.gitbook/assets/image%20%2813%29.png)
+![](../.gitbook/assets/image%20%2814%29.png)
 
 So instead of recompiling and fixing the 500 errors I got from visual studio I decided it was easier to replace the dll directly as a  Resource with [CFF Explorer](https://ntcore.com/?page_id=388)'. But before I did that I had to prepare the payload.
 
@@ -77,11 +77,11 @@ So instead of recompiling and fixing the 500 errors I got from visual studio I d
 
 Select "Replace Resource \(raw\)" in CFF Explorer and provide the `lol.dll`. Then save the `ALPC-TaskSched-LPE.dll` as a new file. The entire exploit is now embedded into the dll file
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 So we  fire of the exploit again, just like we did above and wait for our shell to come back.
 
 Woop de doo we got a SYSTEM meterpreter.
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
