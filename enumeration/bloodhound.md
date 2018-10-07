@@ -12,7 +12,7 @@ One of the glorious design features of AD is that everyone in the domain needs t
 
 Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. There are two software requirements, you need `BloodHound` and a database to store the data in. The recommended choice is `neo4j`, see below for further instructions.
 
-![Example picture](../.gitbook/assets/image%20%2817%29.png)
+![Example picture](../.gitbook/assets/image%20%2830%29.png)
 
 ## Installing neo4j
 
@@ -87,7 +87,7 @@ You should immediately see data being populated into the database and the interf
 
 You can now play with BloodHound to create really some really cool maps. You can also perform queries to show the shortest path to DA, etc. See the default queries and SpectreOps blog posts for inspiration.
 
-![Example picture](../.gitbook/assets/image%20%285%29.png)
+![Example picture](../.gitbook/assets/image%20%289%29.png)
 
 #### Python ingestion from Kali
 
