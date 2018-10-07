@@ -12,7 +12,7 @@ One of the glorious design features of AD is that everyone in the domain needs t
 
 Now we can use this brilliant feature to collect a ton of information and create a cool GUI map of the entire AD which can be queried using BloodHound. There are two software requirements, you need `BloodHound` and a database to store the data in. The recommended choice is `neo4j`, see below for further instructions.
 
-![Example picture](../.gitbook/assets/image%20%2830%29.png)
+![Example picture](../.gitbook/assets/image%20%2831%29.png)
 
 ## Installing neo4j
 

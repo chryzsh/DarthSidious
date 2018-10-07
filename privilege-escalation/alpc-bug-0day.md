@@ -17,11 +17,11 @@ A 0day for a local priv esc for Windows was published August 28th on Twitter by 
 
 * If you need to see username and  integrity level in Process Explorer you can go to View -&gt; Select columns and check 
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 Now, have a look at the process spoolsv.exe which is basically where the actions is going to happen. Nothing much here yet.
 
-![](../.gitbook/assets/image%20%2831%29.png)
+![](../.gitbook/assets/image%20%2832%29.png)
 
 Now fire the exploit off and see what happens \(this is demonstrated in the PoC video\). We use the PID of the notepad process we spawned earlier `3872`
 
@@ -47,11 +47,11 @@ Edit on the above: @plaintext notified me that the processes spawn in session 0 
 
 ###  Server 2016 - works
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 ### Windows 7 - Nothing happens
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 \*\*\*\*
 
@@ -69,7 +69,7 @@ void* pMyBinaryData = ::LockResource(myResourceData);
 
 When clicking that one, we can see this exploit.dll which in the PoC just spawns notepad can't be read since I don't have it in that absolute path.
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 So instead of recompiling and fixing the 500 errors I got from visual studio I decided it was easier to replace the dll directly as a  Resource with [CFF Explorer](https://ntcore.com/?page_id=388)'. But before I did that I had to prepare the payload.
 
@@ -77,7 +77,7 @@ So instead of recompiling and fixing the 500 errors I got from visual studio I d
 
 Select "Replace Resource \(raw\)" in CFF Explorer and provide the `lol.dll`. Then save the `ALPC-TaskSched-LPE.dll` as a new file. The entire exploit is now embedded into the dll file
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2838%29.png)
 
 So we  fire of the exploit again, just like we did above and wait for our shell to come back.
 
