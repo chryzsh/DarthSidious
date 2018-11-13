@@ -2,7 +2,7 @@
 
 [https://github.com/SandboxEscaper/randomrepo/blob/master/PoC-LPE.rar](https://github.com/SandboxEscaper/randomrepo/blob/master/PoC-LPE.rar)
 
-{% embed data="{\"url\":\"https://www.theregister.co.uk/2018/08/28/windows\_0day\_pops\_up\_out\_of\_span\_classstrikenowherespan\_twitter/\",\"type\":\"link\",\"title\":\"Windows 0-day pops up out of nowhere Twitter\",\"description\":\"Local privilege escalation in procedure calls\",\"icon\":{\"type\":\"icon\",\"url\":\"https://www.theregister.co.uk/Design/graphics/icons/vulture\_black\_60\_trans.png\",\"aspectRatio\":0},\"thumbnail\":{\"type\":\"thumbnail\",\"url\":\"https://regmedia.co.uk/2017/05/03/panic\_shutterstock.jpg?x=1200&y=794\",\"width\":1200,\"height\":794,\"aspectRatio\":0.6616666666666666}}" %}
+{% embed url="https://www.theregister.co.uk/2018/08/28/windows\_0day\_pops\_up\_out\_of\_span\_classstrikenowherespan\_twitter/" %}
 
 ## How to use
 

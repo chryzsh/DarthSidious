@@ -26,6 +26,7 @@
 * [Powershell](enumeration/powershell.md)
 * [BloodHound](enumeration/bloodhound.md)
 * [PowerView](enumeration/powerview.md)
+* [Azure enumeration](enumeration/azure-enumeration.md)
 
 ## Execution
 

@@ -4,7 +4,7 @@ description: Using the juicy potato exploit for privilege escalation
 
 # Juicy Potato
 
-{% embed data="{\"url\":\"https://ohpe.github.io/juicy-potato/\",\"type\":\"link\",\"title\":\"Juicy Potato \(abusing the golden privileges\)\",\"description\":\"A sugared version of RottenPotatoNG, with a bit of juice, i.e. another Local Privilege Escalation tool, from a Windows Service Accounts to NT AUTHORITY\\\\SYSTEM.\"}" %}
+{% embed url="https://ohpe.github.io/juicy-potato/" %}
 
 Juicy potato is basically a weaponized version of the RottenPotato exploit that exploits the way Microsoft handles tokens. Through this, we achieve privilege escalation. 
 
