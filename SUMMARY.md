@@ -60,3 +60,7 @@
 
 * [Password cracking and auditing](credential-access/password-cracking-and-auditing.md)
 
+## Command & Control
+
+* [SILENTTRINITY](command-and-control/silenttrinity.md)
+

